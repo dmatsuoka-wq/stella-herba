@@ -402,6 +402,19 @@
   }
   /* JavaScriptが無効な場合も内容が見えるように */
   .no-js .fade{opacity:1 !important;transform:none !important;filter:none !important;}
+
+  /* よくあるご質問（FAQ） */
+  .faq{background:var(--white);}
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid rgba(124,140,99,.2);}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:26px 44px 26px 4px;position:relative;
+    font-size:1rem;color:var(--green-deep);font-weight:500;letter-spacing:.04em;line-height:1.7;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"＋";position:absolute;right:8px;top:24px;color:var(--green-light);font-size:1.25rem;transition:.3s;}
+  .faq-item[open] summary::after{content:"−";}
+  .faq-item .a{padding:0 44px 30px 4px;font-size:.92rem;color:var(--text-soft);line-height:2.05;}
 </style>
 <script type="application/ld+json">
 {
@@ -432,6 +445,20 @@
     "https://note.com/stella_herba_mie"
   ],
   "knowsAbout": ["よもぎ蒸し","産後ケア","温活","自律神経の乱れ","冷え","リンパ"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"よもぎ蒸しとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"よもぎをはじめとするハーブを煮立て、その蒸気を下半身を中心に浴びる温浴法です。当サロンでは足湯とハーブ読み取りを組み合わせ、その日の心身の状態に寄り添いながら、芯から温まりリラックスしていただけます。"}},
+    {"@type":"Question","name":"初めてでも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。看護師がその日の体調やお悩みを丁寧にお伺いし、当日の流れもご案内します。初めての方にはお得な初回お試しコースもご用意しています。"}},
+    {"@type":"Question","name":"どんな服装で行けばいいですか？持ち物は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"専用のマントなど施術に必要なものはご用意しています。汗をかきますので、お着替えやタオルがあると安心です。詳しくはご予約時にご案内します。"}},
+    {"@type":"Question","name":"子ども連れでも利用できますか？ペアでの利用は？","acceptedAnswer":{"@type":"Answer","text":"はい、お子様連れ歓迎です。自宅サロンですので気兼ねなくお過ごしいただけます。お友達やご家族とご一緒のペア蒸しも承っています。"}},
+    {"@type":"Question","name":"生理中や妊娠中でも利用できますか？","acceptedAnswer":{"@type":"Answer","text":"体調には個人差がありますので、まずはお気軽にご相談ください。看護師が状態をお伺いしたうえでご案内します。妊娠中の方はかかりつけの先生にもご相談のうえお問い合わせください。"}},
+    {"@type":"Question","name":"予約は必要ですか？支払い方法を教えてください。","acceptedAnswer":{"@type":"Answer","text":"完全予約制です。公式LINEまたはお問い合わせフォームよりご予約ください。24時間営業で基本受付は9:00〜23:30、お時間の調整も可能です。お支払いは現金のみです。"}}
+  ]
 }
 </script>
 </head>
@@ -760,6 +787,42 @@
         公開用カレンダーの設定が完了したら、こちらに埋め込みます。<br>
         <span style="font-size:.8rem;color:var(--green-light);">（設定方法は担当者からのメッセージをご確認ください）</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- よくあるご質問 -->
+<section class="faq">
+  <div class="wrap narrow">
+    <div class="sec-head fade">
+      <span class="en">FAQ</span>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq-list fade">
+      <details class="faq-item">
+        <summary>よもぎ蒸しとは何ですか？</summary>
+        <div class="a">よもぎをはじめとするハーブを煮立て、その蒸気を下半身を中心に浴びる温浴法です。当サロンでは足湯と「ハーブ読み取り」を組み合わせ、その日の心身の状態に寄り添いながら、芯から温まりリラックスしていただけます。</div>
+      </details>
+      <details class="faq-item">
+        <summary>初めてでも大丈夫ですか？</summary>
+        <div class="a">はい、ご安心ください。看護師がその日の体調やお悩みを丁寧にお伺いし、当日の流れもご案内します。初めての方には、お得な初回お試しコースもご用意しています。</div>
+      </details>
+      <details class="faq-item">
+        <summary>どんな服装で行けばいいですか？持ち物は必要ですか？</summary>
+        <div class="a">専用のマントなど施術に必要なものはご用意しています。汗をかきますので、お着替えやタオルがあると安心です。詳しくはご予約時にご案内しますので、お気軽にお尋ねください。</div>
+      </details>
+      <details class="faq-item">
+        <summary>子ども連れでも利用できますか？ペアでの利用は？</summary>
+        <div class="a">はい、お子様連れ歓迎です。自宅サロンですので、気兼ねなくお過ごしいただけます。お友達やご家族とご一緒に楽しめるペア蒸しも承っています。</div>
+      </details>
+      <details class="faq-item">
+        <summary>生理中や妊娠中でも利用できますか？</summary>
+        <div class="a">体調には個人差がありますので、まずはお気軽にご相談ください。看護師が状態をお伺いしたうえでご案内します。妊娠中の方は、念のためかかりつけの先生にもご相談のうえお問い合わせいただけると安心です。</div>
+      </details>
+      <details class="faq-item">
+        <summary>予約は必要ですか？支払い方法を教えてください。</summary>
+        <div class="a">完全予約制です。公式LINEまたはお問い合わせフォームよりご予約ください。24時間営業で、基本の受付時間は9:00〜23:30、お時間の調整も可能です。お支払いは現金のみとなります。</div>
+      </details>
     </div>
   </div>
 </section>
