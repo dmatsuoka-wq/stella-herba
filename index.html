@@ -274,7 +274,7 @@
   .gcal{width:100%;height:560px;border:1px solid rgba(124,140,99,.25);border-radius:8px;background:var(--white);}
   @media(max-width:680px){.gcal{height:480px;}}
 
-  /* お問い合わせフォーム */
+  /* ご予約・お問い合わせ */
   .contact{background:var(--beige);}
   .contact-lead{text-align:center;max-width:560px;margin:0 auto 56px;color:var(--text-soft);font-size:.95rem;line-height:2.1;}
   .contact-form{display:flex;flex-direction:column;gap:24px;max-width:560px;margin:0 auto;}
@@ -457,7 +457,7 @@
     {"@type":"Question","name":"どんな服装で行けばいいですか？持ち物は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"専用のマントなど施術に必要なものはご用意しています。汗をかきますので、お着替えやタオルがあると安心です。詳しくはご予約時にご案内します。"}},
     {"@type":"Question","name":"子ども連れでも利用できますか？ペアでの利用は？","acceptedAnswer":{"@type":"Answer","text":"はい、お子様連れ歓迎です。自宅サロンですので気兼ねなくお過ごしいただけます。お友達やご家族とご一緒のペア蒸しも承っています。"}},
     {"@type":"Question","name":"生理中や妊娠中でも利用できますか？","acceptedAnswer":{"@type":"Answer","text":"体調には個人差がありますので、まずはお気軽にご相談ください。看護師が状態をお伺いしたうえでご案内します。妊娠中の方はかかりつけの先生にもご相談のうえお問い合わせください。"}},
-    {"@type":"Question","name":"予約は必要ですか？支払い方法を教えてください。","acceptedAnswer":{"@type":"Answer","text":"完全予約制です。公式LINEまたはお問い合わせフォームよりご予約ください。24時間営業で基本受付は9:00〜23:30、お時間の調整も可能です。お支払いは現金のみです。"}}
+    {"@type":"Question","name":"予約は必要ですか？支払い方法を教えてください。","acceptedAnswer":{"@type":"Answer","text":"完全予約制です。公式LINE、またはサイト内の予約カレンダーから直接ご予約ください。24時間営業で基本受付は9:00〜23:30、お時間の調整も可能です。お支払いは現金のみです。"}}
   ]
 }
 </script>
@@ -472,7 +472,7 @@
     <span class="logo-tx">Stella Herba<small>ステラ ヘルバ</small></span>
   </div>
   <nav class="top-cta">
-    <a class="btn-hp" href="#contact">お問い合わせ<span class="label-long">フォーム</span></a>
+    <a class="btn-hp" href="#contact">ご予約<span class="label-long">・お問い合わせ</span></a>
     <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE<span class="label-long">で相談</span></a>
   </nav>
 </header>
@@ -745,7 +745,7 @@
           <tr><th>営業時間</th><td>24時間営業（基本受付時間 9:00〜23:30）<br>お時間の調整も可能ですのでお尋ねください</td></tr>
           <tr><th>定休日</th><td>不定休</td></tr>
           <tr><th>お支払い</th><td>現金のみ</td></tr>
-          <tr><th>ご予約</th><td>お問い合わせフォーム／公式LINE</td></tr>
+          <tr><th>ご予約</th><td>公式LINE／ページ内の予約カレンダー</td></tr>
           <tr><th>こんな方に</th><td>冷え・疲れ・産後ケア・自律神経の乱れにお悩みの女性</td></tr>
         </table>
       </div>
@@ -821,7 +821,7 @@
       </details>
       <details class="faq-item">
         <summary>予約は必要ですか？支払い方法を教えてください。</summary>
-        <div class="a">完全予約制です。公式LINEまたはお問い合わせフォームよりご予約ください。24時間営業で、基本の受付時間は9:00〜23:30、お時間の調整も可能です。お支払いは現金のみとなります。</div>
+        <div class="a">完全予約制です。公式LINE、またはサイト内の予約カレンダーから直接ご予約ください。24時間営業で、基本の受付時間は9:00〜23:30、お時間の調整も可能です。お支払いは現金のみとなります。</div>
       </details>
     </div>
   </div>
@@ -838,45 +838,24 @@
         <small>お気軽にメッセージください</small>
       </a>
       <a class="big-btn big-hp" href="#contact">
-        お問い合わせフォームへ
-        <small>24時間いつでも送信OK</small>
+        ご予約・お問い合わせ
+        <small>LINE・カレンダーから承ります</small>
       </a>
     </div>
   </div>
 </section>
 
-<!-- お問い合わせフォーム -->
+<!-- ご予約・お問い合わせ -->
 <section class="contact" id="contact">
   <div class="wrap narrow">
     <div class="sec-head fade">
-      <span class="en">Contact</span>
-      <h2>お問い合わせ・ご予約</h2>
+      <span class="en">Reservation</span>
+      <h2>ご予約・お問い合わせ</h2>
     </div>
-    <p class="contact-lead fade">ご予約・ご相談は、下記フォームまたは公式LINEよりお気軽にどうぞ。<br>24時間営業（基本受付 9:00〜23:30）、お時間の調整も可能ですのでお尋ねください。</p>
-
-    <!-- ▼フォーム送信を有効にするには、Formspree等のメール送信サービスのIDを action に設定してください
-         （設定方法は担当者メッセージをご確認ください）。未設定の間は送信できません。 -->
-    <form class="contact-form fade" action="https://formspree.io/f/あなたのフォームID" method="POST">
-      <label>お名前 <span>必須</span>
-        <input type="text" name="name" required placeholder="例：山田 花子">
-      </label>
-      <label>メールアドレス <span>必須</span>
-        <input type="email" name="email" required placeholder="例：sample@email.com">
-      </label>
-      <label>電話番号 <span class="opt">任意</span>
-        <input type="tel" name="tel" placeholder="例：090-1234-5678">
-      </label>
-      <label>ご希望日時・ご相談内容 <span>必須</span>
-        <textarea name="message" rows="5" required placeholder="ご希望の日時、メニュー、お悩みなどをご記入ください。"></textarea>
-      </label>
-      <button type="submit" class="form-btn">送信する</button>
-      <p class="form-note">※送信いただいた内容は、確認のうえ折り返しご連絡いたします。</p>
-    </form>
-
-    <div class="contact-line fade">
-      <p>すぐにご相談されたい方は公式LINEが便利です</p>
+    <p class="contact-lead fade">ご予約は、公式LINE、またはページ内の予約カレンダーから直接承っております。<br>ご不明な点やご相談も、公式LINEよりお気軽にどうぞ。24時間営業（基本受付 9:00〜23:30）、お時間の調整も可能です。お支払いは現金のみとなります。</p>
+    <div class="contact-line fade" style="border-top:none;margin-top:8px;padding-top:0;">
       <a class="big-btn big-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
-        公式LINEで相談する
+        公式LINEで予約・相談する
         <small>お気軽にメッセージください</small>
       </a>
     </div>
@@ -889,7 +868,7 @@
   <div class="flogo">Stella Herba</div>
   <div>よもぎ蒸しサロン ステラヘルバ｜岐阜県羽島郡岐南町</div>
   <nav class="fnav">
-    <a href="#contact">お問い合わせ</a>
+    <a href="#contact">ご予約・お問い合わせ</a>
     <a href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">公式LINE</a>
     <a href="https://www.instagram.com/stella_herba/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://note.com/stella_herba_mie" target="_blank" rel="noopener">Note</a>
@@ -899,13 +878,13 @@
 
 <!-- 右下常駐ボタン（PC） -->
 <div class="side-cta">
-  <a class="btn-hp" href="#contact">🌿 お問い合わせフォーム</a>
+  <a class="btn-hp" href="#contact">🌿 ご予約・お問い合わせ</a>
   <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">💬 公式LINEで相談する</a>
 </div>
 
 <!-- 下部常駐ボタン（スマホ） -->
 <div class="floatbar">
-  <a class="btn-hp" href="#contact">お問い合わせ</a>
+  <a class="btn-hp" href="#contact">ご予約</a>
   <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEで相談</a>
 </div>
 
