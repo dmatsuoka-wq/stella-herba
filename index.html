@@ -223,17 +223,31 @@
   .menu-card p{font-size:.9rem;color:var(--text-soft);line-height:2;}
   .menu-note{text-align:center;margin-top:52px;font-size:.8rem;color:var(--text-soft);letter-spacing:.04em;}
 
-  /* セラピスト紹介 */
+  /* セラピスト紹介（雑誌コラム風・E-E-A-T） */
   .therapist{background:var(--white);}
-  .therapist-card{display:flex;gap:72px;align-items:center;flex-wrap:wrap;background:transparent;padding:0;}
-  .therapist-photo{flex:none;width:240px;height:240px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,var(--green-light),var(--green));display:flex;align-items:center;justify-content:center;margin:0 auto;}
-  .therapist-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
-  .therapist-body{flex:1;min-width:280px;}
-  .therapist-body .role{font-size:.72rem;letter-spacing:.3em;color:var(--brown);font-weight:500;}
-  .therapist-body h3{font-size:1.9rem;color:var(--green-deep);margin:16px 0 6px;letter-spacing:.18em;font-weight:500;}
-  .therapist-body .badge{display:inline-block;background:transparent;border:1px solid rgba(124,140,99,.35);color:var(--green-deep);font-size:.74rem;padding:7px 18px;border-radius:999px;margin:22px 0;font-weight:500;letter-spacing:.1em;}
-  .therapist-body p{font-size:.95rem;color:var(--text-soft);line-height:2.2;}
-  .therapist-body .keywords{margin-top:24px;font-size:.74rem;color:var(--green-light);line-height:2.1;letter-spacing:.06em;}
+  .therapist-intro{display:flex;gap:56px;align-items:center;flex-wrap:wrap;justify-content:center;margin-bottom:80px;}
+  .therapist-photo{flex:none;width:260px;height:330px;border-radius:8px;overflow:hidden;background:linear-gradient(160deg,var(--green-light),var(--green));display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px rgba(90,107,74,.18);}
+  .therapist-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .therapist-meta{flex:1;min-width:260px;max-width:420px;}
+  .therapist-meta .role{font-size:.72rem;letter-spacing:.3em;color:var(--brown);font-weight:500;}
+  .therapist-meta h3{font-size:2.4rem;color:var(--green-deep);margin:12px 0 2px;letter-spacing:.2em;font-weight:600;line-height:1.1;}
+  .therapist-meta h3 .reading{font-size:.85rem;color:var(--text-soft);letter-spacing:.2em;margin-left:12px;font-weight:400;font-family:"Zen Maru Gothic",sans-serif;}
+  .therapist-meta .creds{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 18px;}
+  .therapist-meta .creds span{font-size:.72rem;color:var(--green-deep);border:1px solid rgba(124,140,99,.4);border-radius:999px;padding:6px 14px;letter-spacing:.05em;background:var(--white);}
+  .therapist-meta .career{font-family:"Shippori Mincho",serif;font-size:.85rem;color:var(--text-soft);line-height:1.95;letter-spacing:.04em;}
+  .therapist-column{max-width:680px;margin:0 auto;font-family:"Shippori Mincho",serif;}
+  .therapist-column .lead-title{font-size:clamp(1.2rem,3.2vw,1.55rem);color:var(--green-deep);line-height:1.95;letter-spacing:.1em;text-align:center;font-weight:600;padding-bottom:44px;margin-bottom:52px;border-bottom:1px solid rgba(124,140,99,.25);}
+  .therapist-column h4{font-size:1.12rem;color:var(--green-deep);letter-spacing:.08em;line-height:1.7;margin:54px 0 22px;padding-left:18px;border-left:3px solid var(--brown-soft);font-weight:600;}
+  .therapist-column h4:first-of-type{margin-top:0;}
+  .therapist-column p{font-family:"Shippori Mincho",serif;font-size:1rem;color:var(--text);line-height:2.35;letter-spacing:.04em;font-weight:500;}
+  .therapist-keywords{margin:60px auto 0;max-width:680px;font-size:.72rem;color:var(--green-light);line-height:2.1;letter-spacing:.06em;text-align:center;font-family:"Zen Maru Gothic",sans-serif;}
+  @media(max-width:680px){
+    .therapist-intro{gap:28px;margin-bottom:56px;}
+    .therapist-photo{width:200px;height:260px;}
+    .therapist-meta h3{font-size:2rem;}
+    .therapist-column p{font-size:.95rem;line-height:2.2;}
+    .therapist-column h4{margin:44px 0 18px;}
+  }
 
   /* アクセス */
   .access{background:var(--beige);}
@@ -448,7 +462,14 @@
     "@type": "Person",
     "name": "MIE",
     "jobTitle": "看護師 / よもぎ蒸しセラピスト",
-    "description": "正看護師の資格を持つStellaHerbaのオーナー。医療現場での経験をもとに、心身の不調に寄り添うよもぎ蒸しを提供。"
+    "description": "岐阜大学医学部を経て、岐阜県総合医療センターの救命救急で10年間勤務した正看護師。現在は鍼灸師の国家資格取得に向けて東洋医学を学びながら、西洋医学と東洋医学の両面から心身を根本から整えるよもぎ蒸しを提供している。",
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "岐阜大学医学部"},
+      {"@type": "HighSchool", "name": "岐阜高校"}
+    ],
+    "worksFor": {"@type": "MedicalOrganization", "name": "岐阜県総合医療センター（救命救急・10年）"},
+    "knowsAbout": ["救命救急看護", "東洋医学", "よもぎ蒸し", "温活", "産後ケア", "自律神経"],
+    "hasCredential": {"@type": "EducationalOccupationalCredential", "credentialCategory": "正看護師"}
   },
   "employee": {
     "@type": "Person",
@@ -705,19 +726,37 @@
       <span class="en">Therapist</span>
       <h2>セラピスト紹介</h2>
     </div>
-    <div class="therapist-card fade">
+    <div class="therapist-intro fade">
       <div class="therapist-photo">
-        <!-- セラピストの写真。同じフォルダに therapist-mie.jpg を置くと表示されます -->
-        <img src="therapist-mie.jpg" alt="セラピスト MIE">
+        <!-- MIE様の写真。同じフォルダに therapist-mie.jpg を置くと表示されます（縦長の写真推奨） -->
+        <img src="therapist-mie.jpg" alt="セラピスト MIE（みえ）｜看護師・よもぎ蒸しセラピスト">
       </div>
-      <div class="therapist-body">
-        <span class="role">看護師 / よもぎ蒸しセラピスト</span>
-        <h3>MIE</h3>
-        <span class="badge">正看護師資格保有</span>
-        <p>看護師として、心と体の不調に寄り添ってきました。"今のあなた"を映し出すハーブ読み取り付きよもぎ蒸しで、内側から整う時間をお届けします。日々の疲れを癒し、自然体のあなたに近づくお手伝いをします。</p>
-        <p class="keywords">よもぎむし／肩こり／リンパ／産後／産後ケア／腰痛／生理不調／温活／リラク／リラクゼーション／自律神経／岐阜／岐南／よもぎ蒸し／妊活／ストレス／カッピング／吸い玉</p>
+      <div class="therapist-meta">
+        <span class="role">オーナーセラピスト</span>
+        <h3>MIE<span class="reading">みえ</span></h3>
+        <div class="creds">
+          <span>正看護師</span>
+          <span>救命救急 10年</span>
+          <span>鍼灸師 国家資格取得に向け在学中</span>
+        </div>
+        <p class="career">岐阜高校　→　岐阜大学医学部　→　岐阜県総合医療センター（救命救急・10年勤務）</p>
       </div>
     </div>
+
+    <article class="therapist-column fade">
+      <p class="lead-title">「西洋医学」と「東洋医学」の視点から、<br>あなたの心と体を根本から整える</p>
+
+      <h4>救命救急の最前線で10年、命と向き合って気づいたこと</h4>
+      <p>岐阜高校から岐阜大学医学部を経て、岐阜県総合医療センターの救命救急で10年間、一刻を争う命の最前線に立ってきました。そこでは西洋医学の「目の前の症状を抑える、命を救う」という圧倒的な力と重要性を痛感する日々でした。しかし同時に、慌ただしい現代社会の中で、多くの女性が未病（病気になる手前の不調）や、自律神経の乱れ、冷え、産後の心身の疲弊に悩んでいる現実にも直面してきました。</p>
+
+      <h4>東洋医学との出会いと、よもぎ蒸しへの想い</h4>
+      <p>「症状が出てから治療する」だけでなく、人間が本来持っている「自然治癒力（自己治癒力）」を引き出し、不調の根本から体を整えるアプローチはできないか――。その答えを探す中で、私は東洋医学の世界に出会いました。体を内側から芯まで温め、ハーブの力で心と体からのサインを読み取る「よもぎ蒸し」は、まさに私が求めていた『自分自身で体を慈しみ、根本から整える時間』そのものでした。</p>
+
+      <h4>ステラヘルバがあなたにお約束すること</h4>
+      <p>現在は、よりプロフェッショナルとして皆さまの健康に貢献するため、鍼灸師の国家資格取得に向けて学校でさらに深く東洋医学を学んでいます。誰よりも人の心と体の健康に向き合ってきた自負があるからこそ、当サロンではただの「リラクゼーション」に留まらない、お一人おひとりに寄り添ったパーソナルな温活サポートをお届けします。冷えや疲れ、産後のケア、自律神経の乱れにお悩みの方、ぜひ安心してお体をお任せください。</p>
+    </article>
+
+    <p class="therapist-keywords fade">よもぎむし／肩こり／リンパ／産後／産後ケア／腰痛／生理不調／温活／リラク／リラクゼーション／自律神経／岐阜／岐南／よもぎ蒸し／妊活／ストレス／カッピング／吸い玉</p>
   </div>
 </section>
 
