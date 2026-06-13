@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よもぎ蒸しサロン Stella Herba（ステラヘルバ）｜岐阜県岐南町</title>
+<meta name="description" content="岐阜県岐南町の自宅サロン。看護師が運営する『ハーブ読み取り付きよもぎ蒸し』。冷え・疲れ・産後ケア・自律神経の乱れに。お子様連れ歓迎、ペア蒸しOK。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep:#5a6b4a;
+    --green:#7c8c63;
+    --green-light:#a7b58e;
+    --green-pale:#eef1e6;
+    --beige:#f6f1e7;
+    --beige-deep:#ece3d3;
+    --brown:#a9805f;
+    --brown-soft:#c9a98c;
+    --text:#4a463f;
+    --text-soft:#6f6a60;
+    --white:#fffdf9;
+    --shadow:0 12px 40px rgba(90,107,74,.12);
+    --radius:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Zen Maru Gothic",sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:2.05;
+    font-size:16px;
+    letter-spacing:.05em;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.mincho{font-family:"Shippori Mincho",serif;font-weight:500;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px;}
+  .narrow{max-width:760px;}
+
+  .sec-head{text-align:center;margin-bottom:84px;}
+  .sec-head .en{
+    display:block;font-family:"Shippori Mincho",serif;
+    color:var(--green-light);font-size:.72rem;letter-spacing:.5em;
+    text-transform:uppercase;margin-bottom:22px;font-weight:500;
+  }
+  .sec-head h2{
+    font-size:clamp(1.45rem,4vw,2rem);color:var(--green-deep);
+    line-height:1.8;letter-spacing:.14em;font-weight:500;
+    position:relative;display:inline-block;
+  }
+  .sec-head h2::after{
+    content:"";display:block;width:38px;height:1px;
+    background:var(--brown-soft);margin:28px auto 0;
+  }
+  section{padding:150px 0;position:relative;}
+  @media(max-width:680px){
+    section{padding:96px 0;}
+    .wrap{padding:0 26px;}
+    .sec-head{margin-bottom:60px;}
+  }
+
+  /* ヘッダー */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;background:rgba(255,253,249,.85);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(124,140,99,.15);
+  }
+  .topbar .logo{display:flex;align-items:center;gap:12px;font-family:"Shippori Mincho",serif;font-weight:700;color:var(--green-deep);font-size:1.05rem;letter-spacing:.06em;}
+  .topbar .logo img{width:42px;height:42px;border-radius:9px;display:block;flex:none;}
+  .topbar .logo .logo-tx{display:flex;flex-direction:column;line-height:1.25;}
+  .topbar .logo small{font-size:.58rem;letter-spacing:.28em;color:var(--brown);font-weight:500;}
+  @media(max-width:680px){.topbar .logo{gap:9px;font-size:.92rem;}.topbar .logo img{width:38px;height:38px;}}
+  .top-cta{display:flex;gap:10px;}
+  .top-cta a{
+    font-size:.76rem;padding:10px 20px;border-radius:999px;font-weight:500;letter-spacing:.08em;
+    display:inline-flex;align-items:center;gap:6px;transition:.25s;
+  }
+  .btn-hp{background:var(--brown);color:#fff;}
+  .btn-line{background:#06C755;color:#fff;}
+  .top-cta a:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  @media(max-width:680px){
+    .top-cta .label-long{display:none;}
+    .topbar{padding:12px 16px;}
+  }
+
+  /* メインビジュアル */
+  .hero{
+    min-height:100svh;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:120px 24px 90px;position:relative;
+    /* 動画が読み込めない時のフォールバック背景 */
+    background:linear-gradient(160deg,#5a6b4a 0%,#7c8c63 55%,#a9805f 120%);
+    overflow:hidden;
+  }
+  /* ループ再生する背景動画 */
+  .hero-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;z-index:0;
+  }
+  /* 動画の上に重ねる暗めのオーバーレイ（白文字を読みやすく）
+     ・暗めブラウンを不透明度25〜30%でフラットに重ねて全体をトーンダウン
+     ・中央〜下部だけほんのり濃くして文字部分の視認性を補強 */
+  .hero-overlay{
+    position:absolute;inset:0;z-index:1;
+    /* 全体に濃いめのブラウンをしっかり重ねて動画をトーンダウン（約55%）
+       中央付近はさらに濃くして文字をはっきり読めるように */
+    background:
+      radial-gradient(120% 90% at 50% 50%,rgba(38,30,24,.42) 0%,rgba(38,30,24,.58) 100%),
+      rgba(38,30,24,.45);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:760px;}
+  .hero .eyebrow{
+    display:inline-block;font-family:"Shippori Mincho",serif;
+    letter-spacing:.3em;color:#fff;font-size:.85rem;
+    border:1px solid rgba(255,255,255,.6);border-radius:999px;
+    padding:7px 22px;margin-bottom:30px;background:rgba(255,255,255,.12);
+    backdrop-filter:blur(4px);
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,6.5vw,3.2rem);color:#fff;
+    line-height:1.7;font-weight:700;letter-spacing:.04em;
+    /* 輪郭をくっきりさせる影をしっかりめに */
+    text-shadow:0 2px 6px rgba(20,16,12,.7),0 1px 2px rgba(20,16,12,.8);
+  }
+  .hero h1 .accent{color:#f3e2cf;}
+  .hero .lead{
+    margin:28px auto 0;max-width:540px;color:#fff;
+    font-size:1rem;line-height:2;text-shadow:0 2px 5px rgba(20,16,12,.7),0 1px 2px rgba(20,16,12,.8);
+  }
+  .hero .sub{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;}
+  .hero .sub span{
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);
+    color:#fff;font-size:.82rem;padding:7px 16px;border-radius:999px;font-weight:500;
+    backdrop-filter:blur(4px);
+  }
+  .hero .place{margin-top:40px;font-size:.85rem;color:#fff;letter-spacing:.08em;text-shadow:0 2px 5px rgba(20,16,12,.7),0 1px 2px rgba(20,16,12,.8);}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;letter-spacing:.3em;color:#fff;writing-mode:vertical-rl;opacity:.85;}
+
+  /* 選ばれる理由 */
+  .reasons{background:var(--white);}
+  .reason-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:32px;}
+  .reason-card{
+    background:var(--white);border:1px solid rgba(124,140,99,.16);border-radius:10px;
+    transition:.4s ease;display:flex;flex-direction:column;
+  }
+  .reason-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  /* 写真：上の角だけ丸める。overflow:visible にしてアイコンが切れないように */
+  .reason-card .photo{position:relative;aspect-ratio:4/3;background:var(--green-pale);border-radius:10px 10px 0 0;}
+  .reason-card .photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;border-radius:10px 10px 0 0;}
+  .reason-card .photo .ph-label{
+    position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;
+    color:var(--green-light);font-size:.74rem;letter-spacing:.08em;text-align:center;padding:14px;line-height:1.8;
+  }
+  .reason-card .ico{
+    position:absolute;left:20px;bottom:-24px;z-index:2;width:50px;height:50px;border-radius:50%;
+    background:var(--white);border:1px solid rgba(124,140,99,.25);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(90,107,74,.14);
+  }
+  .reason-card .inner{padding:42px 26px 34px;}
+  .reason-card .no{font-family:"Shippori Mincho",serif;color:var(--green-light);font-size:.72rem;letter-spacing:.32em;}
+  .reason-card h3{font-size:1.12rem;color:var(--green-deep);margin:10px 0 14px;line-height:1.7;letter-spacing:.06em;font-weight:500;}
+  .reason-card p{font-size:.9rem;color:var(--text-soft);line-height:2.05;}
+
+  /* 当日の流れ（横並び） */
+  .flow{background:var(--green-pale);}
+  .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto;}
+  .flow-step{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .flow-step .dot{
+    width:56px;height:56px;border-radius:50%;background:var(--green-pale);
+    border:1px solid var(--green);color:var(--green-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Shippori Mincho",serif;font-size:1.05rem;font-weight:500;
+    position:relative;z-index:2;margin-bottom:24px;flex:none;
+  }
+  /* ステップ間をつなぐ横線 */
+  .flow-step:not(:last-child)::before{
+    content:"";position:absolute;top:28px;left:50%;width:100%;height:1px;
+    background:rgba(124,140,99,.45);z-index:1;
+  }
+  .flow-step .body{padding:0 4px;}
+  .flow-step .body h3{font-size:1.05rem;color:var(--green-deep);margin-bottom:12px;letter-spacing:.04em;font-weight:500;line-height:1.6;}
+  .flow-step .body .time{font-size:.7rem;color:var(--brown);letter-spacing:.2em;font-weight:500;margin-bottom:10px;display:inline-block;}
+  .flow-step .body p{font-size:.85rem;color:var(--text-soft);line-height:1.95;}
+  @media(max-width:760px){
+    .flow-steps{grid-template-columns:1fr 1fr;gap:44px 24px;}
+    .flow-step:not(:last-child)::before{display:none;}
+  }
+  @media(max-width:440px){
+    .flow-steps{grid-template-columns:1fr;}
+  }
+
+  /* メニュー */
+  .menu{background:var(--beige);}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;}
+  .menu-card{border:1px solid rgba(124,140,99,.2);border-radius:6px;padding:52px 44px;background:var(--white);position:relative;transition:.4s ease;}
+  .menu-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .menu-card.highlight{background:var(--white);border:1px solid var(--brown-soft);}
+  .menu-card .tag{position:absolute;top:-13px;left:44px;background:var(--brown);color:#fff;font-size:.68rem;padding:6px 18px;border-radius:999px;letter-spacing:.18em;font-weight:500;}
+  .menu-card h3{font-size:1.18rem;color:var(--green-deep);margin-bottom:14px;letter-spacing:.08em;font-weight:500;}
+  .menu-card .price{font-family:"Shippori Mincho",serif;font-size:1.8rem;color:var(--brown);font-weight:500;margin:22px 0;letter-spacing:.04em;}
+  .menu-card .price small{font-size:.82rem;color:var(--text-soft);font-weight:400;letter-spacing:.05em;}
+  .menu-card .price .was{font-size:.95rem;color:#b3a89a;text-decoration:line-through;margin-right:10px;}
+  .menu-card p{font-size:.9rem;color:var(--text-soft);line-height:2;}
+  .menu-note{text-align:center;margin-top:52px;font-size:.8rem;color:var(--text-soft);letter-spacing:.04em;}
+
+  /* セラピスト紹介 */
+  .therapist{background:var(--white);}
+  .therapist-card{display:flex;gap:72px;align-items:center;flex-wrap:wrap;background:transparent;padding:0;}
+  .therapist-photo{flex:none;width:240px;height:240px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,var(--green-light),var(--green));display:flex;align-items:center;justify-content:center;margin:0 auto;}
+  .therapist-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
+  .therapist-body{flex:1;min-width:280px;}
+  .therapist-body .role{font-size:.72rem;letter-spacing:.3em;color:var(--brown);font-weight:500;}
+  .therapist-body h3{font-size:1.9rem;color:var(--green-deep);margin:16px 0 6px;letter-spacing:.18em;font-weight:500;}
+  .therapist-body .badge{display:inline-block;background:transparent;border:1px solid rgba(124,140,99,.35);color:var(--green-deep);font-size:.74rem;padding:7px 18px;border-radius:999px;margin:22px 0;font-weight:500;letter-spacing:.1em;}
+  .therapist-body p{font-size:.95rem;color:var(--text-soft);line-height:2.2;}
+  .therapist-body .keywords{margin-top:24px;font-size:.74rem;color:var(--green-light);line-height:2.1;letter-spacing:.06em;}
+
+  /* アクセス */
+  .access{background:var(--beige);}
+  .access-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  @media(max-width:760px){.access-wrap{grid-template-columns:1fr;gap:40px;}}
+  .info-table{width:100%;border-collapse:collapse;}
+  .info-table th,.info-table td{text-align:left;padding:20px 4px;border-bottom:1px solid rgba(124,140,99,.2);vertical-align:top;font-size:.9rem;}
+  .info-table th{width:30%;color:var(--green-deep);font-weight:500;white-space:nowrap;letter-spacing:.08em;}
+  .info-table td{color:var(--text-soft);line-height:1.9;}
+  .map-box{border-radius:6px;overflow:hidden;border:1px solid rgba(124,140,99,.25);background:var(--white);min-height:320px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px;}
+  .map-box .pin{width:54px;height:54px;margin-bottom:20px;}
+  .map-box p{color:var(--green-deep);font-size:.92rem;letter-spacing:.06em;}
+  .map-box .small{color:var(--text-soft);font-size:.8rem;margin-top:10px;line-height:1.9;}
+  /* ライブGoogleマップ埋め込み */
+  .map-embed{border-radius:6px;overflow:hidden;border:1px solid rgba(124,140,99,.25);min-height:320px;height:100%;}
+  .map-embed iframe{display:block;width:100%;height:100%;min-height:320px;border:0;}
+
+  /* Google口コミの訴求バンド */
+  .reviews-band{
+    margin-top:80px;text-align:center;background:var(--white);
+    border:1px solid rgba(124,140,99,.25);border-radius:8px;padding:56px 32px;
+  }
+  .reviews-band .glabel{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.12em;color:var(--text-soft);margin-bottom:18px;}
+  .reviews-band .glabel svg{width:18px;height:18px;}
+  .reviews-band .stars{color:#f4b400;font-size:1.5rem;letter-spacing:.18em;}
+  .reviews-band h3{font-size:1.25rem;color:var(--green-deep);margin:18px 0 10px;letter-spacing:.08em;font-weight:500;line-height:1.7;}
+  .reviews-band p{font-size:.9rem;color:var(--text-soft);max-width:480px;margin:0 auto 32px;line-height:2;}
+  .gbtn{
+    display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;
+    border:1px solid rgba(124,140,99,.4);background:transparent;color:var(--green-deep);
+    font-size:.88rem;font-weight:500;letter-spacing:.06em;transition:.25s;
+  }
+  .gbtn:hover{background:var(--green-pale);transform:translateY(-2px);}
+  .gbtn svg{width:18px;height:18px;}
+
+  /* Googleカレンダー埋め込み */
+  .gcal-wrap{margin-top:80px;}
+  .gcal-wrap .label{text-align:center;font-size:.95rem;color:var(--green-deep);letter-spacing:.1em;margin-bottom:28px;font-family:"Shippori Mincho",serif;}
+  .gcal{width:100%;height:560px;border:1px solid rgba(124,140,99,.25);border-radius:8px;background:var(--white);}
+  @media(max-width:680px){.gcal{height:480px;}}
+
+  /* お問い合わせフォーム */
+  .contact{background:var(--beige);}
+  .contact-lead{text-align:center;max-width:560px;margin:0 auto 56px;color:var(--text-soft);font-size:.95rem;line-height:2.1;}
+  .contact-form{display:flex;flex-direction:column;gap:24px;max-width:560px;margin:0 auto;}
+  .contact-form label{display:flex;flex-direction:column;gap:10px;font-size:.86rem;color:var(--green-deep);letter-spacing:.06em;font-weight:500;}
+  .contact-form label span{font-size:.66rem;color:#fff;background:var(--brown);padding:3px 11px;border-radius:999px;margin-left:8px;letter-spacing:.1em;display:inline-block;font-weight:500;}
+  .contact-form label span.opt{background:transparent;color:var(--text-soft);border:1px solid rgba(124,140,99,.4);}
+  .contact-form input,.contact-form textarea{
+    font-family:inherit;font-size:.95rem;color:var(--text);background:var(--white);
+    border:1px solid rgba(124,140,99,.3);border-radius:6px;padding:14px 16px;width:100%;
+    transition:.2s;letter-spacing:.03em;
+  }
+  .contact-form input::placeholder,.contact-form textarea::placeholder{color:#b9b3a7;}
+  .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(124,140,99,.12);}
+  .contact-form textarea{resize:vertical;line-height:1.8;}
+  .form-btn{
+    align-self:center;margin-top:8px;padding:16px 60px;border:none;border-radius:999px;
+    background:var(--green-deep);color:#fff;font-family:inherit;font-size:1rem;font-weight:500;
+    letter-spacing:.14em;cursor:pointer;transition:.25s;
+  }
+  .form-btn:hover{background:var(--green);transform:translateY(-2px);box-shadow:var(--shadow);}
+  .form-note{text-align:center;font-size:.78rem;color:var(--text-soft);margin-top:2px;}
+  .contact-line{text-align:center;margin-top:72px;padding-top:60px;border-top:1px solid rgba(124,140,99,.2);}
+  .contact-line p{font-size:.9rem;color:var(--text-soft);margin-bottom:24px;letter-spacing:.04em;}
+
+  /* ヒーローのロゴ */
+  .hero-logo{width:clamp(120px,22vw,160px);height:auto;margin:0 auto 28px;border-radius:18px;display:block;box-shadow:0 8px 30px rgba(0,0,0,.25);}
+
+  /* Instagram / SNS セクション */
+  .sns{background:var(--white);}
+  .insta-feed{
+    display:flex;gap:22px;max-width:760px;margin:0 auto 16px;
+    overflow-x:auto;padding:4px 4px 18px;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;scrollbar-color:var(--green-light) transparent;
+  }
+  .insta-feed::-webkit-scrollbar{height:6px;}
+  .insta-feed::-webkit-scrollbar-thumb{background:var(--green-light);border-radius:999px;}
+  .insta-feed::-webkit-scrollbar-track{background:transparent;}
+  /* PC：2枚ずつ表示（横スクロールで続きを表示） */
+  .insta-feed .instagram-media{
+    flex:0 0 calc(50% - 11px);min-width:0 !important;max-width:none !important;
+    width:auto !important;margin:0 !important;scroll-snap-align:start;
+  }
+  .insta-feed .instagram-media iframe{min-width:0 !important;width:100% !important;}
+  /* スマホ：1枚ずつ表示 */
+  @media(max-width:680px){
+    .insta-feed .instagram-media{flex:0 0 86%;}
+  }
+  .insta-hint{text-align:center;font-size:.74rem;color:var(--green-light);letter-spacing:.1em;margin:0 auto 40px;}
+  .insta-note{text-align:center;max-width:560px;margin:0 auto 40px;font-size:.86rem;color:var(--text-soft);line-height:2;}
+  .sns-btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  .sns-btn{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;
+    font-size:.9rem;font-weight:500;letter-spacing:.06em;transition:.25s;color:#fff;
+  }
+  .sns-btn svg{width:20px;height:20px;}
+  .sns-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .sns-insta{background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);}
+  .sns-note{background:#41c9b4;}
+
+  /* フッターのロゴ */
+  footer .footer-logo{width:96px;height:auto;border-radius:14px;margin:0 auto 18px;display:block;}
+  footer .fnav a svg{width:16px;height:16px;vertical-align:-3px;margin-right:4px;}
+
+  /* 予約への導線 */
+  .reserve{
+    text-align:center;color:#fff;
+    background:
+      radial-gradient(100% 100% at 50% 0%,rgba(167,181,142,.5),transparent),
+      linear-gradient(155deg,var(--green) 0%,var(--green-deep) 100%);
+  }
+  .reserve h2{font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.7;margin-bottom:24px;color:#fff;letter-spacing:.12em;font-weight:500;}
+  .reserve p{max-width:520px;margin:0 auto 56px;color:rgba(255,255,255,.9);font-size:.96rem;line-height:2.1;}
+  .reserve-btns{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;}
+  .big-btn{
+    display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+    min-width:248px;padding:26px 38px;border-radius:6px;font-weight:500;letter-spacing:.08em;
+    font-size:1.02rem;transition:.28s;box-shadow:0 10px 30px rgba(0,0,0,.16);
+  }
+  .big-btn small{font-size:.7rem;font-weight:400;opacity:.85;letter-spacing:.08em;}
+  .big-btn:hover{transform:translateY(-4px);}
+  .big-hp{background:#fff;color:var(--brown);}
+  .big-line{background:#06C755;color:#fff;}
+
+  /* フッター */
+  footer{background:var(--green-deep);color:rgba(255,255,255,.85);text-align:center;padding:46px 24px 110px;font-size:.82rem;}
+  footer .flogo{font-family:"Shippori Mincho",serif;font-size:1.2rem;color:#fff;letter-spacing:.08em;margin-bottom:8px;}
+  footer .fnav{margin:18px 0;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;}
+  footer .fnav a{font-size:.82rem;color:rgba(255,255,255,.8);transition:.2s;}
+  footer .fnav a:hover{color:#fff;}
+  footer .copy{opacity:.6;font-size:.72rem;margin-top:14px;}
+
+  /* 常駐フローティングボタン（スマホ） */
+  .floatbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+    background:rgba(255,253,249,.95);backdrop-filter:blur(8px);
+    border-top:1px solid rgba(124,140,99,.2);padding:10px 14px;
+    gap:10px;box-shadow:0 -6px 20px rgba(90,107,74,.12);
+  }
+  .floatbar a{flex:1;text-align:center;padding:14px 8px;border-radius:6px;font-weight:500;letter-spacing:.06em;font-size:.88rem;display:flex;align-items:center;justify-content:center;gap:6px;}
+  @media(max-width:680px){.floatbar{display:flex;}}
+
+  /* 右下固定ボタン（PC） */
+  .side-cta{position:fixed;right:20px;bottom:26px;z-index:55;display:flex;flex-direction:column;gap:12px;}
+  .side-cta a{
+    display:flex;align-items:center;gap:9px;padding:15px 26px;border-radius:999px;
+    font-weight:500;letter-spacing:.06em;font-size:.86rem;box-shadow:var(--shadow);transition:.25s;
+  }
+  .side-cta a:hover{transform:translateX(-4px);}
+  @media(max-width:680px){.side-cta{display:none;}}
+
+  /* ふわっと浮き上がるアニメーション */
+  .fade{
+    opacity:0;
+    transform:translateY(38px) scale(.985);
+    filter:blur(6px);
+    transition:opacity 1s ease,transform 1.1s cubic-bezier(.16,.7,.2,1),filter 1s ease;
+    transition-delay:var(--d,0s);
+    will-change:opacity,transform;
+  }
+  .fade.in{opacity:1;transform:none;filter:none;}
+  /* 動きを抑える設定のユーザーには配慮 */
+  @media(prefers-reduced-motion:reduce){
+    .fade{transition:opacity .5s ease;transform:none;filter:none;}
+  }
+  /* JavaScriptが無効な場合も内容が見えるように */
+  .no-js .fade{opacity:1 !important;transform:none !important;filter:none !important;}
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<!-- ヘッダー -->
+<header class="topbar">
+  <div class="logo">
+    <img src="logo.png" alt="Stella Herba ロゴ">
+    <span class="logo-tx">Stella Herba<small>ステラ ヘルバ</small></span>
+  </div>
+  <nav class="top-cta">
+    <a class="btn-hp" href="#contact">お問い合わせ<span class="label-long">フォーム</span></a>
+    <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE<span class="label-long">で相談</span></a>
+  </nav>
+</header>
+
+<!-- メインビジュアル -->
+<section class="hero">
+  <!-- ▼背景のループ動画。src を実際のハーブ・自然の動画ファイル(.mp4)に差し替えてください。
+       poster は動画読み込み前に表示される静止画です（任意） -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+         poster="">
+    <source src="herb-nature.mp4" type="video/mp4">
+    <source src="herb-nature.webm" type="video/webm">
+  </video>
+  <!-- 動画の上に重ねる半透明オーバーレイ -->
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">岐阜県岐南町・看護師のよもぎ蒸しサロン</span>
+    <h1>よもぎとハーブで<br><span class="accent">内側から整う</span>時間を</h1>
+    <p class="lead">冷え、疲れ、産後ケア、自律神経の乱れに。<br>その日の心身に寄り添う「ハーブ読み取り付きよもぎ蒸し」で、ほっとひと息つける場所。</p>
+    <div class="sub">
+      <span>🌿 看護師による運営</span>
+      <span>👶 お子様連れ歓迎</span>
+      <span>👭 ペア蒸しOK</span>
+      <span>🌙 24時間営業（要予約）</span>
+    </div>
+    <p class="place">羽栗グラウンドの近く／駐車場2台完備</p>
+  </div>
+  <span class="scroll-hint">SCROLL</span>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="reasons">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Why Stella Herba</span>
+      <h2>ステラヘルバが選ばれる5つの理由</h2>
+    </div>
+    <div class="reason-grid">
+
+      <div class="reason-card fade">
+        <div class="photo">
+          <span class="ph-label">写真をここに<br>（reason-1.jpg）</span>
+          <img src="reason-1.jpg" alt="看護師が運営する安心の空間" onerror="this.style.display='none'">
+          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z"/><path d="M12 7v6M9.5 9.5h5"/></svg></div>
+        </div>
+        <div class="inner">
+          <span class="no">REASON 01</span>
+          <h3>看護師が運営する、安心の空間</h3>
+          <p>医療現場で培った知識をもとに、体調やお悩みを丁寧にヒアリング。産後や体調に不安のある方も、専門的な視点で安心してお任せいただけます。</p>
+        </div>
+      </div>
+
+      <div class="reason-card fade">
+        <div class="photo">
+          <span class="ph-label">写真をここに<br>（reason-2.jpg）</span>
+          <img src="reason-2.jpg" alt="ハーブ読み取り付きよもぎ蒸し" onerror="this.style.display='none'">
+          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z"/><path d="M12 21v-4"/></svg></div>
+        </div>
+        <div class="inner">
+          <span class="no">REASON 02</span>
+          <h3>ハーブ読み取り付きよもぎ蒸し</h3>
+          <p>その日の心と身体の状態に合わせて、最適なハーブをセレクト。気分や体調の"今"に寄り添う、当サロンならではのメインメニューです。</p>
+        </div>
+      </div>
+
+      <div class="reason-card fade">
+        <div class="photo">
+          <span class="ph-label">写真をここに<br>（reason-3.jpg）</span>
+          <img src="reason-3.jpg" alt="お子様連れ・ペア蒸しOK" onerror="this.style.display='none'">
+          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M15 14c2.5 0 4.5 1.8 4.5 4.5"/></svg></div>
+        </div>
+        <div class="inner">
+          <span class="no">REASON 03</span>
+          <h3>お子様連れ・ペア蒸しOK</h3>
+          <p>小さなお子様とご一緒でも大丈夫。お友達やご家族とのペア蒸しも歓迎しています。自宅サロンだからこその、気兼ねないくつろぎを。</p>
+        </div>
+      </div>
+
+      <div class="reason-card fade">
+        <div class="photo">
+          <span class="ph-label">写真をここに<br>（reason-4.jpg）</span>
+          <img src="reason-4.jpg" alt="24時間営業・時間調整OK" onerror="this.style.display='none'">
+          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></div>
+        </div>
+        <div class="inner">
+          <span class="no">REASON 04</span>
+          <h3>24時間営業・時間調整OK</h3>
+          <p>基本の受付は9:00〜23:30ですが、24時間営業でお時間の調整も可能です。お仕事や育児で時間が取りにくい方も、まずはお気軽にお尋ねください。</p>
+        </div>
+      </div>
+
+      <div class="reason-card fade">
+        <div class="photo">
+          <span class="ph-label">写真をここに<br>（reason-5.jpg）</span>
+          <img src="reason-5.jpg" alt="足湯・選べるドリンク付き" onerror="this.style.display='none'">
+          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l-1.5 2.5c-.8 1.4.2 3.5 2 3.5h.5"/><path d="M19 11l1.5 2.5c.8 1.4-.2 3.5-2 3.5H6"/><path d="M7 11c0-3 2-6 5-6s5 3 5 6"/><path d="M12 17v3"/></svg></div>
+        </div>
+        <div class="inner">
+          <span class="no">REASON 05</span>
+          <h3>足湯・選べるドリンク付き</h3>
+          <p>足湯で身体を温めてからよもぎ蒸しへ。施術後は数種類から選べるハーブティーで、心までゆっくりほどけるひとときをお過ごしください。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 当日の流れ -->
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Flow</span>
+      <h2>当日の流れ</h2>
+    </div>
+    <div class="flow-steps">
+
+      <div class="flow-step fade">
+        <div class="dot">1</div>
+        <div class="body">
+          <span class="time">5分</span>
+          <h3>カウンセリング</h3>
+          <p>看護師がその日の体調やお悩みを丁寧にお伺いします。気になることは何でもお気軽にご相談ください。</p>
+        </div>
+      </div>
+
+      <div class="flow-step fade">
+        <div class="dot">2</div>
+        <div class="body">
+          <span class="time">約10分</span>
+          <h3>足湯で温活</h3>
+          <p>まずは足元からじんわりと。足湯で全身の巡りを促し、よもぎ蒸しの効果を高める準備を整えます。</p>
+        </div>
+      </div>
+
+      <div class="flow-step fade">
+        <div class="dot">3</div>
+        <div class="body">
+          <span class="time">約30分</span>
+          <h3>ハーブ読み取り付きよもぎ蒸し</h3>
+          <p>その日のあなたに合わせて選んだハーブで蒸し上げます。じんわりと汗をかきながら、内側から芯まで温まる時間。</p>
+        </div>
+      </div>
+
+      <div class="flow-step fade">
+        <div class="dot">4</div>
+        <div class="body">
+          <span class="time">ごゆっくり</span>
+          <h3>選べるアフタードリンク</h3>
+          <p>数種類のハーブティーからお好きな一杯を。火照った身体をクールダウンしながら、ゆったりとお過ごしください。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- メニュー -->
+<section class="menu">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Menu</span>
+      <h2>主なメニュー</h2>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card highlight fade">
+        <span class="tag">初回限定</span>
+        <h3>初回お試しコース</h3>
+        <p>ハーブ読み取り＋足湯＋よもぎ蒸し30分＋選べるドリンク。まずは気軽にお試しください。</p>
+        <div class="price"><span class="was">¥4,500</span>¥3,300 <small>／ 約50分</small></div>
+        <p>はじめての方におすすめの特別価格です。</p>
+      </div>
+
+      <div class="menu-card fade">
+        <h3>通常コース</h3>
+        <p>ハーブ読み取り＋足湯＋よもぎ蒸し30分＋選べるドリンクのフルコース。</p>
+        <div class="price">¥4,500 <small>／ 約50分</small></div>
+        <p>定期的なケアでお身体を整えたい方に。</p>
+      </div>
+
+      <div class="menu-card fade">
+        <span class="tag">ペア割</span>
+        <h3>ペア蒸しコース</h3>
+        <p>お友達・ご家族とご一緒に。お二人それぞれにフルコースをご用意します。</p>
+        <div class="price">¥8,000 <small>／ 2名様</small></div>
+        <p>おひとり様あたり¥500お得になります。</p>
+      </div>
+
+      <div class="menu-card fade">
+        <h3>回数券（5回）</h3>
+        <p>続けて通いたい方に。有効期限内で、お好きなタイミングでご利用いただけます。</p>
+        <div class="price">¥20,000 <small>／ 5回分</small></div>
+        <p>1回あたり¥4,000。継続ケアにおすすめ。</p>
+      </div>
+
+    </div>
+    <p class="menu-note">※価格はすべて税込です。メニュー・価格は一例です。詳細・最新の情報はご予約時にご確認ください。</p>
+  </div>
+</section>
+
+<!-- セラピスト紹介 -->
+<section class="therapist">
+  <div class="wrap narrow">
+    <div class="sec-head fade">
+      <span class="en">Therapist</span>
+      <h2>セラピスト紹介</h2>
+    </div>
+    <div class="therapist-card fade">
+      <div class="therapist-photo">
+        <!-- セラピストの写真。同じフォルダに therapist-mie.jpg を置くと表示されます -->
+        <img src="therapist-mie.jpg" alt="セラピスト MIE">
+      </div>
+      <div class="therapist-body">
+        <span class="role">看護師 / よもぎ蒸しセラピスト</span>
+        <h3>MIE</h3>
+        <span class="badge">正看護師資格保有</span>
+        <p>看護師として、心と体の不調に寄り添ってきました。"今のあなた"を映し出すハーブ読み取り付きよもぎ蒸しで、内側から整う時間をお届けします。日々の疲れを癒し、自然体のあなたに近づくお手伝いをします。</p>
+        <p class="keywords">よもぎむし／肩こり／リンパ／産後／産後ケア／腰痛／生理不調／温活／リラク／リラクゼーション／自律神経／岐阜／岐南／よもぎ蒸し／妊活／ストレス／カッピング／吸い玉</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram / SNS -->
+<section class="sns">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Instagram &amp; Note</span>
+      <h2>日々の様子をお届けしています</h2>
+    </div>
+
+    <!-- Instagram公式の埋め込み（選んだ4投稿）。embed.js が blockquote を投稿カードに変換します -->
+    <div class="insta-feed fade">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOmlyxIj_E1/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQFBJZRD5oe/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DTbjOj7kja3/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZXJtfMlGOb/" data-instgrm-version="14"></blockquote>
+    </div>
+    <p class="insta-hint fade">← 横にスクロールしてご覧いただけます →</p>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <p class="insta-note fade">施術の様子やハーブのこと、日々のちょっとした気づきを発信しています。<br>InstagramとNoteもぜひのぞいてみてください。</p>
+
+    <div class="sns-btns fade">
+      <a class="sns-btn sns-insta" href="https://www.instagram.com/stella_herba/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff" stroke="none"/></svg>
+        Instagram （@stella_herba）
+      </a>
+      <a class="sns-btn sns-note" href="https://note.com/stella_herba_mie" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4"/><path d="M8 12h7M8 16h7"/></svg>
+        Note を読む
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- アクセス・サロン情報 -->
+<section class="access">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Access &amp; Info</span>
+      <h2>アクセス・サロン情報</h2>
+    </div>
+    <div class="access-wrap">
+      <div class="fade">
+        <table class="info-table">
+          <tr><th>サロン名</th><td>よもぎ蒸しサロン Stella Herba（ステラヘルバ）</td></tr>
+          <tr><th>所在地</th><td>岐阜県羽島郡岐南町（自宅サロン）<br>※ご予約確定後に詳細住所をお伝えします</td></tr>
+          <tr><th>アクセス</th><td>羽栗グラウンドの近く<br>駐車場2台完備</td></tr>
+          <tr><th>営業時間</th><td>24時間営業（基本受付時間 9:00〜23:30）<br>お時間の調整も可能ですのでお尋ねください</td></tr>
+          <tr><th>定休日</th><td>不定休</td></tr>
+          <tr><th>お支払い</th><td>現金のみ</td></tr>
+          <tr><th>ご予約</th><td>お問い合わせフォーム／公式LINE</td></tr>
+          <tr><th>こんな方に</th><td>冷え・疲れ・産後ケア・自律神経の乱れにお悩みの女性</td></tr>
+        </table>
+      </div>
+      <div class="map-embed fade">
+        <!-- ライブGoogleマップ（サロン名で検索表示）。
+             正確な位置に固定したい場合は、Googleマップで「共有→地図を埋め込む」のiframeコードに差し替えてください -->
+        <iframe
+          src="https://maps.google.com/maps?q=%E3%82%B9%E3%83%86%E3%83%A9%E3%83%98%E3%83%AB%E3%83%90%20%E5%B2%90%E5%8D%97%E7%94%BA%20%E3%82%88%E3%82%82%E3%81%8E%E8%92%B8%E3%81%97&hl=ja&z=14&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Stella Herba の地図"></iframe>
+      </div>
+    </div>
+
+    <!-- Google口コミの訴求 -->
+    <div class="reviews-band fade">
+      <span class="glabel">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.22V7.04H2.18a11 11 0 0 0 0 9.9l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.04l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38Z"/></svg>
+        Google の口コミ
+      </span>
+      <div class="stars" aria-label="星評価">★★★★★</div>
+      <h3>たくさんの嬉しいお声を<br>いただいています</h3>
+      <p>「体がぽかぽか温まった」「看護師さんで安心できた」など、ご来店いただいたお客様から温かい口コミを頂戴しています。ぜひGoogleでリアルなお声をご覧ください。</p>
+      <a class="gbtn" href="https://www.google.com/search?q=%E3%83%8F%E3%83%BC%E3%83%96%E3%82%88%E3%82%82%E3%81%8E%E8%92%B8%E3%81%97+%E3%82%B9%E3%83%86%E3%83%A9%E3%83%98%E3%83%AB%E3%83%90#lrd=0x4e13db5caaa1f979:0x60f99e14c632fdeb,1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.22V7.04H2.18a11 11 0 0 0 0 9.9l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.04l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38Z"/></svg>
+        Google の口コミを見る
+      </a>
+    </div>
+
+    <!-- Googleカレンダー（営業日・空き状況） -->
+    <div class="gcal-wrap fade">
+      <div class="label">営業日・空き状況カレンダー</div>
+      <!-- ▼Googleカレンダーの公開URLが用意できたら、下のコメントを外して src を差し替えてください
+      <iframe class="gcal"
+        src="https://calendar.google.com/calendar/embed?src=ここにカレンダーID&ctz=Asia/Tokyo&mode=MONTH"
+        loading="lazy" title="営業日カレンダー"></iframe>
+      -->
+      <div class="gcal" style="display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;color:var(--text-soft);font-size:.9rem;line-height:2;">
+        ここにGoogleカレンダーが表示されます。<br>
+        公開用カレンダーの設定が完了したら、こちらに埋め込みます。<br>
+        <span style="font-size:.8rem;color:var(--green-light);">（設定方法は担当者からのメッセージをご確認ください）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 予約への導線 -->
+<section class="reserve" id="reserve">
+  <div class="wrap narrow">
+    <h2 class="fade">内側から、自分を整えにきませんか</h2>
+    <p class="fade">ご予約・ご相談はお好きな方法でどうぞ。<br>初めての方も、看護師が丁寧にご案内しますのでご安心ください。</p>
+    <div class="reserve-btns fade">
+      <a class="big-btn big-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
+        公式LINEで相談する
+        <small>お気軽にメッセージください</small>
+      </a>
+      <a class="big-btn big-hp" href="#contact">
+        お問い合わせフォームへ
+        <small>24時間いつでも送信OK</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- お問い合わせフォーム -->
+<section class="contact" id="contact">
+  <div class="wrap narrow">
+    <div class="sec-head fade">
+      <span class="en">Contact</span>
+      <h2>お問い合わせ・ご予約</h2>
+    </div>
+    <p class="contact-lead fade">ご予約・ご相談は、下記フォームまたは公式LINEよりお気軽にどうぞ。<br>24時間営業（基本受付 9:00〜23:30）、お時間の調整も可能ですのでお尋ねください。</p>
+
+    <!-- ▼フォーム送信を有効にするには、Formspree等のメール送信サービスのIDを action に設定してください
+         （設定方法は担当者メッセージをご確認ください）。未設定の間は送信できません。 -->
+    <form class="contact-form fade" action="https://formspree.io/f/あなたのフォームID" method="POST">
+      <label>お名前 <span>必須</span>
+        <input type="text" name="name" required placeholder="例：山田 花子">
+      </label>
+      <label>メールアドレス <span>必須</span>
+        <input type="email" name="email" required placeholder="例：sample@email.com">
+      </label>
+      <label>電話番号 <span class="opt">任意</span>
+        <input type="tel" name="tel" placeholder="例：090-1234-5678">
+      </label>
+      <label>ご希望日時・ご相談内容 <span>必須</span>
+        <textarea name="message" rows="5" required placeholder="ご希望の日時、メニュー、お悩みなどをご記入ください。"></textarea>
+      </label>
+      <button type="submit" class="form-btn">送信する</button>
+      <p class="form-note">※送信いただいた内容は、確認のうえ折り返しご連絡いたします。</p>
+    </form>
+
+    <div class="contact-line fade">
+      <p>すぐにご相談されたい方は公式LINEが便利です</p>
+      <a class="big-btn big-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
+        公式LINEで相談する
+        <small>お気軽にメッセージください</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <img class="footer-logo" src="logo.png" alt="Stella Herba ロゴ">
+  <div class="flogo">Stella Herba</div>
+  <div>よもぎ蒸しサロン ステラヘルバ｜岐阜県羽島郡岐南町</div>
+  <nav class="fnav">
+    <a href="#contact">お問い合わせ</a>
+    <a href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">公式LINE</a>
+    <a href="https://www.instagram.com/stella_herba/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://note.com/stella_herba_mie" target="_blank" rel="noopener">Note</a>
+  </nav>
+  <div class="copy">© 2026 Stella Herba. All rights reserved.</div>
+</footer>
+
+<!-- 右下常駐ボタン（PC） -->
+<div class="side-cta">
+  <a class="btn-hp" href="#contact">🌿 お問い合わせフォーム</a>
+  <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">💬 公式LINEで相談する</a>
+</div>
+
+<!-- 下部常駐ボタン（スマホ） -->
+<div class="floatbar">
+  <a class="btn-hp" href="#contact">お問い合わせ</a>
+  <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEで相談</a>
+</div>
+
+<script>
+  // 同じグループ内の要素には少しずつ遅延をつけ、順番にふわっと浮き上がらせる
+  document.querySelectorAll('.reason-grid, .menu-grid, .flow-steps').forEach(group=>{
+    group.querySelectorAll(':scope > .fade').forEach((el,i)=>{
+      el.style.setProperty('--d', (i*0.12)+'s');
+    });
+  });
+
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
