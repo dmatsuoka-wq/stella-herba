@@ -416,6 +416,8 @@
   .faq-item summary::after{content:"＋";position:absolute;right:8px;top:24px;color:var(--green-light);font-size:1.25rem;transition:.3s;}
   .faq-item[open] summary::after{content:"−";}
   .faq-item .a{padding:0 44px 30px 4px;font-size:.92rem;color:var(--text-soft);line-height:2.05;}
+  .gcal-wrap .gcal-fallback{text-align:center;margin-top:20px;font-size:.84rem;color:var(--text-soft);line-height:1.9;}
+  .gcal-wrap .gcal-fallback .gbtn{margin-top:12px;}
 </style>
 <script type="application/ld+json">
 {
@@ -775,19 +777,14 @@
       </a>
     </div>
 
-    <!-- Googleカレンダー（営業日・空き状況） -->
+    <!-- オンライン予約（Googleカレンダー予約ページ） -->
     <div class="gcal-wrap fade">
-      <div class="label">営業日・空き状況カレンダー</div>
-      <!-- ▼Googleカレンダーの公開URLが用意できたら、下のコメントを外して src を差し替えてください
-      <iframe class="gcal"
-        src="https://calendar.google.com/calendar/embed?src=ここにカレンダーID&ctz=Asia/Tokyo&mode=MONTH"
-        loading="lazy" title="営業日カレンダー"></iframe>
-      -->
-      <div class="gcal" style="display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;color:var(--text-soft);font-size:.9rem;line-height:2;">
-        ここにGoogleカレンダーが表示されます。<br>
-        公開用カレンダーの設定が完了したら、こちらに埋め込みます。<br>
-        <span style="font-size:.8rem;color:var(--green-light);">（設定方法は担当者からのメッセージをご確認ください）</span>
-      </div>
+      <div class="label">オンラインでのご予約</div>
+      <iframe class="gcal" src="https://calendar.app.google/3g6H4kjp8DNCJoSK6"
+        loading="lazy" title="オンライン予約フォーム"></iframe>
+      <p class="gcal-fallback">空いている枠を選んでそのままご予約いただけます。表示されない場合はこちらから。<br>
+        <a class="gbtn" href="https://calendar.app.google/3g6H4kjp8DNCJoSK6" target="_blank" rel="noopener">予約ページを開く</a>
+      </p>
     </div>
   </div>
 </section>
@@ -854,10 +851,14 @@
       <h2>ご予約・お問い合わせ</h2>
     </div>
     <p class="contact-lead fade">ご予約は、公式LINE、またはページ内の予約カレンダーから直接承っております。<br>ご不明な点やご相談も、公式LINEよりお気軽にどうぞ。24時間営業（基本受付 9:00〜23:30）、お時間の調整も可能です。お支払いは現金のみとなります。</p>
-    <div class="contact-line fade" style="border-top:none;margin-top:8px;padding-top:0;">
+    <div class="reserve-btns fade" style="margin-top:8px;">
       <a class="big-btn big-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
         公式LINEで予約・相談する
         <small>お気軽にメッセージください</small>
+      </a>
+      <a class="big-btn big-hp" href="https://calendar.app.google/3g6H4kjp8DNCJoSK6" target="_blank" rel="noopener">
+        カレンダーで予約する
+        <small>空いている枠を選んで予約</small>
       </a>
     </div>
   </div>
