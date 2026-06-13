@@ -225,14 +225,14 @@
 
   /* セラピスト紹介（雑誌コラム風・E-E-A-T） */
   .therapist{background:var(--white);}
-  .therapist-intro{display:flex;gap:56px;align-items:center;flex-wrap:wrap;justify-content:center;margin-bottom:80px;}
+  .therapist-intro{text-align:center;margin-bottom:72px;}
   .therapist-photo{flex:none;width:260px;height:330px;border-radius:8px;overflow:hidden;background:linear-gradient(160deg,var(--green-light),var(--green));display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px rgba(90,107,74,.18);}
   .therapist-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-  .therapist-meta{flex:1;min-width:260px;max-width:420px;}
+  .therapist-meta{max-width:560px;margin:0 auto;}
   .therapist-meta .role{font-size:.72rem;letter-spacing:.3em;color:var(--brown);font-weight:500;}
   .therapist-meta h3{font-size:2.4rem;color:var(--green-deep);margin:12px 0 2px;letter-spacing:.2em;font-weight:600;line-height:1.1;}
   .therapist-meta h3 .reading{font-size:.85rem;color:var(--text-soft);letter-spacing:.2em;margin-left:12px;font-weight:400;font-family:"Zen Maru Gothic",sans-serif;}
-  .therapist-meta .creds{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 18px;}
+  .therapist-meta .creds{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 18px;justify-content:center;}
   .therapist-meta .creds span{font-size:.72rem;color:var(--green-deep);border:1px solid rgba(124,140,99,.4);border-radius:999px;padding:6px 14px;letter-spacing:.05em;background:var(--white);}
   .therapist-meta .career{font-family:"Shippori Mincho",serif;font-size:.85rem;color:var(--text-soft);line-height:1.95;letter-spacing:.04em;}
   .therapist-column{max-width:680px;margin:0 auto;font-family:"Shippori Mincho",serif;}
@@ -240,6 +240,9 @@
   .therapist-column h4{font-size:1.12rem;color:var(--green-deep);letter-spacing:.08em;line-height:1.7;margin:54px 0 22px;padding-left:18px;border-left:3px solid var(--brown-soft);font-weight:600;}
   .therapist-column h4:first-of-type{margin-top:0;}
   .therapist-column p{font-family:"Shippori Mincho",serif;font-size:1rem;color:var(--text);line-height:2.35;letter-spacing:.04em;font-weight:500;}
+  .therapist-column .column-figure{margin:52px auto;max-width:360px;text-align:center;}
+  .therapist-column .column-figure img{width:100%;border-radius:10px;display:block;box-shadow:0 14px 40px rgba(90,107,74,.18);}
+  .therapist-column .column-figure figcaption{margin-top:14px;font-size:.8rem;color:var(--text-soft);letter-spacing:.06em;line-height:1.8;font-family:"Shippori Mincho",serif;}
   .therapist-keywords{margin:60px auto 0;max-width:680px;font-size:.72rem;color:var(--green-light);line-height:2.1;letter-spacing:.06em;text-align:center;font-family:"Zen Maru Gothic",sans-serif;}
   @media(max-width:680px){
     .therapist-intro{gap:28px;margin-bottom:56px;}
@@ -740,10 +743,6 @@
     </figure>
 
     <div class="therapist-intro fade">
-      <div class="therapist-photo">
-        <!-- MIE様の写真。同じフォルダに therapist-mie.jpg を置くと表示されます（縦長の写真推奨） -->
-        <img src="therapist-mie.jpg" alt="セラピスト MIE（みえ）｜看護師・よもぎ蒸しセラピスト">
-      </div>
       <div class="therapist-meta">
         <span class="role">オーナーセラピスト</span>
         <h3>MIE<span class="reading">みえ</span></h3>
@@ -764,6 +763,11 @@
 
       <h4>東洋医学との出会いと、よもぎ蒸しへの想い</h4>
       <p>「症状が出てから治療する」だけでなく、人間が本来持っている「自然治癒力（自己治癒力）」を引き出し、不調の根本から体を整えるアプローチはできないか――。その答えを探す中で、私は東洋医学の世界に出会いました。体を内側から芯まで温め、ハーブの力で心と体からのサインを読み取る「よもぎ蒸し」は、まさに私が求めていた『自分自身で体を慈しみ、根本から整える時間』そのものでした。</p>
+
+      <figure class="column-figure">
+        <img src="therapist-mie.jpg" alt="ハーブを手に、お客様と語り合うセラピストMIE">
+        <figcaption>お一人おひとりの「今」に耳を傾けることを、何より大切にしています。</figcaption>
+      </figure>
 
       <h4>ステラヘルバがあなたにお約束すること</h4>
       <p>現在は、よりプロフェッショナルとして皆さまの健康に貢献するため、鍼灸師の国家資格取得に向けて学校でさらに深く東洋医学を学んでいます。誰よりも人の心と体の健康に向き合ってきた自負があるからこそ、当サロンではただの「リラクゼーション」に留まらない、お一人おひとりに寄り添ったパーソナルな温活サポートをお届けします。冷えや疲れ、産後のケア、自律神経の乱れにお悩みの方、ぜひ安心してお体をお任せください。</p>
