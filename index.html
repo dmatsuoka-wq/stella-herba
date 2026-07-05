@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="canonical" href="https://stella-herba.vercel.app/">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#5a6b4a">
+<meta name="author" content="MIE（正看護師・よもぎ蒸しサロン Stella Herba）">
 <meta name="google-site-verification" content="N6JFEOc0tx0niiUkS54SJj_K8DSglS-kifeeLcyjjXE" />
 <!-- OGP（SNSシェア時の表示） -->
 <meta property="og:type" content="website">
@@ -34,6 +36,7 @@
     --beige-deep:#ece3d3;
     --brown:#a9805f;
     --brown-soft:#c9a98c;
+    --gold:#b39362;
     --text:#4a463f;
     --text-soft:#6f6a60;
     --white:#fffdf9;
@@ -60,7 +63,7 @@
   .sec-head{text-align:center;margin-bottom:84px;}
   .sec-head .en{
     display:block;font-family:"Shippori Mincho",serif;
-    color:var(--green-light);font-size:.72rem;letter-spacing:.5em;
+    color:var(--gold);font-size:.7rem;letter-spacing:.55em;
     text-transform:uppercase;margin-bottom:22px;font-weight:500;
   }
   .sec-head h2{
@@ -69,8 +72,9 @@
     position:relative;display:inline-block;
   }
   .sec-head h2::after{
-    content:"";display:block;width:38px;height:1px;
-    background:var(--brown-soft);margin:28px auto 0;
+    content:"";display:block;width:44px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    margin:28px auto 0;
   }
   section{padding:150px 0;position:relative;}
   @media(max-width:680px){
@@ -389,10 +393,12 @@
   .floatbar{
     position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
     background:rgba(255,253,249,.95);backdrop-filter:blur(8px);
-    border-top:1px solid rgba(124,140,99,.2);padding:10px 14px;
+    border-top:1px solid rgba(124,140,99,.2);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
     gap:10px;box-shadow:0 -6px 20px rgba(90,107,74,.12);
   }
-  .floatbar a{flex:1;text-align:center;padding:14px 8px;border-radius:6px;font-weight:500;letter-spacing:.06em;font-size:.88rem;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .floatbar a{flex:1;text-align:center;padding:16px 8px;border-radius:8px;font-weight:700;letter-spacing:.06em;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .floatbar .btn-line{flex:1.25;}
   @media(max-width:680px){.floatbar{display:flex;}}
 
   /* 右下固定ボタン（PC） */
@@ -420,6 +426,22 @@
   }
   /* JavaScriptが無効な場合も内容が見えるように */
   .no-js .fade{opacity:1 !important;transform:none !important;filter:none !important;}
+
+  /* コラム（読みもの） */
+  .column-sec{background:var(--green-pale);}
+  .column-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:860px;margin:0 auto;}
+  .column-card{
+    display:flex;flex-direction:column;background:var(--white);
+    border:1px solid rgba(124,140,99,.2);border-radius:10px;padding:44px 38px;
+    transition:.35s ease;position:relative;
+  }
+  .column-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .column-card .cat{font-family:"Shippori Mincho",serif;font-size:.68rem;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
+  .column-card h3{font-size:1.1rem;color:var(--green-deep);line-height:1.85;letter-spacing:.05em;font-weight:600;margin-bottom:14px;}
+  .column-card p{font-size:.88rem;color:var(--text-soft);line-height:2;flex:1;}
+  .column-card .more{margin-top:24px;font-size:.8rem;color:var(--brown);letter-spacing:.14em;font-weight:500;}
+  .column-card .more::after{content:"→";margin-left:8px;transition:.25s;display:inline-block;}
+  .column-card:hover .more::after{transform:translateX(5px);}
 
   /* よくあるご質問（FAQ） */
   .faq{background:var(--white);}
@@ -503,6 +525,17 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://stella-herba.vercel.app/#website",
+  "name": "よもぎ蒸しサロン Stella Herba（ステラヘルバ）",
+  "url": "https://stella-herba.vercel.app/",
+  "inLanguage": "ja",
+  "publisher": {"@id": "https://stella-herba.vercel.app/#salon"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"よもぎ蒸しとは何ですか？","acceptedAnswer":{"@type":"Answer","text":"よもぎをはじめとするハーブを煮立て、その蒸気を下半身を中心に浴びる温浴法です。当サロンでは足湯とハーブ読み取りを組み合わせ、その日の心身の状態に寄り添いながら、芯から温まりリラックスしていただけます。"}},
@@ -533,6 +566,7 @@
   </nav>
 </header>
 
+<main>
 <!-- メインビジュアル -->
 <section class="hero">
   <!-- ▼背景のループ動画。src を実際のハーブ・自然の動画ファイル(.mp4)に差し替えてください。
@@ -549,10 +583,10 @@
     <h1>よもぎとハーブで<br><span class="accent">内側から整う</span>時間を</h1>
     <p class="lead">冷え、疲れ、産後ケア、自律神経の乱れに。<br>その日の心身に寄り添う「ハーブ読み取り付きよもぎ蒸し」で、ほっとひと息つける場所。</p>
     <div class="sub">
-      <span>🌿 看護師による運営</span>
-      <span>👶 お子様連れ歓迎</span>
-      <span>👭 ペア蒸しOK</span>
-      <span>🌙 24時間営業（要予約）</span>
+      <span>看護師による運営</span>
+      <span>お子様連れ歓迎</span>
+      <span>ペア蒸しOK</span>
+      <span>24時間営業（要予約）</span>
     </div>
     <p class="place">羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・木曽川エリアからも好アクセス</p>
   </div>
@@ -571,7 +605,7 @@
       <div class="reason-card fade">
         <div class="photo">
           <span class="ph-label">写真をここに<br>（reason-1.jpg）</span>
-          <img src="reason-1.jpg" alt="看護師が運営する安心の空間" onerror="this.style.display='none'">
+          <img src="reason-1.jpg" alt="看護師が運営する安心の空間" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z"/><path d="M12 7v6M9.5 9.5h5"/></svg></div>
         </div>
         <div class="inner">
@@ -584,7 +618,7 @@
       <div class="reason-card fade">
         <div class="photo">
           <span class="ph-label">写真をここに<br>（reason-2.jpg）</span>
-          <img src="reason-2.jpg" alt="ハーブ読み取り付きよもぎ蒸し" onerror="this.style.display='none'">
+          <img src="reason-2.jpg" alt="ハーブ読み取り付きよもぎ蒸し" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z"/><path d="M12 21v-4"/></svg></div>
         </div>
         <div class="inner">
@@ -597,7 +631,7 @@
       <div class="reason-card fade">
         <div class="photo">
           <span class="ph-label">写真をここに<br>（reason-3.jpg）</span>
-          <img src="reason-3.jpg" alt="お子様連れ・ペア蒸しOK" onerror="this.style.display='none'">
+          <img src="reason-3.jpg" alt="お子様連れ・ペア蒸しOK" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M15 14c2.5 0 4.5 1.8 4.5 4.5"/></svg></div>
         </div>
         <div class="inner">
@@ -610,7 +644,7 @@
       <div class="reason-card fade">
         <div class="photo">
           <span class="ph-label">写真をここに<br>（reason-4.jpg）</span>
-          <img src="reason-4.jpg" alt="24時間営業・時間調整OK" onerror="this.style.display='none'">
+          <img src="reason-4.jpg" alt="24時間営業・時間調整OK" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></div>
         </div>
         <div class="inner">
@@ -623,7 +657,7 @@
       <div class="reason-card fade">
         <div class="photo">
           <span class="ph-label">写真をここに<br>（reason-5.jpg）</span>
-          <img src="reason-5.jpg" alt="足湯・選べるドリンク付き" onerror="this.style.display='none'">
+          <img src="reason-5.jpg" alt="足湯・選べるドリンク付き" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l-1.5 2.5c-.8 1.4.2 3.5 2 3.5h.5"/><path d="M19 11l1.5 2.5c.8 1.4-.2 3.5-2 3.5H6"/><path d="M7 11c0-3 2-6 5-6s5 3 5 6"/><path d="M12 17v3"/></svg></div>
         </div>
         <div class="inner">
@@ -635,8 +669,8 @@
 
       <div class="reason-card fade">
         <div class="photo">
-          <span class="ph-label">写真をここに<br>（reason-6.jpg）</span>
-          <img src="reason-6.jpg" alt="カッピングとミニマッサージ" onerror="this.style.display='none'">
+          <span class="ph-label">写真をここに<br>（reason-6.png）</span>
+          <img src="reason-6.png" alt="カッピングとミニマッサージ" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="9" r="3.2"/><circle cx="15.5" cy="9" r="3.2"/><path d="M4 17c1.6-1.4 3.4-2 5.5-2M14.5 15c2.1 0 3.9.6 5.5 2"/></svg></div>
         </div>
         <div class="inner">
@@ -770,7 +804,7 @@
 
     <figure class="therapist-banner fade">
       <span class="ph-label">横長の写真をここに（mie-interview.jpg）</span>
-      <img src="mie-interview.jpg" alt="サロンでハーブを手に、お客様と向き合うセラピストMIE" onerror="this.style.display='none'">
+      <img src="mie-interview.jpg" alt="サロンでハーブを手に、お客様と向き合うセラピストMIE" loading="lazy" decoding="async" onerror="this.style.display='none'">
       <figcaption>その日の心と体に合わせて、ハーブを選ぶ時間を大切にしています。</figcaption>
     </figure>
 
@@ -797,7 +831,7 @@
       <p>「症状が出てから治療する」だけでなく、人間が本来持っている「自然治癒力（自己治癒力）」を引き出し、不調の根本から体を整えるアプローチはできないか――。その答えを探す中で、私は東洋医学の世界に出会いました。体を内側から芯まで温め、ハーブの力で心と体からのサインを読み取る「よもぎ蒸し」は、まさに私が求めていた『自分自身で体を慈しみ、根本から整える時間』そのものでした。</p>
 
       <figure class="column-figure">
-        <img src="therapist-mie.jpg" alt="ハーブを手に、お客様と語り合うセラピストMIE">
+        <img src="therapist-mie.jpg" alt="ハーブを手に、お客様と語り合うセラピストMIE" loading="lazy" decoding="async">
         <figcaption>お一人おひとりの「今」に耳を傾けることを、何より大切にしています。</figcaption>
       </figure>
 
@@ -805,7 +839,6 @@
       <p>現在は、よりプロフェッショナルとして皆さまの健康に貢献するため、鍼灸師の国家資格取得に向けて学校でさらに深く東洋医学を学んでいます。誰よりも人の心と体の健康に向き合ってきた自負があるからこそ、当サロンではただの「リラクゼーション」に留まらない、お一人おひとりに寄り添ったパーソナルな温活サポートをお届けします。冷えや疲れ、産後のケア、自律神経の乱れにお悩みの方、ぜひ安心してお体をお任せください。</p>
     </article>
 
-    <p class="therapist-keywords fade">よもぎむし／肩こり／リンパ／産後／産後ケア／腰痛／生理不調／温活／リラク／リラクゼーション／自律神経／岐阜／岐南／よもぎ蒸し／妊活／ストレス／カッピング／吸い玉</p>
   </div>
 </section>
 
@@ -899,6 +932,30 @@
   </div>
 </section>
 
+<!-- コラム（読みもの） -->
+<section class="column-sec" id="column">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Column</span>
+      <h2>看護師が書く、温活の読みもの</h2>
+    </div>
+    <div class="column-cards">
+      <a class="column-card fade" href="yomogimushi-guide.html">
+        <span class="cat">Guide</span>
+        <h3>よもぎ蒸しとは？やり方・服装・頻度・注意点を看護師がやさしく解説</h3>
+        <p>「よもぎ蒸しって何をするの？」「どんな準備が必要？」——初めての方が気になる疑問を、救命救急10年の看護師がまとめてお答えします。</p>
+        <span class="more">記事を読む</span>
+      </a>
+      <a class="column-card fade" href="sango-yomogimushi.html">
+        <span class="cat">Postpartum</span>
+        <h3>産後のよもぎ蒸しはいつから？看護師が伝えたい産後温活の始め方</h3>
+        <p>産後の冷えや疲れ、心の揺らぎ。デリケートな時期だからこそ知っておきたい、よもぎ蒸しの始めどきと無理のない付き合い方をご紹介します。</p>
+        <span class="more">記事を読む</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- よくあるご質問 -->
 <section class="faq">
   <div class="wrap narrow">
@@ -985,13 +1042,16 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- フッター -->
 <footer>
-  <img class="footer-logo" src="logo.png" alt="Stella Herba ロゴ">
+  <img class="footer-logo" src="logo.png" alt="Stella Herba ロゴ" loading="lazy" decoding="async">
   <div class="flogo">Stella Herba</div>
   <div>よもぎ蒸しサロン ステラヘルバ｜岐阜県羽島郡岐南町</div>
   <nav class="fnav">
+    <a href="yomogimushi-guide.html">よもぎ蒸しとは</a>
+    <a href="sango-yomogimushi.html">産後の温活</a>
     <a href="#contact">ご予約・お問い合わせ</a>
     <a href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">公式LINE</a>
     <a href="https://www.instagram.com/stella_herba/" target="_blank" rel="noopener">Instagram</a>
@@ -1002,8 +1062,8 @@
 
 <!-- 右下常駐ボタン（PC） -->
 <div class="side-cta">
-  <a class="btn-hp" href="#contact">🌿 ご予約・お問い合わせ</a>
-  <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">💬 公式LINEで相談する</a>
+  <a class="btn-hp" href="#contact">ご予約・お問い合わせ</a>
+  <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">公式LINEで相談する</a>
 </div>
 
 <!-- 下部常駐ボタン（スマホ） -->
