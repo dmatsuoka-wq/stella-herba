@@ -148,6 +148,20 @@
     .article-hero .cat::before,.cta-line::after,.top-cta a::after{animation:none !important;}
   }
 
+  /* 小さいスマホ（iPhone SE等）対応 */
+  h1,h2,h3{text-wrap:balance;}
+  @media(max-width:430px){
+    body{letter-spacing:.015em;font-size:15px;}
+    .article-hero h1{font-size:1.2rem;letter-spacing:.04em;}
+    .article-hero .cat{letter-spacing:.35em;}
+    article h2{font-size:1.12rem;letter-spacing:.04em;}
+    article h3{font-size:1rem;padding-left:13px;}
+    article p,article li{font-size:.94rem;}
+    .lead-box,.point-box{font-size:.88rem;padding:22px;}
+    .cta-band h2{font-size:1.15rem;}
+    .related a{font-size:.88rem;}
+  }
+
   /* スクロール連動ポップアップ */
   .promo-pop{
     position:fixed;right:18px;bottom:24px;z-index:70;max-width:300px;

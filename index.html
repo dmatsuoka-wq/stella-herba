@@ -596,6 +596,29 @@
     .promo-pop .pp-btn{padding:11px;font-size:.8rem;}
   }
 
+  /* ===== 小さいスマホ（iPhone SE等）対応 ===== */
+  /* 見出しの折り返しを自動バランス（「の」「と」だけの孤立行を防ぐ） */
+  h1,h2,h3,h4,.sec-head h2,.therapist-column .lead-title,.hero .eyebrow{text-wrap:balance;}
+  @media(max-width:430px){
+    body{letter-spacing:.02em;font-size:15px;}
+    .hero .eyebrow{font-size:.7rem;letter-spacing:.12em;padding:6px 14px;}
+    .hero .lead{font-size:.9rem;letter-spacing:.01em;}
+    .hero .place{font-size:.78rem;}
+    .hero .sub span{font-size:.76rem;padding:6px 13px;}
+    .sec-head h2{font-size:1.3rem;letter-spacing:.06em;}
+    .sec-head .en{letter-spacing:.4em;}
+    .reason-card h3,.menu-card h3{font-size:1.02rem;letter-spacing:.03em;}
+    .flow-step .body h3{font-size:.96rem;}
+    .column-card h3{font-size:1rem;letter-spacing:.03em;}
+    .therapist-column .lead-title{font-size:1.08rem;letter-spacing:.04em;}
+    .therapist-column h4{font-size:1rem;letter-spacing:.04em;padding-left:14px;}
+    .therapist-column p{font-size:.92rem;line-height:2.1;}
+    .therapist-meta h3{font-size:1.7rem;}
+    .reserve h2{font-size:1.35rem;letter-spacing:.06em;}
+    .faq-item summary{font-size:.94rem;}
+    .reviews-band h3{font-size:1.08rem;}
+  }
+
   /* ===== 常時ふわふわ（アイコン・数字） ===== */
   @keyframes bob{0%,100%{translate:0 0;}50%{translate:0 -5px;}}
   .reason-card .ico{animation:bob 3.4s ease-in-out infinite;animation-delay:var(--d,0s);}
