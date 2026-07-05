@@ -536,11 +536,78 @@
   .faq-item summary{transition:.25s;}
   .faq-item summary:hover{color:var(--brown);padding-left:10px;}
 
+  /* ===== 流れ星 ===== */
+  .shooting-star{
+    position:absolute;pointer-events:none;z-index:1;
+    width:130px;height:2px;border-radius:999px;
+    background:linear-gradient(90deg,rgba(255,250,230,.95),rgba(255,255,255,0));
+    transform:rotate(-25deg);
+    animation:shoot 1.2s ease-out forwards;
+    opacity:0;
+  }
+  .shooting-star::after{
+    content:"";position:absolute;left:-3px;top:-2px;width:6px;height:6px;border-radius:50%;
+    background:#fffbe8;box-shadow:0 0 12px 3px rgba(255,244,200,.9);
+  }
+  @keyframes shoot{
+    0%{opacity:0;translate:0 0;}
+    12%{opacity:1;}
+    100%{opacity:0;translate:-44vw 20.5vw;}
+  }
+  /* 予約セクションの星空レイヤー */
+  .reserve-stars{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+  .reserve-stars .tw{
+    position:absolute;color:rgba(255,244,222,.9);
+    text-shadow:0 0 10px rgba(255,238,200,.8);
+    animation:twinkle 3.2s ease-in-out infinite;
+  }
+
+  /* ===== スクロール連動ポップアップ ===== */
+  .promo-pop{
+    position:fixed;right:18px;bottom:24px;z-index:70;max-width:300px;
+    background:var(--white);border:1px solid var(--pink);border-radius:18px;
+    box-shadow:0 18px 50px rgba(90,107,74,.28);padding:24px 22px 20px;
+    opacity:0;transform:translateY(26px) scale(.95);pointer-events:none;
+    transition:opacity .5s ease,transform .6s cubic-bezier(.16,.7,.3,1.25);
+  }
+  .promo-pop.show{opacity:1;transform:none;pointer-events:auto;}
+  .promo-pop .pp-close{
+    position:absolute;top:8px;right:10px;border:none;background:none;
+    color:var(--text-soft);font-size:1.1rem;cursor:pointer;line-height:1;padding:6px;
+  }
+  .promo-pop .pp-title{font-family:"Shippori Mincho",serif;color:var(--green-deep);font-size:.95rem;line-height:1.8;font-weight:600;}
+  .promo-pop .pp-price{font-family:"Shippori Mincho",serif;color:var(--brown);font-size:1.35rem;margin:6px 0 14px;line-height:1.4;}
+  .promo-pop .pp-price small{font-size:.72rem;color:var(--text-soft);font-family:"Zen Maru Gothic",sans-serif;display:block;margin-top:4px;}
+  .promo-pop .pp-btn{
+    display:block;text-align:center;background:#06C755;color:#fff;border-radius:999px;
+    padding:13px;font-size:.86rem;font-weight:700;letter-spacing:.06em;
+    position:relative;overflow:hidden;transition:.25s;
+  }
+  .promo-pop .pp-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .promo-pop .pp-btn::after{
+    content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite;
+  }
+  @media(max-width:680px){
+    .promo-pop{right:12px;max-width:235px;padding:20px 18px 16px;bottom:calc(86px + env(safe-area-inset-bottom,0px));}
+    .promo-pop .pp-title{font-size:.86rem;}
+    .promo-pop .pp-price{font-size:1.2rem;}
+    .promo-pop .pp-btn{padding:11px;font-size:.8rem;}
+  }
+
+  /* ===== 常時ふわふわ（アイコン・数字） ===== */
+  @keyframes bob{0%,100%{translate:0 0;}50%{translate:0 -5px;}}
+  .reason-card .ico{animation:bob 3.4s ease-in-out infinite;animation-delay:var(--d,0s);}
+  .flow-step .dot{animation:bob 3.8s ease-in-out infinite;animation-delay:var(--d,0s);}
+
   /* 動きを抑える設定のユーザーには全アニメーションをオフ */
   @media(prefers-reduced-motion:reduce){
     .hero-inner>*,.hero-stars span,.sec-head .en::before,
     .btn-line::after,.big-line::after,.floatbar .btn-line,
-    .reviews-band .stars,.scroll-hint::after{animation:none !important;}
+    .reviews-band .stars,.scroll-hint::after,
+    .shooting-star,.reserve-stars .tw,
+    .promo-pop .pp-btn::after,.reason-card .ico,.flow-step .dot{animation:none !important;}
   }
 </style>
 <script type="application/ld+json">
@@ -1096,6 +1163,12 @@
 
 <!-- 予約への導線 -->
 <section class="reserve" id="reserve">
+  <div class="reserve-stars" aria-hidden="true">
+    <span class="tw" style="top:16%;left:9%;font-size:13px;animation-delay:.2s;">✦</span>
+    <span class="tw" style="top:24%;left:86%;font-size:10px;animation-delay:1.4s;">✦</span>
+    <span class="tw" style="top:68%;left:14%;font-size:9px;animation-delay:2.1s;">✦</span>
+    <span class="tw" style="top:58%;left:91%;font-size:12px;animation-delay:.8s;">✦</span>
+  </div>
   <div class="wrap narrow">
     <h2 class="fade">内側から、自分を整えにきませんか</h2>
     <p class="fade">ご予約・ご相談はお好きな方法でどうぞ。<br>初めての方も、看護師が丁寧にご案内しますのでご安心ください。</p>
@@ -1156,6 +1229,14 @@
   <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">公式LINEで相談する</a>
 </div>
 
+<!-- スクロール連動ポップアップ -->
+<aside class="promo-pop" id="promoPop" aria-label="初回お試しキャンペーンのご案内">
+  <button class="pp-close" id="ppClose" aria-label="閉じる">×</button>
+  <p class="pp-title">はじめての方限定<br>初回お試しコース</p>
+  <p class="pp-price">¥3,500 <small>／ 約60分・足湯＆ドリンク付き</small></p>
+  <a class="pp-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEでかんたん予約</a>
+</aside>
+
 <!-- 下部常駐ボタン（スマホ） -->
 <div class="floatbar">
   <a class="btn-hp" href="#contact">ご予約</a>
@@ -1174,6 +1255,35 @@
     es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+  // ===== 流れ星（Stella＝星）=====
+  const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function spawnShootingStar(container){
+    if(reduceMotion || document.hidden || !container) return;
+    const s = document.createElement('span');
+    s.className = 'shooting-star';
+    s.style.top  = (5 + Math.random()*45) + '%';
+    s.style.left = (40 + Math.random()*55) + '%';
+    s.style.animationDuration = (0.9 + Math.random()*0.7) + 's';
+    container.appendChild(s);
+    setTimeout(()=>s.remove(), 2200);
+  }
+  const heroStars = document.querySelector('.hero-stars');
+  const reserveStars = document.querySelector('.reserve-stars');
+  // ヒーローでは約4秒に1回、予約セクションでは約6秒に1回の頻度でランダムに流す
+  setInterval(()=>{ if(Math.random() < .75) spawnShootingStar(heroStars); }, 4000);
+  setInterval(()=>{ if(Math.random() < .6)  spawnShootingStar(reserveStars); }, 6000);
+
+  // ===== スクロール連動ポップアップ =====
+  const pop = document.getElementById('promoPop');
+  const ppClose = document.getElementById('ppClose');
+  let popDone = false;
+  addEventListener('scroll', ()=>{
+    if(popDone || !pop) return;
+    const progress = scrollY / (document.documentElement.scrollHeight - innerHeight);
+    if(progress > 0.35){ popDone = true; pop.classList.add('show'); }
+  }, {passive:true});
+  if(ppClose) ppClose.addEventListener('click', ()=>pop.classList.remove('show'));
 </script>
 </body>
 </html>
