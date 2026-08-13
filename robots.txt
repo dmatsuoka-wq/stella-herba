@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://stella-herba.vercel.app/sitemap.xml
+
+Sitemap: https://stellaherba.com/sitemap.xml

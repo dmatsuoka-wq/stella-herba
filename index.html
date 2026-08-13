@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://stella-herba.vercel.app/">
+<link rel="canonical" href="https://stellaherba.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#5a6b4a">
 <meta name="author" content="MIE（正看護師・よもぎ蒸しサロン Stella Herba）">
@@ -18,14 +18,14 @@
 <meta property="og:site_name" content="よもぎ蒸しサロン Stella Herba（ステラヘルバ）">
 <meta property="og:title" content="よもぎ蒸しサロン Stella Herba（ステラヘルバ）｜岐阜県岐南町">
 <meta property="og:description" content="【岐阜・岐南町｜岐阜市・各務原市・木曽川エリア対応】看護師が運営するよもぎ蒸しサロン Stella Herba。ハーブ読み取りで“今のあなた”に寄り添う温活。初回お試し¥3,500、お子様連れ・ペア蒸しOK。">
-<meta property="og:url" content="https://stella-herba.vercel.app/">
-<meta property="og:image" content="https://stella-herba.vercel.app/logo.png">
+<meta property="og:url" content="https://stellaherba.com/">
+<meta property="og:image" content="https://stellaherba.com/logo.png">
 <meta property="og:locale" content="ja_JP">
 <!-- Twitterカード -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="よもぎ蒸しサロン Stella Herba（ステラヘルバ）｜岐阜県岐南町">
 <meta name="twitter:description" content="【岐阜・岐南町｜岐阜市・各務原市・木曽川エリア対応】看護師が運営するよもぎ蒸しサロン Stella Herba。ハーブ読み取りで“今のあなた”に寄り添う温活。初回お試し¥3,500、お子様連れ・ペア蒸しOK。">
-<meta name="twitter:image" content="https://stella-herba.vercel.app/logo.png">
+<meta name="twitter:image" content="https://stellaherba.com/logo.png">
 <style>
   :root{
     --green-deep:#5a6b4a;
@@ -222,7 +222,8 @@
   .menu-card .tag{position:absolute;top:-13px;left:44px;background:var(--brown);color:#fff;font-size:.68rem;padding:6px 18px;border-radius:999px;letter-spacing:.18em;font-weight:500;}
   .menu-card h3{font-size:1.18rem;color:var(--green-deep);margin-bottom:14px;letter-spacing:.08em;font-weight:500;}
   .menu-card .price{font-family:"Shippori Mincho",serif;font-size:1.8rem;color:var(--brown);font-weight:500;margin:22px 0;letter-spacing:.04em;}
-  .menu-card .price small{font-size:.82rem;color:var(--text-soft);font-weight:400;letter-spacing:.05em;}
+  .menu-card .price small{font-size:.82rem;color:var(--text-soft);font-weight:400;letter-spacing:.05em;display:inline-block;white-space:nowrap;}
+  .menu-card .price .was{display:inline-block;white-space:nowrap;}
   .menu-card .price .was{font-size:.95rem;color:#b3a89a;text-decoration:line-through;margin-right:10px;}
   .menu-card p{font-size:.9rem;color:var(--text-soft);line-height:2;}
   .menu-note{text-align:center;margin-top:52px;font-size:.8rem;color:var(--text-soft);letter-spacing:.04em;}
@@ -577,7 +578,7 @@
   }
   .promo-pop .pp-title{font-family:"Shippori Mincho",serif;color:var(--green-deep);font-size:.95rem;line-height:1.8;font-weight:600;}
   .promo-pop .pp-price{font-family:"Shippori Mincho",serif;color:var(--brown);font-size:1.35rem;margin:6px 0 14px;line-height:1.4;}
-  .promo-pop .pp-price small{font-size:.72rem;color:var(--text-soft);font-family:"Zen Maru Gothic",sans-serif;display:block;margin-top:4px;}
+  .promo-pop .pp-price small{font-size:.72rem;color:var(--text-soft);font-family:"Zen Maru Gothic",sans-serif;display:block;margin-top:4px;text-wrap:balance;}
   .promo-pop .pp-btn{
     display:block;text-align:center;background:#06C755;color:#fff;border-radius:999px;
     padding:13px;font-size:.86rem;font-weight:700;letter-spacing:.06em;
@@ -608,6 +609,8 @@
     .sec-head h2{font-size:1.3rem;letter-spacing:.06em;}
     .sec-head .en{letter-spacing:.4em;}
     .reason-card h3,.menu-card h3{font-size:1.02rem;letter-spacing:.03em;}
+    .menu-card .price{font-size:1.5rem;}
+    .menu-card{padding:44px 30px;}
     .flow-step .body h3{font-size:.96rem;}
     .column-card h3{font-size:1rem;letter-spacing:.03em;}
     .therapist-column .lead-title{font-size:1.08rem;letter-spacing:.04em;}
@@ -637,11 +640,11 @@
 {
   "@context": "https://schema.org",
   "@type": "DaySpa",
-  "@id": "https://stella-herba.vercel.app/#salon",
+  "@id": "https://stellaherba.com/#salon",
   "name": "よもぎ蒸しサロン Stella Herba（ステラヘルバ）",
   "description": "岐阜県岐南町の自宅サロン。看護師が運営するハーブ読み取り付きよもぎ蒸し。冷え・疲れ・産後ケア・自律神経の乱れにお悩みの女性へ。足湯と選べるハーブティー付き。お子様連れ歓迎、ペア蒸しOK、24時間営業（基本受付9:00〜23:30）。",
-  "url": "https://stella-herba.vercel.app/",
-  "image": "https://stella-herba.vercel.app/logo.png",
+  "url": "https://stellaherba.com/",
+  "image": "https://stellaherba.com/logo.png",
   "address": {
     "@type": "PostalAddress",
     "addressRegion": "岐阜県",
@@ -695,11 +698,11 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://stella-herba.vercel.app/#website",
+  "@id": "https://stellaherba.com/#website",
   "name": "よもぎ蒸しサロン Stella Herba（ステラヘルバ）",
-  "url": "https://stella-herba.vercel.app/",
+  "url": "https://stellaherba.com/",
   "inLanguage": "ja",
-  "publisher": {"@id": "https://stella-herba.vercel.app/#salon"}
+  "publisher": {"@id": "https://stellaherba.com/#salon"}
 }
 </script>
 <script type="application/ld+json">

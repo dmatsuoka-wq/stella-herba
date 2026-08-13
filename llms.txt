@@ -22,9 +22,9 @@
 
 ## ページ
 
-- [トップページ](https://stella-herba.vercel.app/): メニュー・料金・当日の流れ・アクセス・予約
-- [よもぎ蒸しとは](https://stella-herba.vercel.app/yomogimushi-guide.html): やり方・服装・頻度・注意点を看護師が解説
-- [産後のよもぎ蒸し](https://stella-herba.vercel.app/sango-yomogimushi.html): 産後温活の始め方を看護師が解説
+- [トップページ](https://stellaherba.com/): メニュー・料金・当日の流れ・アクセス・予約
+- [よもぎ蒸しとは](https://stellaherba.com/yomogimushi-guide.html): やり方・服装・頻度・注意点を看護師が解説
+- [産後のよもぎ蒸し](https://stellaherba.com/sango-yomogimushi.html): 産後温活の始め方を看護師が解説
 
 ## 運営者
 
