@@ -24,6 +24,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://stellaherba.com/column.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/mie-interview.jpg</image:loc>
+      <image:title>看護師が書く温活コラム一覧</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://stellaherba.com/gifu-yomogimushi.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -61,6 +71,106 @@
     <image:image>
       <image:loc>https://stellaherba.com/reason-3.jpg</image:loc>
       <image:title>子連れOKの産後よもぎ蒸し｜岐阜 Stella Herba</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/ninkatsu-hiesho.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-5.jpg</image:loc>
+      <image:title>妊活中の冷え対策と温め習慣</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/ninkatsu-yomogimushi.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-2.jpg</image:loc>
+      <image:title>妊活中のよもぎ蒸しについて</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/kiso-taion.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-4.jpg</image:loc>
+      <image:title>基礎体温とからだのリズム</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/meguri-care.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-6.png</image:loc>
+      <image:title>30代からの巡りケアとカッピング</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/ninkatsu-shokuji.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-5.jpg</image:loc>
+      <image:title>妊活中の食事と温活</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/ninkatsu-stress.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-1.jpg</image:loc>
+      <image:title>妊活ストレスと自律神経のセルフケア</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/seiri-shuki-onkatsu.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-4.jpg</image:loc>
+      <image:title>生理周期に合わせた温活</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/oketsu-toyo.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-2.jpg</image:loc>
+      <image:title>東洋医学からみる血と瘀血</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/ninkatsu-suimin.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-4.jpg</image:loc>
+      <image:title>妊活中の睡眠と体温</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/pair-onkatsu.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-3.jpg</image:loc>
+      <image:title>パートナーと始める温活・ペア蒸し</image:title>
     </image:image>
   </url>
 </urlset>
