@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://stellaherba.com/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/mie-interview.jpg</image:loc>
+      <image:title>岐阜県岐南町のよもぎ蒸しサロン Stella Herba｜看護師セラピストMIE</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-2.jpg</image:loc>
+      <image:title>ハーブ読み取り付きよもぎ蒸しに使うハーブ</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-5.jpg</image:loc>
+      <image:title>よもぎ蒸し前の足湯と選べるハーブティー</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-1.jpg</image:loc>
+      <image:title>看護師が運営する岐阜のよもぎ蒸しサロンの空間</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/gifu-yomogimushi.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-1.jpg</image:loc>
+      <image:title>岐阜のよもぎ蒸しサロン Stella Herba</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/herb-reading.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-2.jpg</image:loc>
+      <image:title>ハーブ読み取りで使用するハーブ</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://stellaherba.com/yomogimushi-guide.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-2.jpg</image:loc>
+      <image:title>よもぎ蒸しとは｜岐阜 Stella Herba</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://stellaherba.com/sango-yomogimushi.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/reason-3.jpg</image:loc>
+      <image:title>子連れOKの産後よもぎ蒸し｜岐阜 Stella Herba</image:title>
+    </image:image>
   </url>
 </urlset>

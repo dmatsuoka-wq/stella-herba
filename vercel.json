@@ -2,20 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.stellaherba.com" }],
-      "destination": "https://stellaherba.com/$1",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "stella-herba.vercel.app" }],
-      "destination": "https://stellaherba.com/$1",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)\\.(jpg|jpeg|png|webp|mp4|svg|ico)",
