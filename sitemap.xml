@@ -109,7 +109,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://stellaherba.com/reason-6.png</image:loc>
+      <image:loc>https://stellaherba.com/reason-6.jpg</image:loc>
       <image:title>30代からの巡りケアとカッピング</image:title>
     </image:image>
   </url>
@@ -171,6 +171,16 @@
     <image:image>
       <image:loc>https://stellaherba.com/reason-3.jpg</image:loc>
       <image:title>パートナーと始める温活・ペア蒸し</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://stellaherba.com/tsubo-katakori-onkatsu.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://stellaherba.com/images/column/tsubo-katakori.jpg</image:loc>
+      <image:title>肩こりに効くツボ「肩井」とよもぎ蒸し温活｜岐阜 Stella Herba</image:title>
     </image:image>
   </url>
 </urlset>
