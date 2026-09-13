@@ -145,7 +145,7 @@
 
     /* ── フローティングボタン（FAB）── */
     '#mie-fab{',
-      'position:fixed;right:24px;bottom:25px;z-index:9100;',
+      'position:fixed;right:30px;bottom:30px;z-index:9100;',
       'display:flex;flex-direction:column;align-items:flex-end;gap:10px;',
       'cursor:pointer;-webkit-tap-highlight-color:transparent;',
     '}',
