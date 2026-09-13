@@ -407,8 +407,9 @@
     padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
     gap:10px;box-shadow:0 -6px 20px rgba(90,107,74,.12);
   }
-  .floatbar a{flex:1;text-align:center;padding:16px 8px;border-radius:8px;font-weight:700;letter-spacing:.06em;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .floatbar a{flex:1;text-align:center;padding:14px 8px;border-radius:8px;font-weight:700;letter-spacing:.04em;font-size:clamp(12px,3.5vw,14.5px);white-space:nowrap;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:6px;}
   @media(max-width:680px){.floatbar{display:flex;}}
+  @media(max-width:360px){.floatbar a{font-size:12px;letter-spacing:.01em;padding:13px 6px;}}
 
   /* 右下固定ボタン（PC） */
   .side-cta{position:fixed;right:20px;bottom:26px;z-index:55;display:flex;flex-direction:column;gap:12px;}
@@ -913,11 +914,13 @@
   .float-cta a{
     display:flex;align-items:center;justify-content:center;gap:10px;
     background:#06C755;color:#fff;border-radius:999px;font-weight:700;
-    font-size:.92rem;letter-spacing:.06em;padding:15px 24px;width:100%;
+    font-size:clamp(12px,3.5vw,14.5px);letter-spacing:.04em;padding:15px 18px;width:100%;
+    white-space:nowrap;overflow:hidden;
     box-shadow:0 4px 18px rgba(6,199,85,.35);
   }
-  .float-cta svg{width:20px;height:20px;fill:#fff;}
+  .float-cta svg{width:20px;height:20px;fill:#fff;flex-shrink:0;}
   @media(max-width:680px){.float-cta{display:block;}}
+  @media(max-width:360px){.float-cta a{font-size:12px;letter-spacing:.01em;padding:13px 14px;}}
 
   /* ── Trust Bar ─────────────────────────── */
   .trust-bar{
