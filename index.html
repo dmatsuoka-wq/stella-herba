@@ -648,7 +648,8 @@
     .btn-line::after,.big-line::after,.floatbar .btn-line,
     .reviews-band .stars,.scroll-hint::after,
     .shooting-star,.reserve-stars .tw,
-    .promo-pop .pp-btn::after,.reason-card .ico,.flow-step .dot{animation:none !important;}
+    .promo-pop .pp-btn::after,.reason-card .ico,.flow-step .dot,
+    .hero-diag-btn::after,.hero-diag-spark,.diag-banner-btn::after,.diag-banner-spark,.diag-banner::after{animation:none !important;}
   }
 
   /* 妊活・温活サポートセクション */
@@ -1018,7 +1019,7 @@
     .concern-card h3{ font-size:.82rem; }
   }
 
-  /* ── AI温活チェック ナビ・ヒーローボタン ── */
+  /* ── AI温活チェック ナビボタン ── */
   .nav-diag-btn{
     font-size:.72rem;padding:9px 16px;border-radius:999px;
     font-weight:700;color:var(--green-deep);
@@ -1029,20 +1030,122 @@
   }
   .nav-diag-btn:hover{background:rgba(90,107,74,.16);transform:translateY(-2px);}
   @media(max-width:768px){.nav-diag-btn{display:none !important;}}
-  .hero-diag-wrap{margin-top:26px;}
-  .hero-diag-btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:11px 24px;
-    background:rgba(255,255,255,.14);
-    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    color:#fff;
-    border:1.5px solid rgba(255,255,255,.52);
-    border-radius:999px;
-    font-size:.8rem;font-weight:600;letter-spacing:.05em;
-    transition:.22s;
+
+  /* ── Hero AI診断ボタン（ゴールドCTA） ── */
+  .hero-diag-wrap{
+    margin-top:32px;
+    display:flex;flex-direction:column;align-items:center;gap:9px;
   }
-  .hero-diag-btn:hover{background:rgba(255,255,255,.24);transform:translateY(-2px);}
-  .hero-diag-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+  .hero-diag-micro{
+    font-size:.66rem;font-weight:700;letter-spacing:.22em;
+    color:rgba(255,255,255,.75);
+    text-transform:uppercase;
+  }
+  .hero-diag-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 32px;
+    background:linear-gradient(135deg,#c9a55a 0%,#e8c87a 50%,#c9a55a 100%);
+    background-size:200% auto;
+    color:#2d2215;
+    border:none;border-radius:999px;
+    font-size:.92rem;font-weight:800;letter-spacing:.05em;
+    box-shadow:0 6px 28px rgba(179,147,98,.55),0 2px 8px rgba(0,0,0,.15);
+    transition:transform .25s ease,box-shadow .25s ease,background-position .45s ease;
+    position:relative;overflow:hidden;white-space:nowrap;
+    cursor:pointer;
+  }
+  .hero-diag-btn::after{
+    content:"";position:absolute;top:0;left:-85%;width:42%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);
+    transform:skewX(-20deg);
+    animation:diag-shine 3.2s ease-in-out infinite;
+  }
+  .hero-diag-btn:hover{
+    transform:scale(1.06) translateY(-3px);
+    box-shadow:0 12px 36px rgba(179,147,98,.65);
+    background-position:right center;
+  }
+  .hero-diag-btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+  .hero-diag-spark{display:inline-block;animation:spark-twinkle 2.2s ease-in-out infinite;}
+  @keyframes diag-shine{0%{left:-85%}55%{left:135%}100%{left:135%}}
+  @keyframes spark-twinkle{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:.75;}}
+
+  /* ── AI温活診断カードバナー ── */
+  .diag-banner{
+    background:linear-gradient(135deg,#3d5233 0%,#4e6342 45%,#3a4f2e 100%);
+    padding:52px 24px;
+    position:relative;overflow:hidden;
+  }
+  .diag-banner::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 80% at 75% 50%,rgba(200,165,90,.22) 0%,transparent 65%);
+    pointer-events:none;
+  }
+  .diag-banner::after{
+    content:"✦";
+    position:absolute;top:14%;right:5%;font-size:28px;color:rgba(232,200,122,.18);
+    animation:spark-twinkle 3s ease-in-out infinite;
+    pointer-events:none;
+  }
+  .diag-banner-inner{
+    max-width:940px;
+    margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:36px;
+    position:relative;z-index:1;
+  }
+  .diag-banner-content{flex:1;}
+  .diag-banner-tag{
+    display:inline-block;
+    font-size:.68rem;font-weight:700;letter-spacing:.18em;
+    color:#e8c87a;
+    border:1px solid rgba(232,200,122,.4);
+    border-radius:999px;
+    padding:5px 18px;margin-bottom:14px;
+  }
+  .diag-banner-title{
+    font-family:"Shippori Mincho",serif;
+    font-size:clamp(1.3rem,3.2vw,1.85rem);
+    font-weight:700;color:#fff;
+    line-height:1.55;margin-bottom:10px;letter-spacing:.04em;
+  }
+  .diag-banner-desc{
+    font-size:.86rem;color:rgba(255,255,255,.78);line-height:2;
+  }
+  .diag-banner-cta{text-align:center;flex-shrink:0;}
+  .diag-banner-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:17px 34px;
+    background:linear-gradient(135deg,#c9a55a 0%,#e8c87a 50%,#c9a55a 100%);
+    background-size:200% auto;
+    color:#2d2215;
+    border-radius:999px;
+    font-size:.95rem;font-weight:800;letter-spacing:.05em;
+    box-shadow:0 8px 32px rgba(179,147,98,.55);
+    transition:transform .25s ease,box-shadow .25s ease,background-position .45s ease;
+    position:relative;overflow:hidden;white-space:nowrap;
+  }
+  .diag-banner-btn::after{
+    content:"";position:absolute;top:0;left:-85%;width:42%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);
+    transform:skewX(-20deg);
+    animation:diag-shine 3.2s ease-in-out infinite;animation-delay:.6s;
+  }
+  .diag-banner-btn:hover{
+    transform:scale(1.05) translateY(-2px);
+    box-shadow:0 14px 42px rgba(179,147,98,.68);
+    background-position:right center;
+  }
+  .diag-banner-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+  .diag-banner-spark{display:inline-block;animation:spark-twinkle 2.2s ease-in-out infinite;}
+  .diag-banner-note{
+    font-size:.7rem;color:rgba(255,255,255,.55);
+    margin-top:10px;letter-spacing:.04em;
+  }
+  @media(max-width:720px){
+    .diag-banner-inner{flex-direction:column;text-align:center;gap:28px;}
+    .diag-banner-desc{font-size:.82rem;}
+    .diag-banner-btn{width:100%;max-width:320px;}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -1233,9 +1336,11 @@
       </span>
     </div>
     <div class="hero-diag-wrap">
+      <p class="hero-diag-micro">✦ 無料・1分で完了 ✦</p>
       <a class="hero-diag-btn" href="diagnosis.html">
-        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5-9H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg>
-        1分でわかる AI温活チェック
+        <span class="hero-diag-spark">✨</span>
+        AI温活チェックを受ける
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
     <p class="place" style="margin-top:20px;">岐阜県岐南町・羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・羽島市・大垣市からも好アクセス</p>
@@ -1281,7 +1386,26 @@
   </ul>
 </section>
 
-<!-- ①-C 悩みから探す（カテゴリ導線） -->
+<!-- ①-C AI温活診断カードバナー -->
+<section class="diag-banner">
+  <div class="diag-banner-inner">
+    <div class="diag-banner-content">
+      <span class="diag-banner-tag">✨ 無料・1分で完了・登録不要</span>
+      <h2 class="diag-banner-title">あなたの体質タイプを<br>今すぐ診断する</h2>
+      <p class="diag-banner-desc">8つの質問に答えるだけで、看護師MIEが<br>あなたに最適な温活ケアをご提案します。</p>
+    </div>
+    <div class="diag-banner-cta">
+      <a class="diag-banner-btn" href="diagnosis.html">
+        <span class="diag-banner-spark">✨</span>
+        AI温活チェックを受ける
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p class="diag-banner-note">個人情報の入力は不要です</p>
+    </div>
+  </div>
+</section>
+
+<!-- ①-D 悩みから探す（カテゴリ導線） -->
 <section class="concern-nav">
   <div class="wrap">
     <div class="sec-head fade">
