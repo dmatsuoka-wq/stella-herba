@@ -708,21 +708,24 @@
   .empathy{background:linear-gradient(135deg,var(--green-deep) 0%,#4a5c3a 100%);color:#fff;}
   .empathy .sec-head h2{color:#fff;}
   .empathy .sec-head h2::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);}
-  .empathy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;max-width:900px;margin:0 auto 52px;}
-  .emp-item{
+  .emp-cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto 52px;}
+  .emp-cat{
     background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-    border-radius:10px;padding:22px 26px;display:flex;align-items:flex-start;gap:14px;
-    backdrop-filter:blur(4px);transition:.3s;
+    border-radius:14px;padding:30px 28px;backdrop-filter:blur(4px);transition:.3s;
   }
-  .emp-item:hover{background:rgba(255,255,255,.16);}
-  .emp-check{
-    width:26px;height:26px;border-radius:50%;background:var(--gold);
-    display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px;
+  .emp-cat:hover{background:rgba(255,255,255,.15);}
+  .emp-cat-head{
+    display:flex;align-items:center;gap:12px;margin-bottom:18px;
+    padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.15);
   }
-  .emp-check svg{width:14px;height:14px;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
-  .emp-item p{font-size:.92rem;line-height:1.9;color:rgba(255,255,255,.95);letter-spacing:.04em;}
+  .emp-cat-head svg{width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .emp-cat-head span{font-family:"Shippori Mincho",serif;font-size:.88rem;color:#fff;font-weight:500;letter-spacing:.08em;}
+  .emp-cat-items{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .emp-cat-items li{font-size:.86rem;color:rgba(255,255,255,.88);line-height:1.7;letter-spacing:.03em;display:flex;align-items:flex-start;gap:8px;}
+  .emp-cat-items li::before{content:"✓";color:var(--gold);font-size:.78rem;flex:none;margin-top:3px;}
   .emp-cta{text-align:center;}
   .emp-cta p{font-size:1rem;color:rgba(255,255,255,.9);margin-bottom:24px;line-height:2;font-family:"Shippori Mincho",serif;letter-spacing:.08em;}
+  @media(max-width:680px){.emp-cat-grid{grid-template-columns:1fr;}}
 
   /* ③ 看護師プロファイルカード */
   .nurse-profile{background:var(--white);}
@@ -773,16 +776,16 @@
   .timing-guide{background:var(--white);}
   .timing-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto;}
   .timing-panel{border-radius:12px;overflow:hidden;border:1.5px solid rgba(124,140,99,.2);transition:.3s;}
-  .timing-panel.low{border-color:#7ca8c8;}
-  .timing-panel.high{border-color:#c8907c;}
+  .timing-panel.low{border-color:#7ca87e;}
+  .timing-panel.high{border-color:#a07cc8;}
   .timing-panel.period{border-color:#b39362;}
   .timing-head{padding:22px 24px;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none;}
-  .timing-panel.low .timing-head{background:linear-gradient(135deg,#e8f2fa,#d4e8f5);}
-  .timing-panel.high .timing-head{background:linear-gradient(135deg,#faeee8,#f5dbd4);}
+  .timing-panel.low .timing-head{background:linear-gradient(135deg,#eaf3ea,#d7ecd8);}
+  .timing-panel.high .timing-head{background:linear-gradient(135deg,#f2eaf8,#e6d8f4);}
   .timing-panel.period .timing-head{background:linear-gradient(135deg,var(--beige),var(--beige-deep));}
   .timing-dot{width:14px;height:14px;border-radius:50%;flex:none;}
-  .timing-panel.low .timing-dot{background:#7ca8c8;}
-  .timing-panel.high .timing-dot{background:#c8907c;}
+  .timing-panel.low .timing-dot{background:#7ca87e;}
+  .timing-panel.high .timing-dot{background:#a07cc8;}
   .timing-panel.period .timing-dot{background:var(--gold);}
   .timing-head h3{font-size:.95rem;color:var(--green-deep);font-weight:500;letter-spacing:.06em;flex:1;line-height:1.5;}
   .timing-head .timing-phase{font-size:.65rem;color:var(--text-soft);letter-spacing:.1em;display:block;margin-top:3px;}
@@ -1080,37 +1083,65 @@
 <section class="empathy">
   <div class="wrap">
     <div class="sec-head fade">
-      <span class="en">Do You Feel This Way?</span>
+      <span class="en">Your Concerns</span>
       <h2>こんなお悩み、ありませんか？</h2>
     </div>
-    <div class="empathy-grid fade">
-      <div class="emp-item">
-        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <p>妊活中なのに<strong>子宮や下腹部が冷たい</strong>、温まりにくいと感じる</p>
+    <div class="emp-cat-grid fade">
+      <!-- 冷え・巡り -->
+      <div class="emp-cat">
+        <div class="emp-cat-head">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22c-4.4 0-8-3.6-8-8 0-5 3.6-8 8-14 4.4 6 8 9 8 14 0 4.4-3.6 8-8 8z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>冷え・巡りの悩み</span>
+        </div>
+        <ul class="emp-cat-items">
+          <li>手足・下半身がいつも冷たく温まりにくい</li>
+          <li>むくみやすく脚が重だるく感じる</li>
+          <li>血行が悪くなり肌がくすんでいる</li>
+          <li>お腹・腰まわりが特に冷えやすい</li>
+        </ul>
       </div>
-      <div class="emp-item">
-        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <p><strong>排卵前・着床前</strong>によもぎ蒸しを受けていいのか、タイミングが不安</p>
+      <!-- 自律神経・疲労 -->
+      <div class="emp-cat">
+        <div class="emp-cat-head">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>自律神経・疲労の悩み</span>
+        </div>
+        <ul class="emp-cat-items">
+          <li>眠れない・寝ても疲れが取れない</li>
+          <li>慢性的なストレスで体が休まらない</li>
+          <li>頭痛・肩こりが繰り返し続いている</li>
+          <li>気力が湧かずなんとなく不調が続く</li>
+        </ul>
       </div>
-      <div class="emp-item">
-        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <p><strong>生理痛がひどい・周期が乱れている</strong>けれど、何から始めればいいかわからない</p>
+      <!-- 女性ホルモン -->
+      <div class="emp-cat">
+        <div class="emp-cat-head">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-4" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>女性ホルモンの悩み</span>
+        </div>
+        <ul class="emp-cat-items">
+          <li>生理痛がつらく毎月憂鬱になる</li>
+          <li>PMSで気分の波が激しくつらい</li>
+          <li>生理周期が乱れて安定しない</li>
+          <li>更年期のほてり・イライラ・不眠が気になる</li>
+        </ul>
       </div>
-      <div class="emp-item">
-        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <p>妊活のことを話せる、<strong>医療知識のある信頼できるサロン</strong>が岐阜・岐南エリアに見つからない</p>
-      </div>
-      <div class="emp-item">
-        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <p>整体やよもぎ蒸しを<strong>妊活に合わせてカスタマイズ</strong>してほしい</p>
-      </div>
-      <div class="emp-item">
-        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <p>仕事・育児の疲れが溜まり<strong>自律神経が乱れて基礎体温が安定しない</strong></p>
+      <!-- 体質改善・妊活 -->
+      <div class="emp-cat">
+        <div class="emp-cat-head">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke-width="1.5"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke-width="1.5" stroke-linecap="round"/><path d="M12 12v4" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>体質改善・妊活の悩み</span>
+        </div>
+        <ul class="emp-cat-items">
+          <li>子宮の冷えが気になり妊活に不安がある</li>
+          <li>妊娠しやすい体づくりを本格的にしたい</li>
+          <li>基礎体温が安定せず二相性がはっきりしない</li>
+          <li>よもぎ蒸しのタイミングや安全性が気になる</li>
+        </ul>
       </div>
     </div>
     <div class="emp-cta fade">
-      <p>ひとつでも当てはまるなら、Stella Herba に相談してみてください。<br>元救命救急看護師が、あなたの状態に合わせた妊活温活プランをご提案します。</p>
+      <p>ひとつでも当てはまるなら、Stella Herba にご相談ください。<br>元救命救急看護師が、あなたのお悩みと体質に合ったケアプランをご提案します。</p>
       <a class="nk-btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">まずはLINEで無料相談</a>
     </div>
   </div>
@@ -1184,32 +1215,33 @@
   </div>
 </section>
 
-<!-- ⑤ 妊活×よもぎ蒸し タイミング別ガイド -->
+<!-- ⑤ ライフステージ＆お悩みに合わせたよもぎ蒸し活用ガイド -->
 <section class="timing-guide" id="timing-guide">
   <div class="wrap">
     <div class="sec-head fade">
-      <span class="en">Timing Guide</span>
-      <h2>妊活×よもぎ蒸し<br>タイミング別ガイド</h2>
+      <span class="en">Usage Guide</span>
+      <h2>ライフステージ＆お悩みに合わせた<br>「よもぎ蒸し」の活用ガイド</h2>
     </div>
     <div class="timing-tabs fade">
       <div class="timing-panel low">
         <div class="timing-head">
           <div class="timing-dot"></div>
           <div>
-            <h3>低温期（卵胞期）</h3>
-            <span class="timing-phase">生理終了〜排卵前</span>
+            <h3>日常の健康維持・冷え改善</h3>
+            <span class="timing-phase">週1〜月2回のルーティンケア</span>
           </div>
         </div>
         <div class="timing-body">
-          <div class="ok">◎ よもぎ蒸しのおすすめ度：高</div>
+          <div class="ok">◎ こんな方におすすめ</div>
           <ul>
-            <li>子宮内膜を育てる最もよい時期</li>
-            <li>骨盤内の血流促進で着床環境づくり</li>
-            <li>週1〜2回のペースが理想的</li>
+            <li>冷え・むくみが慢性化している</li>
+            <li>疲れが取れず体を根本からリセットしたい</li>
+            <li>巡りを整えて体質改善を目指したい</li>
           </ul>
-          <div class="ng">注意点</div>
+          <div class="ng">おすすめペースと過ごし方</div>
           <ul>
-            <li>過度な熱刺激は控える（適度な温度で）</li>
+            <li>週1〜月2回のペースで継続すると体の変化を実感しやすい</li>
+            <li>施術後は水分補給をたっぷり、ゆっくり休息を</li>
           </ul>
         </div>
       </div>
@@ -1217,20 +1249,20 @@
         <div class="timing-head">
           <div class="timing-dot"></div>
           <div>
-            <h3>高温期（着床前後）</h3>
-            <span class="timing-phase">排卵後〜生理前</span>
+            <h3>生理周期・ホルモンバランスケア</h3>
+            <span class="timing-phase">生理前後のデトックス＆リラックス</span>
           </div>
         </div>
         <div class="timing-body">
-          <div class="ok">△ よもぎ蒸しのおすすめ度：要相談</div>
+          <div class="ok">◎ 周期に合わせた活用ポイント</div>
           <ul>
-            <li>着床直後（排卵後1週間）は刺激を最小限に</li>
-            <li>高温期後半は穏やかな温熱ケアが可能</li>
-            <li>必ず看護師に現在の状況を相談してから</li>
+            <li>生理後（卵胞期）：老廃物の排出・子宮内膜の回復に最適</li>
+            <li>PMS期（生理前1週間）：温熱でホルモンの波をゆるやかに</li>
+            <li>生理痛がつらい方：冷えを温めることで痛みを和らげる効果も</li>
           </ul>
-          <div class="ng">控えるべき場合</div>
+          <div class="ng">注意事項</div>
           <ul>
-            <li>体調不良・出血がある場合は中止</li>
+            <li>生理初日・出血量が多い日は看護師にご相談を</li>
           </ul>
         </div>
       </div>
@@ -1238,20 +1270,20 @@
         <div class="timing-head">
           <div class="timing-dot"></div>
           <div>
-            <h3>生理中</h3>
-            <span class="timing-phase">月経期</span>
+            <h3>妊活・子宮ケア</h3>
+            <span class="timing-phase">排卵前〜着床期の適切なタイミング</span>
           </div>
         </div>
         <div class="timing-body">
-          <div class="ok">○ よもぎ蒸しのおすすめ度：軽度可</div>
+          <div class="ok">◎ タイミングの目安</div>
           <ul>
-            <li>冷えで生理痛が重い方には温熱が助けに</li>
-            <li>出血量・体調を看護師に相談してから判断</li>
-            <li>初日・出血量の多い日は避けるのが無難</li>
+            <li>低温期（排卵前）：子宮内膜を育てる温活に最適</li>
+            <li>排卵後〜着床前：穏やかな温熱ケアで子宮環境を整える</li>
+            <li>月経周期に合わせて看護師がベストタイミングをご提案</li>
           </ul>
-          <div class="ng">注意点</div>
+          <div class="ng">安全な受け方のポイント</div>
           <ul>
-            <li>個人差が大きいため必ず事前にご相談を</li>
+            <li>高温期・着床直後は刺激を最小限に。必ず事前にご相談を</li>
           </ul>
         </div>
       </div>
