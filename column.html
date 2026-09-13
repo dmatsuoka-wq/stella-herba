@@ -741,7 +741,10 @@
     });
   }
 
-  applyFilter();
+  // URLパラメータ（?category=xxx）による初期フィルター
+  var _urlCat = new URLSearchParams(window.location.search).get('category');
+  var _urlPill = _urlCat ? document.querySelector('#catPills [data-cat="' + _urlCat + '"]') : null;
+  if(_urlPill){ _urlPill.click(); } else { applyFilter(); }
 })();
 </script>
 <script src="eyecatch.js" defer></script>

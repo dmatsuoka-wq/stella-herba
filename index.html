@@ -897,6 +897,126 @@
   }
   .float-cta svg{width:20px;height:20px;fill:#fff;}
   @media(max-width:680px){.float-cta{display:block;}}
+
+  /* ── Trust Bar ─────────────────────────── */
+  .trust-bar{
+    background:var(--beige);
+    border-top:1px solid rgba(90,107,74,.14);
+    border-bottom:1px solid rgba(90,107,74,.14);
+    padding:18px 24px;
+  }
+  .trust-badges{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:12px 36px;
+    max-width:960px;
+    margin:0 auto;
+  }
+  .trust-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .trust-badge-icon{
+    width:38px;height:38px;
+    background:var(--green-pale);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    border:1px solid rgba(90,107,74,.18);
+  }
+  .trust-badge-icon svg{
+    width:18px;height:18px;
+    stroke:var(--green-deep);
+    stroke-width:1.6;
+    fill:none;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .trust-badge-text{
+    font-size:.8rem;
+    color:var(--text);
+    line-height:1.45;
+  }
+  .trust-badge-text strong{
+    display:block;
+    font-weight:700;
+    color:var(--green-deep);
+    font-size:.85rem;
+  }
+  @media(max-width:680px){
+    .trust-badges{ gap:12px 16px; }
+    .trust-badge{ flex:0 0 calc(50% - 8px); }
+  }
+
+  /* ── 悩みから探す ─────────────────────── */
+  .concern-nav{
+    padding:72px 24px 80px;
+    background:var(--white);
+  }
+  .concern-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    max-width:960px;
+    margin:36px auto 0;
+  }
+  .concern-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:30px 18px 26px;
+    background:var(--green-pale);
+    border-radius:18px;
+    border:1.5px solid rgba(90,107,74,.12);
+    text-decoration:none;
+    color:var(--text);
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .concern-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 14px 40px rgba(90,107,74,.14);
+    border-color:var(--green);
+  }
+  .concern-card-icon{
+    width:54px;height:54px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+    box-shadow:0 2px 12px rgba(90,107,74,.12);
+  }
+  .concern-card-icon svg{
+    width:26px;height:26px;
+    stroke:var(--green-deep);
+    stroke-width:1.6;
+    fill:none;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .concern-card h3{
+    font-family:"Shippori Mincho",serif;
+    font-size:.88rem;
+    font-weight:700;
+    color:var(--green-deep);
+    line-height:1.65;
+    margin-bottom:10px;
+  }
+  .concern-card p{
+    font-size:.72rem;
+    color:#7a7468;
+    line-height:1.8;
+  }
+  @media(max-width:800px){
+    .concern-cards{ grid-template-columns:repeat(2,1fr);gap:14px; }
+  }
+  @media(max-width:440px){
+    .concern-cards{ gap:10px; }
+    .concern-card{ padding:22px 12px 18px; }
+    .concern-card h3{ font-size:.82rem; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -1087,6 +1207,84 @@
     <p class="place" style="margin-top:28px;">岐阜県岐南町・羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・羽島市・大垣市からも好アクセス</p>
   </div>
   <span class="scroll-hint">SCROLL</span>
+</section>
+
+<!-- ①-B Trust Bar -->
+<section class="trust-bar">
+  <ul class="trust-badges">
+    <li class="trust-badge">
+      <span class="trust-badge-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v3h18V5a2 2 0 0 0-2-2h-4m-6 0h6M9 3V1m6 2V1M3 10h18M12 14v4m-2-2h4"/></svg>
+      </span>
+      <span class="trust-badge-text">
+        <strong>正看護師</strong>救命救急 10年のキャリア
+      </span>
+    </li>
+    <li class="trust-badge">
+      <span class="trust-badge-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+      </span>
+      <span class="trust-badge-text">
+        <strong>岐阜・岐南町</strong>完全個室サロン
+      </span>
+    </li>
+    <li class="trust-badge">
+      <span class="trust-badge-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2c-3 3.5-5 6.5-5 10a5 5 0 0 0 10 0c0-3.5-2-6.5-5-10Z"/></svg>
+      </span>
+      <span class="trust-badge-text">
+        <strong>国産無農薬よもぎ</strong>100%使用
+      </span>
+    </li>
+    <li class="trust-badge">
+      <span class="trust-badge-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l-3 5H5l3.5 4.5L7 18h10l-1.5-6.5L19 7h-4z"/><path d="M12 7v11"/></svg>
+      </span>
+      <span class="trust-badge-text">
+        <strong>ハーブ読み取り®</strong>×オーダーメイド温活
+      </span>
+    </li>
+  </ul>
+</section>
+
+<!-- ①-C 悩みから探す（カテゴリ導線） -->
+<section class="concern-nav">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Find by Concern</span>
+      <h2>悩みから探す</h2>
+    </div>
+    <div class="concern-cards fade">
+      <a class="concern-card" href="column.html?category=onkatsu">
+        <span class="concern-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c-4.4 0-8-3.6-8-8 0-5 3.6-8 8-14 4.4 6 8 9 8 14 0 4.4-3.6 8-8 8z"/></svg>
+        </span>
+        <h3>冷え・血流<br>むくみ</h3>
+        <p>末端冷え症・血行改善・脚のだるさ・よもぎ蒸し温活</p>
+      </a>
+      <a class="concern-card" href="column.html?category=tsubo">
+        <span class="concern-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </span>
+        <h3>疲労・自律神経<br>睡眠</h3>
+        <p>慢性疲労・ストレス・不眠・ツボと東洋医学のアプローチ</p>
+      </a>
+      <a class="concern-card" href="column.html?category=taishitsu">
+        <span class="concern-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z"/><path d="M12 21v-4"/></svg>
+        </span>
+        <h3>女性特有・生理痛<br>PMS</h3>
+        <p>月経痛・周期の乱れ・PMS・更年期・体質改善サポート</p>
+      </a>
+      <a class="concern-card" href="column.html?category=ninkatsu">
+        <span class="concern-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+        </span>
+        <h3>妊活サポート<br>温活周期</h3>
+        <p>着床前ケア・子宮温め・タイミング別よもぎ蒸し活用法</p>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ② 共感セクション（こんなお悩みはありませんか？） -->
