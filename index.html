@@ -1017,6 +1017,32 @@
     .concern-card{ padding:22px 12px 18px; }
     .concern-card h3{ font-size:.82rem; }
   }
+
+  /* ── AI温活チェック ナビ・ヒーローボタン ── */
+  .nav-diag-btn{
+    font-size:.72rem;padding:9px 16px;border-radius:999px;
+    font-weight:700;color:var(--green-deep);
+    background:var(--green-pale);
+    border:1px solid rgba(90,107,74,.2);
+    transition:.22s;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .nav-diag-btn:hover{background:rgba(90,107,74,.16);transform:translateY(-2px);}
+  @media(max-width:768px){.nav-diag-btn{display:none !important;}}
+  .hero-diag-wrap{margin-top:26px;}
+  .hero-diag-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 24px;
+    background:rgba(255,255,255,.14);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    color:#fff;
+    border:1.5px solid rgba(255,255,255,.52);
+    border-radius:999px;
+    font-size:.8rem;font-weight:600;letter-spacing:.05em;
+    transition:.22s;
+  }
+  .hero-diag-btn:hover{background:rgba(255,255,255,.24);transform:translateY(-2px);}
+  .hero-diag-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
 </style>
 <script type="application/ld+json">
 {
@@ -1133,6 +1159,7 @@
     <a href="#faq">よくある質問</a>
   </nav>
   <div class="topbar-right">
+    <a class="nav-diag-btn" href="diagnosis.html">AI温活チェック</a>
     <a class="nav-line-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE予約</a>
     <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="navDrawer">
       <span></span><span></span><span></span>
@@ -1151,6 +1178,7 @@
     <a href="#concept">当サロンのこだわり</a>
     <a href="#timing-guide">妊活・温活ガイド</a>
     <a href="column.html">コラム</a>
+    <a href="diagnosis.html">AI温活チェック</a>
     <a href="#menu">料金・メニュー</a>
     <a href="#faq">よくある質問</a>
   </div>
@@ -1204,7 +1232,13 @@
         国産無農薬よもぎ
       </span>
     </div>
-    <p class="place" style="margin-top:28px;">岐阜県岐南町・羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・羽島市・大垣市からも好アクセス</p>
+    <div class="hero-diag-wrap">
+      <a class="hero-diag-btn" href="diagnosis.html">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5-9H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg>
+        1分でわかる AI温活チェック
+      </a>
+    </div>
+    <p class="place" style="margin-top:20px;">岐阜県岐南町・羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・羽島市・大垣市からも好アクセス</p>
   </div>
   <span class="scroll-hint">SCROLL</span>
 </section>
@@ -2100,6 +2134,7 @@
   <div class="flogo">Stella Herba</div>
   <div>岐阜県羽島郡岐南町の妊活・温活・整体プライベートサロン｜よもぎ蒸しサロン Stella Herba（ステラヘルバ）</div>
   <nav class="fnav">
+    <a href="diagnosis.html">AI温活チェック</a>
     <a href="column.html">コラム一覧</a>
     <a href="gifu-yomogimushi.html">岐阜のよもぎ蒸し</a>
     <a href="herb-reading.html">ハーブ読み取り</a>
