@@ -45,16 +45,32 @@
       body.className = 'col-card-body';
       while (card.firstChild) { body.appendChild(card.firstChild); }
 
+      // カテゴリ・タイトルを取得（body 移動後）
+      var catEl2 = body.querySelector('.cat');
+      var h3El2  = body.querySelector('h3');
+      var catTxt = catEl2 ? catEl2.textContent.replace(/✦/g, '').trim() : '';
+      var h3Txt  = h3El2  ? h3El2.textContent.trim() : '';
+      var dispT  = h3Txt.length > 38 ? h3Txt.slice(0, 37) + '…' : h3Txt;
+      function esc2(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
       // サムネイル div を生成
       var thumb = document.createElement('div');
       thumb.className = 'col-card-thumb';
       var img = document.createElement('img');
       img.src = imgPath;
-      img.alt = (body.querySelector('h3') || {}).textContent || '';
+      img.alt = h3Txt;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.onerror = function () { thumb.style.display = 'none'; };
       thumb.appendChild(img);
+
+      // テキストオーバーレイ（グラデーション帯）
+      var tov = document.createElement('div');
+      tov.className = 'col-thumb-overlay';
+      tov.innerHTML =
+        (catTxt ? '<span class="col-thumb-tag">' + esc2(catTxt) + '</span>' : '') +
+        '<p class="col-thumb-title">' + esc2(dispT) + '</p>';
+      thumb.appendChild(tov);
 
       card.prepend(thumb);
       card.appendChild(body);

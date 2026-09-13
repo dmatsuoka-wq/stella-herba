@@ -325,7 +325,8 @@ footer .copy{opacity:.6;font-size:.72rem;margin-top:12px;}
    ========================================== */
 .col-card.has-thumb{padding:0;overflow:hidden;}
 .col-card-thumb{
-  width:100%;height:152px;overflow:hidden;
+  position:relative;
+  width:100%;height:178px;overflow:hidden;
   background:var(--green-pale);flex-shrink:0;
 }
 .col-card-thumb img{
@@ -333,10 +334,34 @@ footer .copy{opacity:.6;font-size:.72rem;margin-top:12px;}
   transition:transform .4s ease;
 }
 .col-card:hover .col-card-thumb img{transform:scale(1.05);}
+
+/* ── カードサムネイル テキストオーバーレイ ── */
+.col-thumb-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(26,22,14,.78) 0%,rgba(26,22,14,.42) 52%,transparent 100%);
+  padding:18px 12px 10px;
+  pointer-events:none;
+}
+.col-thumb-tag{
+  display:block;font-size:.58rem;font-weight:700;
+  color:rgba(255,240,200,.88);letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:4px;
+  font-family:"Zen Maru Gothic",sans-serif;
+}
+.col-thumb-title{
+  font-family:"Shippori Mincho",serif;
+  font-size:.84rem;font-weight:600;
+  color:#fff;line-height:1.55;margin:0;
+  text-shadow:0 1px 8px rgba(0,0,0,.55);
+}
+
 .col-card-body{
-  padding:14px 16px 16px;
+  padding:10px 14px 14px;
   display:flex;flex-direction:column;flex:1;
 }
+/* has-thumb: タイトル・カテゴリは画像オーバーレイに表示するためカードボディ側は非表示 */
+.col-card.has-thumb .col-card-body .cat{display:none;}
+.col-card.has-thumb .col-card-body h3{display:none;}
 
 /* ==========================================
    アイキャッチ — 記事ページ（Approach A）
@@ -352,10 +377,11 @@ footer .copy{opacity:.6;font-size:.72rem;margin-top:12px;}
 }
 .eyecatch-overlay{
   position:absolute;bottom:20px;left:44px;right:44px;
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  background:rgba(254,251,244,.92);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(124,140,99,.18);
   border-radius:10px;padding:14px 18px;
-  box-shadow:0 4px 20px rgba(0,0,0,.12);
+  box-shadow:0 4px 24px rgba(0,0,0,.16),0 1px 4px rgba(0,0,0,.08);
 }
 .eyecatch-tag{
   display:block;font-size:.68rem;font-weight:700;
