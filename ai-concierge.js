@@ -203,6 +203,7 @@
       'box-shadow:0 24px 80px rgba(0,0,0,.22),0 4px 20px rgba(90,107,74,.18);',
       'z-index:99999;',
       'display:flex;flex-direction:column;overflow:hidden;',
+      'overscroll-behavior:none;touch-action:manipulation;',
       /* 閉じた状態 */
       'transform:translate(-50%,-46%) scale(0.9);',
       'opacity:0;pointer-events:none;',
@@ -266,6 +267,7 @@
       'padding:20px 18px 8px;',
       'display:flex;flex-direction:column;gap:16px;',
       'scroll-behavior:smooth;',
+      'overscroll-behavior:contain;-webkit-overflow-scrolling:touch;',
     '}',
     /* スクロールバーを細くシンプルに */
     '#mie-messages::-webkit-scrollbar{width:4px;}',
@@ -332,7 +334,7 @@
     '#mie-input{',
       'flex:1;border:1.5px solid #c8c2b6;border-radius:24px;',
       'padding:10px 18px;',
-      'font-size:14px;outline:none;',
+      'font-size:16px;outline:none;',
       'font-family:"Zen Maru Gothic",sans-serif;',
       'color:#4a463f;background:#fffdf9;',
       'transition:border-color .15s;min-width:0;',
@@ -370,8 +372,9 @@
     '#mie-messages{padding:16px 14px 6px;}',
     '.mie-bubble{font-size:13.5px;padding:11px 14px;}',
     '#mie-input-area{padding:10px 14px;}',
-    '#mie-input{font-size:13.5px;padding:9px 14px;}',
-    '#mie-send-btn{font-size:13.5px;padding:9px 14px;}',
+    /* font-size:16px → iOSズーム防止（16px未満でフォーカス時に自動ズームが発生する） */
+    '#mie-input{font-size:16px;padding:9px 14px;}',
+    '#mie-send-btn{font-size:14px;padding:9px 14px;}',
 
     '}'
 
