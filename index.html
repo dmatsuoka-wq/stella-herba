@@ -801,11 +801,28 @@
   .timing-head h3{font-size:.95rem;color:var(--green-deep);font-weight:500;letter-spacing:.06em;flex:1;line-height:1.5;}
   .timing-head .timing-phase{font-size:.65rem;color:var(--text-soft);letter-spacing:.1em;display:block;margin-top:3px;}
   .timing-head .arr{font-size:.7rem;color:var(--text-soft);transition:.3s;}
-  .timing-body{padding:22px 24px;background:var(--white);font-size:.88rem;color:var(--text-soft);line-height:2.1;}
-  .timing-body .ok{color:#5a6b4a;font-weight:500;margin-bottom:4px;}
-  .timing-body .ng{color:#b05050;font-weight:500;margin-bottom:4px;margin-top:12px;}
-  .timing-body ul{padding-left:18px;margin-top:6px;}
-  .timing-body ul li{margin-bottom:6px;}
+  .timing-body{padding:18px 20px 20px;background:var(--white);}
+  .tp-label{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:.64rem;font-weight:700;letter-spacing:.08em;
+    border-radius:999px;padding:3px 12px;margin-bottom:8px;
+    white-space:nowrap;
+  }
+  .tp-label.ok{color:#3d6a42;background:rgba(90,107,74,.1);}
+  .tp-label.point{color:#7a6030;background:rgba(179,147,98,.13);margin-top:10px;}
+  .tp-label.warn{color:#935050;background:rgba(176,80,80,.1);margin-top:10px;}
+  .timing-body ul{list-style:none;padding:0;margin:0;}
+  .timing-body ul li{
+    display:flex;align-items:flex-start;gap:7px;
+    font-size:.82rem;line-height:1.55;color:var(--text);
+    padding:4px 0;
+  }
+  .timing-body ul li::before{
+    content:"";flex-shrink:0;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--green);margin-top:6px;
+  }
+  .timing-body ul .warn-item::before{background:#b05050;}
   @media(max-width:680px){
     .timing-tabs{grid-template-columns:1fr;}
   }
@@ -1589,70 +1606,73 @@
       <h2>ライフステージ＆お悩みに合わせた<br>「よもぎ蒸し」の活用ガイド</h2>
     </div>
     <div class="timing-tabs fade">
+
+      <!-- カード1：冷え・疲れ・体質改善 -->
       <div class="timing-panel low">
         <div class="timing-head">
           <div class="timing-dot"></div>
           <div>
-            <h3>日常の健康維持・冷え改善</h3>
-            <span class="timing-phase">週1〜月2回のルーティンケア</span>
+            <h3>冷え・疲れ・体質改善</h3>
+            <span class="timing-phase">週1〜月2回の習慣ケア</span>
           </div>
         </div>
         <div class="timing-body">
-          <div class="ok">◎ こんな方におすすめ</div>
+          <span class="tp-label ok">👤 こんな方に</span>
           <ul>
-            <li>冷え・むくみが慢性化している</li>
-            <li>疲れが取れず体を根本からリセットしたい</li>
-            <li>巡りを整えて体質改善を目指したい</li>
+            <li>慢性的な冷え・むくみがある</li>
+            <li>疲れが抜けずスッキリしたい</li>
           </ul>
-          <div class="ng">おすすめペースと過ごし方</div>
+          <span class="tp-label point">💡 ポイント</span>
           <ul>
-            <li>週1〜月2回のペースで継続すると体の変化を実感しやすい</li>
-            <li>施術後は水分補給をたっぷり、ゆっくり休息を</li>
+            <li>水分補給とゆっくり休息がおすすめ</li>
           </ul>
         </div>
       </div>
+
+      <!-- カード2：女性特有・周期ケア -->
       <div class="timing-panel high">
         <div class="timing-head">
           <div class="timing-dot"></div>
           <div>
-            <h3>生理周期・ホルモンバランスケア</h3>
-            <span class="timing-phase">生理前後のデトックス＆リラックス</span>
+            <h3>生理周期・ホルモンバランス</h3>
+            <span class="timing-phase">時期に合わせたやさしい温活</span>
           </div>
         </div>
         <div class="timing-body">
-          <div class="ok">◎ 周期に合わせた活用ポイント</div>
+          <span class="tp-label ok">📅 時期別ポイント</span>
           <ul>
-            <li>生理後（卵胞期）：老廃物の排出・子宮内膜の回復に最適</li>
-            <li>PMS期（生理前1週間）：温熱でホルモンの波をゆるやかに</li>
-            <li>生理痛がつらい方：冷えを温めることで痛みを和らげる効果も</li>
+            <li>生理後：巡りを促しスッキリ</li>
+            <li>PMS期：温熱でお腹・気分を和らげる</li>
           </ul>
-          <div class="ng">注意事項</div>
+          <span class="tp-label warn">⚠️ 注意</span>
           <ul>
-            <li>生理初日・出血量が多い日は看護師にご相談を</li>
+            <li class="warn-item">出血量が多い日はご相談ください</li>
           </ul>
         </div>
       </div>
+
+      <!-- カード3：妊活・温活タイミング -->
       <div class="timing-panel period">
         <div class="timing-head">
           <div class="timing-dot"></div>
           <div>
-            <h3>妊活・子宮ケア</h3>
-            <span class="timing-phase">排卵前〜着床期の適切なタイミング</span>
+            <h3>妊活・温活タイミング</h3>
+            <span class="timing-phase">周期に応じた最適なサポート</span>
           </div>
         </div>
         <div class="timing-body">
-          <div class="ok">◎ タイミングの目安</div>
+          <span class="tp-label ok">📅 時期別ポイント</span>
           <ul>
-            <li>低温期（排卵前）：子宮内膜を育てる温活に最適</li>
-            <li>排卵後〜着床前：穏やかな温熱ケアで子宮環境を整える</li>
-            <li>月経周期に合わせて看護師がベストタイミングをご提案</li>
+            <li>低温期（排卵前）：身体をじんわり温める</li>
+            <li>高温期（排卵後）：やさしい温熱で整える</li>
           </ul>
-          <div class="ng">安全な受け方のポイント</div>
+          <span class="tp-label warn">⚠️ 注意</span>
           <ul>
-            <li>高温期・着床直後は刺激を最小限に。必ず事前にご相談を</li>
+            <li class="warn-item">タイミングは看護師にご相談を</li>
           </ul>
         </div>
       </div>
+
     </div>
     <p style="text-align:center;margin-top:36px;font-size:.84rem;color:var(--text-soft);line-height:2;">※個人の体質・状態により異なります。必ず看護師にご相談のうえでご利用ください。</p>
   </div>
