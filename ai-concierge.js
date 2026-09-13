@@ -5,8 +5,8 @@
 (function () {
   'use strict';
 
-  var LINE_URL  = 'https://line.me/R/ti/p/@999cqzjr';
-  var ICON_SRC  = '/images/mie-icon.png';
+  var LINE_URL = 'https://line.me/R/ti/p/@999cqzjr';
+  var ICON_SRC = '/mie-icon.png';
 
   /* ── 医療ガードレール ── */
   var MEDICAL_KEYS = [
@@ -77,7 +77,7 @@
     },
     {
       keys: ['むくみ', 'むくんで', 'むくみやすい'],
-      a: 'むくみのお悩みにもよもぎ蒸しが役立ちます。\nリンパ・血液の巡りを温活で整え、<strong>骨盤まわりのむくみを根本からケア</strong>します🌿\nカッピングとの組み合わせも効果的です。\nLINEでお気軽にご相談ください。'
+      a: 'むくみのお悩みにもよもぎ蒸しが役立ちます。\nリンパ・血液の巡りを温活で整え、<strong>骨盤まわりのむくみを根本からケア</strong>します🌿\nカッピングとの組み合わせも効果的です。LINEでお気軽にご相談ください。'
     },
     {
       keys: ['合う', 'おすすめ', 'どれ', '何がいい', '選び方', 'どのコース', '迷って'],
@@ -116,10 +116,10 @@
     'こんにちは！MIE AIコンシェルジュです✨<br>Stella Herbaについてのご質問に24時間お答えします🌿<br>下のボタンを選ぶか、自由に入力してみてください。';
 
   var QUICK_QS = [
-    { label: '初めてです。持ち物は？', q: '初めてですが持ち物は何が必要ですか' },
-    { label: '生理中でも大丈夫？',     q: '生理中でもよもぎ蒸しを受けられますか' },
-    { label: 'ハーブ読み取り®とは？', q: 'ハーブ読み取りとはどんな体験ですか' },
-    { label: '自分に合うメニューは？', q: '自分のお悩みに合うコースはどれですか' }
+    { label: '初めてです。持ち物は？',   q: '初めてですが持ち物は何が必要ですか' },
+    { label: '生理中でも大丈夫？',       q: '生理中でもよもぎ蒸しを受けられますか' },
+    { label: 'ハーブ読み取り®とは？',   q: 'ハーブ読み取りとはどんな体験ですか' },
+    { label: '自分に合うメニューは？',   q: '自分のお悩みに合うコースはどれですか' }
   ];
 
   /* ── 回答検索 ── */
@@ -138,82 +138,92 @@
     return DEFAULT_ANSWER;
   }
 
-  /* ── CSS ── */
+  /* ── CSS ──────────────────────────────────────── */
   var CSS = [
-    /* ── FAB ── */
-    '#mie-fab{position:fixed;right:20px;bottom:110px;z-index:9100;display:flex;flex-direction:column;align-items:flex-end;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;}',
+    /* ─ FAB ─ */
+    /* PC: bottom:240px → promo-pop(bottom:24px+高さ約200px=224px)を完全クリア */
+    '#mie-fab{position:fixed;right:20px;bottom:240px;z-index:9100;display:flex;flex-direction:column;align-items:flex-end;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;}',
     '#mie-fab-bubble{background:#fffdf9;color:#5a6b4a;font-size:12px;font-weight:700;padding:5px 13px;border-radius:20px;box-shadow:0 2px 14px rgba(90,107,74,.22);white-space:nowrap;position:relative;border:1px solid rgba(90,107,74,.2);font-family:"Zen Maru Gothic",sans-serif;letter-spacing:.03em;}',
     '#mie-fab-bubble::after{content:"";position:absolute;bottom:-7px;right:22px;border:4px solid transparent;border-top-color:#fffdf9;}',
-    '#mie-fab-ring{width:62px;height:62px;border-radius:50%;border:3px solid #b39362;box-shadow:0 4px 20px rgba(90,107,74,.32);overflow:hidden;transition:transform .2s cubic-bezier(.34,1.56,.64,1);background:linear-gradient(135deg,#5a6b4a,#7c8c63);display:flex;align-items:center;justify-content:center;flex-shrink:0;}',
+    '#mie-fab-ring{width:64px;height:64px;border-radius:50%;border:3px solid #b39362;box-shadow:0 4px 22px rgba(90,107,74,.32);overflow:hidden;transition:transform .22s cubic-bezier(.34,1.56,.64,1);background:#eef1e6;flex-shrink:0;}',
     '#mie-fab:hover #mie-fab-ring{transform:scale(1.09);}',
-    '#mie-fab-img{width:100%;height:100%;object-fit:cover;border-radius:50%;}',
-    '#mie-fab-fallback{font-family:"Shippori Mincho",serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;display:none;}',
-    /* ── Modal ── */
-    '#mie-modal{position:fixed;right:20px;bottom:188px;width:364px;max-width:calc(100vw - 32px);height:520px;background:#fffdf9;border-radius:20px;box-shadow:0 10px 48px rgba(90,107,74,.2),0 2px 12px rgba(0,0,0,.08);z-index:9099;display:flex;flex-direction:column;overflow:hidden;transform:scale(.88) translateY(20px);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .22s ease;}',
+    '#mie-fab-img{width:64px;height:64px;border-radius:50%;object-fit:cover;display:block;}',
+
+    /* ─ モバイルオーバーレイ（背景幕）─ */
+    '#mie-overlay{display:none;position:fixed;inset:0;background:rgba(20,16,12,.55);z-index:99990;backdrop-filter:blur(2px);}',
+    '#mie-overlay.mie-open{display:block;}',
+
+    /* ─ Modal ─ */
+    /* PC: FAB(bottom:240px+高さ94px=334px)の上に配置 */
+    '#mie-modal{position:fixed;right:20px;bottom:316px;width:364px;max-width:calc(100vw - 40px);height:min(500px,calc(100dvh - 340px));background:#fffdf9;border-radius:20px;box-shadow:0 10px 48px rgba(90,107,74,.2),0 2px 12px rgba(0,0,0,.08);z-index:9100;display:flex;flex-direction:column;overflow:hidden;transform:scale(.88) translateY(20px);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .22s ease;}',
     '#mie-modal.mie-open{transform:scale(1) translateY(0);opacity:1;pointer-events:auto;}',
-    /* ── Modal header ── */
+
+    /* ─ Modal header ─ */
     '#mie-modal-header{background:#5a6b4a;padding:14px 16px;display:flex;align-items:center;gap:11px;flex-shrink:0;}',
-    '#mie-hdr-ring{width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,255,255,.5);overflow:hidden;background:linear-gradient(135deg,#7c8c63,#5a6b4a);display:flex;align-items:center;justify-content:center;flex-shrink:0;}',
-    '#mie-hdr-img{width:100%;height:100%;object-fit:cover;border-radius:50%;}',
-    '#mie-hdr-fallback{font-family:"Shippori Mincho",serif;font-size:13px;font-weight:700;color:#fff;display:none;}',
+    '#mie-hdr-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.5);flex-shrink:0;display:block;}',
     '.mie-title-wrap{flex:1;min-width:0;}',
     '.mie-title-main{color:#fff;font-size:13.5px;font-weight:700;font-family:"Shippori Mincho",serif;line-height:1.3;}',
     '.mie-title-sub{color:rgba(255,255,255,.72);font-size:10.5px;margin-top:3px;font-family:"Zen Maru Gothic",sans-serif;line-height:1.45;}',
     '#mie-close-btn{background:rgba(255,255,255,.16);border:none;color:#fff;font-size:18px;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;padding:0;line-height:1;}',
     '#mie-close-btn:hover{background:rgba(255,255,255,.3);}',
-    /* ── LINE band ── */
+
+    /* ─ LINE band ─ */
     '#mie-line-band{background:#f0faf2;border-bottom:1px solid #c8e6c8;padding:9px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0;}',
     '#mie-line-band a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#06C755;font-size:12.5px;font-weight:700;font-family:"Zen Maru Gothic",sans-serif;flex:1;line-height:1.2;}',
     '.mie-line-note{font-size:10.5px;color:#999;font-family:"Zen Maru Gothic",sans-serif;white-space:nowrap;flex-shrink:0;}',
-    /* ── Messages ── */
+
+    /* ─ Messages ─ */
     '#mie-messages{flex:1;overflow-y:auto;padding:14px 12px 4px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;}',
     '.mie-msg{display:flex;gap:8px;max-width:94%;}',
     '.mie-msg.mie-user{align-self:flex-end;flex-direction:row-reverse;}',
-    '.mie-avatar-ring{width:32px;height:32px;border-radius:50%;border:1.5px solid #b39362;overflow:hidden;background:linear-gradient(135deg,#5a6b4a,#7c8c63);display:flex;align-items:center;justify-content:center;flex-shrink:0;}',
-    '.mie-avatar-img{width:100%;height:100%;object-fit:cover;border-radius:50%;}',
-    '.mie-avatar-fallback{font-family:"Shippori Mincho",serif;font-size:9px;font-weight:700;color:#fff;display:none;}',
+    '.mie-msg-icon{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid #b39362;flex-shrink:0;display:block;}',
     '.mie-bubble{background:#eef1e6;color:#4a463f;padding:10px 13px;border-radius:4px 14px 14px 14px;font-size:12.5px;line-height:1.7;font-family:"Zen Maru Gothic",sans-serif;word-break:break-word;}',
     '.mie-msg.mie-user .mie-bubble{background:#5a6b4a;color:#fff;border-radius:14px 4px 14px 14px;}',
-    /* ── Typing ── */
+
+    /* ─ Typing ─ */
     '.mie-typing-wrap{padding:10px 13px;display:flex;gap:5px;align-items:center;}',
     '.mie-dot{width:6px;height:6px;border-radius:50%;background:#7c8c63;animation:mieDot 1.2s infinite;}',
     '.mie-dot:nth-child(2){animation-delay:.2s;}',
     '.mie-dot:nth-child(3){animation-delay:.4s;}',
     '@keyframes mieDot{0%,80%,100%{transform:scale(.45);opacity:.4;}40%{transform:scale(1);opacity:1;}}',
-    /* ── Quick Q chips ── */
+
+    /* ─ Quick Q chips ─ */
     '#mie-quick{padding:2px 12px 10px;display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0;}',
     '.mie-chip{background:#fff;border:1.5px solid #7c8c63;color:#5a6b4a;border-radius:20px;padding:6px 12px;font-size:11.5px;font-weight:700;cursor:pointer;transition:background .15s,color .15s;font-family:"Zen Maru Gothic",sans-serif;white-space:nowrap;}',
     '.mie-chip:hover{background:#5a6b4a;color:#fff;border-color:#5a6b4a;}',
-    /* ── Input ── */
+
+    /* ─ Input ─ */
     '#mie-input-area{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #e0dbd2;background:#fff;flex-shrink:0;}',
     '#mie-input{flex:1;border:1.5px solid #c8c2b6;border-radius:20px;padding:8px 14px;font-size:12.5px;outline:none;font-family:"Zen Maru Gothic",sans-serif;color:#4a463f;background:#fffdf9;transition:border-color .15s;min-width:0;}',
     '#mie-input:focus{border-color:#7c8c63;}',
     '#mie-send-btn{background:#5a6b4a;color:#fff;border:none;border-radius:20px;padding:8px 14px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:"Zen Maru Gothic",sans-serif;transition:background .15s;white-space:nowrap;flex-shrink:0;}',
     '#mie-send-btn:hover{background:#7c8c63;}',
-    /* ── Mobile ── */
+
+    /* ─ スマホ: ボトムシート型 ─ */
     '@media(max-width:680px){',
+    /* FAB: floatbar(height≈65px)の上 */
     '#mie-fab{right:14px;bottom:82px;}',
-    '#mie-modal{right:8px;bottom:150px;width:calc(100vw - 16px);height:420px;}',
+    '#mie-fab-ring{width:56px;height:56px;}',
+    '#mie-fab-img{width:56px;height:56px;}',
+    /* モーダル: 全幅ボトムシート（後ろの要素を完全に覆う） */
+    '#mie-modal{right:0;left:0;bottom:0;width:100%;max-width:100%;height:88dvh;max-height:88dvh;border-radius:20px 20px 0 0;z-index:99999;transform:translateY(40px) scale(1);opacity:0;}',
+    '#mie-modal.mie-open{transform:translateY(0) scale(1);opacity:1;}',
+    /* オーバーレイはスマホのみ */
+    '#mie-overlay{display:none;}',
+    '#mie-overlay.mie-open{display:block;z-index:99990;}',
     '}'
   ].join('');
-
-  /* ── アイコンHTML ── */
-  function iconHTML(imgId, fallbackId, fallbackText) {
-    var ringId = imgId + '-ring';
-    return (
-      '<div id="' + ringId + '" class="mie-avatar-ring">' +
-        '<img id="' + imgId + '" class="mie-avatar-img" src="' + ICON_SRC + '" alt="MIE"' +
-          ' onerror="this.style.display=\'none\';document.getElementById(\'' + fallbackId + '\').style.display=\'block\';">' +
-        '<span id="' + fallbackId + '" class="mie-avatar-fallback">' + fallbackText + '</span>' +
-      '</div>'
-    );
-  }
 
   /* ── DOM 構築 ── */
   function buildDOM() {
     var st = document.createElement('style');
     st.textContent = CSS;
     document.head.appendChild(st);
+
+    /* オーバーレイ（スマホ用） */
+    var overlay = document.createElement('div');
+    overlay.id = 'mie-overlay';
+    document.body.appendChild(overlay);
 
     /* FAB */
     var fab = document.createElement('div');
@@ -224,9 +234,7 @@
     fab.innerHTML =
       '<div id="mie-fab-bubble">MIE AIに質問✨</div>' +
       '<div id="mie-fab-ring">' +
-        '<img id="mie-fab-img" class="mie-fab-img" src="' + ICON_SRC + '" alt="MIE"' +
-          ' onerror="this.style.display=\'none\';document.getElementById(\'mie-fab-fallback\').style.display=\'block\';">' +
-        '<span id="mie-fab-fallback">MIE</span>' +
+        '<img id="mie-fab-img" src="' + ICON_SRC + '" alt="MIEアイコン">' +
       '</div>';
 
     /* Modal */
@@ -238,11 +246,7 @@
     modal.innerHTML =
       /* header */
       '<div id="mie-modal-header">' +
-        '<div id="mie-hdr-ring">' +
-          '<img id="mie-hdr-img" src="' + ICON_SRC + '" alt="MIE"' +
-            ' onerror="this.style.display=\'none\';document.getElementById(\'mie-hdr-fallback\').style.display=\'block\';">' +
-          '<span id="mie-hdr-fallback">MIE</span>' +
-        '</div>' +
+        '<img id="mie-hdr-img" src="' + ICON_SRC + '" alt="MIEアイコン">' +
         '<div class="mie-title-wrap">' +
           '<div class="mie-title-main">MIE AIコンシェルジュ</div>' +
           '<div class="mie-title-sub">24時間受付中｜看護師MIEの知識を反映したAIです</div>' +
@@ -277,11 +281,17 @@
 
   function $ (id) { return document.getElementById(id); }
 
+  function isMobile() { return window.innerWidth <= 680; }
+
   function openModal() {
     chatOpen = true;
     var m = $('mie-modal');
     m.classList.add('mie-open');
     m.setAttribute('aria-hidden', 'false');
+    if (isMobile()) {
+      $('mie-overlay').classList.add('mie-open');
+      document.body.style.overflow = 'hidden';
+    }
     $('mie-fab').setAttribute('aria-label', 'MIE AIコンシェルジュを閉じる');
     setTimeout(function () { var inp = $('mie-input'); if (inp) inp.focus(); }, 300);
   }
@@ -291,22 +301,14 @@
     var m = $('mie-modal');
     m.classList.remove('mie-open');
     m.setAttribute('aria-hidden', 'true');
+    $('mie-overlay').classList.remove('mie-open');
+    document.body.style.overflow = '';
     $('mie-fab').setAttribute('aria-label', 'MIE AIコンシェルジュを開く');
   }
 
   function scrollDown() {
     var msgs = $('mie-messages');
     if (msgs) msgs.scrollTop = msgs.scrollHeight;
-  }
-
-  function avatarHTML(idx) {
-    return (
-      '<div class="mie-avatar-ring">' +
-        '<img class="mie-avatar-img" src="' + ICON_SRC + '" alt="MIE"' +
-          ' onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\';">' +
-        '<span class="mie-avatar-fallback" style="display:none">M</span>' +
-      '</div>'
-    );
   }
 
   function addMsg(html, isUser) {
@@ -317,7 +319,9 @@
     if (isUser) {
       div.innerHTML = '<div class="mie-bubble">' + escHtml(html) + '</div>';
     } else {
-      div.innerHTML = avatarHTML() + '<div class="mie-bubble">' + html.replace(/\n/g, '<br>') + '</div>';
+      div.innerHTML =
+        '<img class="mie-msg-icon" src="' + ICON_SRC + '" alt="MIE">' +
+        '<div class="mie-bubble">' + html.replace(/\n/g, '<br>') + '</div>';
     }
     msgs.appendChild(div);
     scrollDown();
@@ -333,7 +337,9 @@
     var div = document.createElement('div');
     div.className = 'mie-msg';
     div.id = 'mie-typing';
-    div.innerHTML = avatarHTML() + '<div class="mie-bubble"><div class="mie-typing-wrap"><span class="mie-dot"></span><span class="mie-dot"></span><span class="mie-dot"></span></div></div>';
+    div.innerHTML =
+      '<img class="mie-msg-icon" src="' + ICON_SRC + '" alt="MIE">' +
+      '<div class="mie-bubble"><div class="mie-typing-wrap"><span class="mie-dot"></span><span class="mie-dot"></span><span class="mie-dot"></span></div></div>';
     msgs.appendChild(div);
     scrollDown();
   }
@@ -383,7 +389,7 @@
       });
     }
 
-    /* FAB */
+    /* FAB クリック */
     var fab = $('mie-fab');
     fab.addEventListener('click', function () { chatOpen ? closeModal() : openModal(); });
     fab.addEventListener('keydown', function (e) {
@@ -393,6 +399,9 @@
     /* 閉じるボタン */
     $('mie-close-btn').addEventListener('click', closeModal);
 
+    /* オーバーレイクリックで閉じる（スマホ） */
+    $('mie-overlay').addEventListener('click', closeModal);
+
     /* 送信 */
     $('mie-send-btn').addEventListener('click', function () { handleSend($('mie-input').value); });
     $('mie-input').addEventListener('keydown', function (e) { if (e.key === 'Enter') handleSend(e.target.value); });
@@ -401,7 +410,6 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && chatOpen) closeModal(); });
   }
 
-  /* DOMContentLoaded 待機 */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
