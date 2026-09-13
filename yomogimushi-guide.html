@@ -164,40 +164,6 @@
     .cta-band h2{font-size:1.15rem;}
     .related a{font-size:.88rem;}
   }
-
-  /* スクロール連動ポップアップ */
-  .promo-pop{
-    position:fixed;right:18px;bottom:24px;z-index:70;max-width:300px;
-    background:var(--white);border:1px solid var(--pink);border-radius:18px;
-    box-shadow:0 18px 50px rgba(90,107,74,.28);padding:24px 22px 20px;
-    opacity:0;transform:translateY(26px) scale(.95);pointer-events:none;
-    transition:opacity .5s ease,transform .6s cubic-bezier(.16,.7,.3,1.25);
-  }
-  .promo-pop.show{opacity:1;transform:none;pointer-events:auto;}
-  .promo-pop .pp-close{position:absolute;top:8px;right:10px;border:none;background:none;color:var(--text-soft);font-size:1.1rem;cursor:pointer;line-height:1;padding:6px;}
-  .promo-pop .pp-title{font-family:"Shippori Mincho",serif;color:var(--green-deep);font-size:.95rem;line-height:1.8;font-weight:600;}
-  .promo-pop .pp-price{font-family:"Shippori Mincho",serif;color:var(--brown);font-size:1.35rem;margin:6px 0 14px;line-height:1.4;}
-  .promo-pop .pp-price small{font-size:.72rem;color:var(--text-soft);font-family:"Zen Maru Gothic",sans-serif;display:block;margin-top:4px;text-wrap:balance;}
-  .promo-pop .pp-btn{
-    display:block;text-align:center;background:#06C755;color:#fff;border-radius:999px;
-    padding:13px;font-size:.86rem;font-weight:700;letter-spacing:.06em;
-    position:relative;overflow:hidden;transition:.25s;
-  }
-  .promo-pop .pp-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
-  .promo-pop .pp-btn::after{
-    content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;
-    background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);
-    transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite;
-  }
-  @media(max-width:680px){
-    .promo-pop{right:12px;max-width:235px;padding:20px 18px 16px;bottom:calc(86px + env(safe-area-inset-bottom,0px));}
-    .promo-pop .pp-title{font-size:.86rem;}
-    .promo-pop .pp-price{font-size:1.2rem;}
-    .promo-pop .pp-btn{padding:11px;font-size:.8rem;}
-  }
-  @media(prefers-reduced-motion:reduce){
-    .promo-pop .pp-btn::after{animation:none !important;}
-  }
 </style>
 </head>
 <body>
@@ -320,25 +286,6 @@
   <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEで相談</a>
 </div>
 
-<!-- スクロール連動ポップアップ -->
-<aside class="promo-pop" id="promoPop" aria-label="初回お試しキャンペーンのご案内">
-  <button class="pp-close" id="ppClose" aria-label="閉じる">×</button>
-  <p class="pp-title">はじめての方限定<br>初回お試しコース</p>
-  <p class="pp-price">¥3,500 <small>／ 約60分・足湯＆ドリンク付き</small></p>
-  <a class="pp-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEでかんたん予約</a>
-</aside>
-
-<script>
-  const pop = document.getElementById('promoPop');
-  const ppClose = document.getElementById('ppClose');
-  let popDone = false;
-  addEventListener('scroll', ()=>{
-    if(popDone || !pop) return;
-    const progress = scrollY / (document.documentElement.scrollHeight - innerHeight);
-    if(progress > 0.4){ popDone = true; pop.classList.add('show'); }
-  }, {passive:true});
-  if(ppClose) ppClose.addEventListener('click', ()=>pop.classList.remove('show'));
-</script>
 
 <script src="eyecatch.js" defer></script>
 <script src="ai-concierge.js" defer></script>

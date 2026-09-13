@@ -144,9 +144,8 @@
   var CSS = [
 
     /* ── フローティングボタン（FAB）── */
-    /* PC: bottom:240px で promo-pop(≈224px) を完全クリア */
     '#mie-fab{',
-      'position:fixed;right:24px;bottom:240px;z-index:9100;',
+      'position:fixed;right:24px;bottom:25px;z-index:9100;',
       'display:flex;flex-direction:column;align-items:flex-end;gap:10px;',
       'cursor:pointer;-webkit-tap-highlight-color:transparent;',
     '}',

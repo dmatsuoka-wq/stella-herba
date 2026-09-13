@@ -165,23 +165,7 @@
   <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEで相談</a>
 </div>
 
-<aside class="promo-pop" id="promoPop" aria-label="初回お試しキャンペーンのご案内">
-  <button class="pp-close" id="ppClose" aria-label="閉じる">×</button>
-  <p class="pp-title">はじめての方限定<br>初回お試しコース</p>
-  <p class="pp-price">¥3,500 <small>／ 約60分・足湯＆ドリンク付き</small></p>
-  <a class="pp-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEでかんたん予約</a>
-</aside>
 
-<script>
-  const pop=document.getElementById('promoPop'),ppClose=document.getElementById('ppClose');
-  let popDone=false;
-  addEventListener('scroll',()=>{
-    if(popDone||!pop)return;
-    const p=scrollY/(document.documentElement.scrollHeight-innerHeight);
-    if(p>0.4){popDone=true;pop.classList.add('show');}
-  },{passive:true});
-  if(ppClose)ppClose.addEventListener('click',()=>pop.classList.remove('show'));
-</script>
 
 <script src="eyecatch.js" defer></script>
 <script src="ai-concierge.js" defer></script>
