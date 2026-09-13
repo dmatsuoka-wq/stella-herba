@@ -661,6 +661,40 @@
     .nk-cta-band{padding:42px 22px;}
   }
 
+  /* GLOBAL NAVIGATION */
+  .main-nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;padding:0 16px;}
+  .main-nav a{font-size:.76rem;color:var(--text-soft);font-weight:500;padding:8px 11px;border-radius:8px;white-space:nowrap;letter-spacing:.04em;transition:.2s;}
+  .main-nav a:hover,.main-nav a.current{color:var(--green-deep);background:var(--green-pale);}
+  .topbar-right{display:flex;align-items:center;gap:8px;flex:none;}
+  .nav-line-btn{font-size:.76rem;padding:10px 18px;border-radius:999px;font-weight:600;color:#fff;background:#06C755;transition:.25s;white-space:nowrap;}
+  .nav-line-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;border:none;background:none;cursor:pointer;padding:6px;border-radius:8px;transition:.2s;}
+  .hamburger:hover{background:var(--green-pale);}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--green-deep);border-radius:2px;transition:.3s ease;transform-origin:center;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-overlay{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(2px);}
+  .nav-overlay.show{opacity:1;pointer-events:auto;}
+  .nav-drawer{position:fixed;top:0;right:-320px;width:300px;height:100%;z-index:100;background:var(--white);padding:80px 32px 40px;display:flex;flex-direction:column;transition:right .35s cubic-bezier(.16,.7,.3,1.1);box-shadow:-10px 0 40px rgba(0,0,0,.12);overflow-y:auto;}
+  .nav-drawer.open{right:0;}
+  .drawer-close{position:absolute;top:18px;right:18px;font-size:1.2rem;border:none;background:none;cursor:pointer;color:var(--text-soft);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .drawer-close:hover{background:var(--green-pale);color:var(--green-deep);}
+  .drawer-logo{display:flex;align-items:center;gap:10px;margin-bottom:32px;font-family:"Shippori Mincho",serif;font-weight:700;color:var(--green-deep);font-size:.95rem;}
+  .drawer-logo img{width:36px;height:36px;border-radius:8px;}
+  .drawer-links{display:flex;flex-direction:column;gap:0;margin-bottom:32px;}
+  .drawer-links a{font-size:.95rem;color:var(--text);font-weight:500;padding:17px 12px;border-bottom:1px solid rgba(124,140,99,.12);letter-spacing:.04em;transition:.2s;display:flex;align-items:center;justify-content:space-between;}
+  .drawer-links a::after{content:"›";font-size:1.1rem;color:var(--green-light);}
+  .drawer-links a:hover{color:var(--green-deep);background:var(--green-pale);padding-left:18px;}
+  .drawer-line-btn{display:block;text-align:center;background:#06C755;color:#fff;padding:16px;border-radius:999px;font-weight:700;font-size:.9rem;letter-spacing:.06em;margin-top:auto;transition:.25s;box-shadow:0 4px 18px rgba(6,199,85,.3);}
+  .drawer-line-btn:hover{transform:translateY(-2px);}
+  @media(max-width:768px){
+    .main-nav{display:none !important;}
+    .hamburger{display:flex !important;}
+    .nav-line-btn{display:none !important;}
+    .top-cta .btn-hp{display:none;}
+  }
+
   /* ① Hero バッジ強調ピル */
   .hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
   .hero-badge{
@@ -958,11 +992,42 @@
     <img src="logo.png" alt="Stella Herba ロゴ">
     <span class="logo-tx">Stella Herba<small>ステラ ヘルバ</small></span>
   </div>
-  <nav class="top-cta">
-    <a class="btn-hp" href="#contact">ご予約<span class="label-long">・お問い合わせ</span></a>
-    <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE<span class="label-long">で相談</span></a>
+  <nav class="main-nav" id="mainNav" aria-label="メインナビゲーション">
+    <a href="index.html" class="current">ホーム</a>
+    <a href="#concept">当サロンのこだわり</a>
+    <a href="#timing-guide">妊活・温活ガイド</a>
+    <a href="column.html">コラム</a>
+    <a href="#menu">料金・メニュー</a>
+    <a href="#faq">よくある質問</a>
   </nav>
+  <div class="topbar-right">
+    <a class="btn-hp" href="#contact">ご予約</a>
+    <a class="nav-line-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE予約</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="navDrawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+<nav class="nav-drawer" id="navDrawer" aria-label="ドロワーメニュー" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">✕</button>
+  <div class="drawer-logo">
+    <img src="logo.png" alt="Stella Herba">
+    <span>Stella Herba</span>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html">ホーム</a>
+    <a href="#concept">当サロンのこだわり</a>
+    <a href="#timing-guide">妊活・温活ガイド</a>
+    <a href="column.html">コラム</a>
+    <a href="#menu">料金・メニュー</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#contact">ご予約・お問い合わせ</a>
+  </div>
+  <a class="drawer-line-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
+    【公式LINE】ご予約・ご相談
+  </a>
+</nav>
 
 <main>
 <!-- メインビジュアル -->
@@ -1081,7 +1146,7 @@
 </section>
 
 <!-- ④ 当サロンが選ばれる5つのこだわり -->
-<section class="kodawari">
+<section class="kodawari" id="concept">
   <div class="wrap">
     <div class="sec-head fade">
       <span class="en">Our Commitment</span>
@@ -1123,7 +1188,7 @@
 </section>
 
 <!-- ⑤ 妊活×よもぎ蒸し タイミング別ガイド -->
-<section class="timing-guide">
+<section class="timing-guide" id="timing-guide">
   <div class="wrap">
     <div class="sec-head fade">
       <span class="en">Timing Guide</span>
@@ -1360,7 +1425,7 @@
 </section>
 
 <!-- ⑧ メニュー・料金表 -->
-<section class="menu">
+<section class="menu" id="menu">
   <div class="wrap">
     <div class="sec-head fade">
       <span class="en">Menu &amp; Price</span>
@@ -1652,7 +1717,7 @@
 </section>
 
 <!-- ⑨ よくある質問（妊活特化 Q&A） -->
-<section class="faq">
+<section class="faq" id="faq">
   <div class="wrap narrow">
     <div class="sec-head fade">
       <span class="en">FAQ</span>
@@ -1858,6 +1923,36 @@
     if(progress > 0.35){ popDone = true; pop.classList.add('show'); }
   }, {passive:true});
   if(ppClose) ppClose.addEventListener('click', ()=>pop.classList.remove('show'));
+
+  // ===== ハンバーガーナビゲーション =====
+  (function(){
+    const ham = document.getElementById('hamburgerBtn');
+    const drawer = document.getElementById('navDrawer');
+    const overlay = document.getElementById('navOverlay');
+    const closeBtn = document.getElementById('drawerClose');
+    if(!ham) return;
+    function openDrawer(){
+      drawer.classList.add('open');
+      overlay.classList.add('show');
+      ham.classList.add('open');
+      ham.setAttribute('aria-expanded','true');
+      drawer.removeAttribute('aria-hidden');
+      document.body.style.overflow='hidden';
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      overlay.classList.remove('show');
+      ham.classList.remove('open');
+      ham.setAttribute('aria-expanded','false');
+      drawer.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+    ham.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeDrawer));
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDrawer(); });
+  })();
 </script>
 </body>
 </html>

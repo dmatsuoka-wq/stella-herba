@@ -49,15 +49,46 @@
 <body>
 
 <header class="topbar">
-  <a class="logo" href="index.html">
+  <div class="logo">
     <img src="logo.png" alt="Stella Herba ロゴ">
-    <span>Stella Herba</span>
-  </a>
-  <nav class="top-cta">
-    <a class="btn-hp" href="index.html#contact">ご予約<span class="label-long">・お問い合わせ</span></a>
-    <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE<span class="label-long">で相談</span></a>
+    <span class="logo-tx">Stella Herba<small>ステラ ヘルバ</small></span>
+  </div>
+  <nav class="main-nav" id="mainNav" aria-label="メインナビゲーション">
+    <a href="index.html">ホーム</a>
+    <a href="index.html#concept">当サロンのこだわり</a>
+    <a href="index.html#timing-guide">妊活・温活ガイド</a>
+    <a href="column.html" class="current">コラム</a>
+    <a href="index.html#menu">料金・メニュー</a>
+    <a href="index.html#faq">よくある質問</a>
   </nav>
+  <div class="topbar-right">
+    <a class="btn-hp" href="index.html#contact">ご予約</a>
+    <a class="nav-line-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINE予約</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="navDrawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+<nav class="nav-drawer" id="navDrawer" aria-label="ドロワーメニュー" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">✕</button>
+  <div class="drawer-logo">
+    <img src="logo.png" alt="Stella Herba">
+    <span>Stella Herba</span>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html">ホーム</a>
+    <a href="index.html#concept">当サロンのこだわり</a>
+    <a href="index.html#timing-guide">妊活・温活ガイド</a>
+    <a href="column.html" class="current">コラム</a>
+    <a href="index.html#menu">料金・メニュー</a>
+    <a href="index.html#faq">よくある質問</a>
+    <a href="index.html#contact">ご予約・お問い合わせ</a>
+  </div>
+  <a class="drawer-line-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
+    【公式LINE】ご予約・ご相談
+  </a>
+</nav>
 
 <div class="column-hero">
   <span class="en">Column</span>
@@ -74,6 +105,42 @@
 <nav class="breadcrumb" aria-label="パンくずリスト">
   <a href="index.html">ホーム</a><span>›</span>コラム
 </nav>
+
+<div class="filter-area" id="filterArea">
+  <div class="filter-row">
+    <span class="filter-label">カテゴリ</span>
+    <div class="filter-pills" id="catPills">
+      <button class="filter-pill active" data-cat="all">すべて</button>
+      <button class="filter-pill" data-cat="ninkatsu">妊活・子宮ケア</button>
+      <button class="filter-pill" data-cat="tsubo">ツボ・東洋医学</button>
+      <button class="filter-pill" data-cat="onkatsu">温活・よもぎ蒸し</button>
+      <button class="filter-pill" data-cat="taishitsu">体質診断・ハーブ</button>
+      <button class="filter-pill" data-cat="gifu">岐阜・岐南町</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">キーワード</span>
+    <div class="filter-pills" id="kwPills">
+      <button class="filter-pill" data-kw="むくみ">むくみ</button>
+      <button class="filter-pill" data-kw="冷え性">冷え性</button>
+      <button class="filter-pill" data-kw="着床前">着床前</button>
+      <button class="filter-pill" data-kw="排卵前">排卵前</button>
+      <button class="filter-pill" data-kw="肩こり">肩こり</button>
+      <button class="filter-pill" data-kw="自律神経">自律神経</button>
+      <button class="filter-pill" data-kw="生理痛">生理痛</button>
+      <button class="filter-pill" data-kw="PMS">PMS</button>
+      <button class="filter-pill" data-kw="胃腸">胃腸</button>
+      <button class="filter-pill" data-kw="頭痛">頭痛</button>
+      <button class="filter-pill" data-kw="更年期">更年期</button>
+      <button class="filter-pill" data-kw="整体">整体</button>
+      <button class="filter-pill" data-kw="看護師解説">看護師解説</button>
+    </div>
+  </div>
+  <div class="filter-status">
+    <span>表示中：<strong id="filter-count">51</strong> 件</span>
+    <button id="filterReset" style="display:none;font-size:.78rem;color:var(--green-deep);background:none;border:none;cursor:pointer;text-decoration:underline;padding:0;">絞り込みをリセット</button>
+  </div>
+</div>
 
 <main>
 <div class="col-wrap">
@@ -526,5 +593,159 @@
   <a class="btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">LINEで相談</a>
 </div>
 
+<script>
+// ===== ハンバーガーナビゲーション =====
+(function(){
+  const ham = document.getElementById('hamburgerBtn');
+  const drawer = document.getElementById('navDrawer');
+  const overlay = document.getElementById('navOverlay');
+  const closeBtn = document.getElementById('drawerClose');
+  if(!ham) return;
+  function openDrawer(){
+    drawer.classList.add('open');
+    overlay.classList.add('show');
+    ham.classList.add('open');
+    ham.setAttribute('aria-expanded','true');
+    drawer.removeAttribute('aria-hidden');
+    document.body.style.overflow='hidden';
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    overlay.classList.remove('show');
+    ham.classList.remove('open');
+    ham.setAttribute('aria-expanded','false');
+    drawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  ham.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDrawer(); });
+})();
+
+// ===== カテゴリ・キーワード絞り込みフィルター =====
+(function(){
+  // カテゴリ判定（URLパターンから）
+  var CAT_RULES = [
+    {pat:/taishitsu|herb-yomogi|herb_|taishitsu-detox|taishitsu-seasonal/, cat:'taishitsu'},
+    {pat:/tsubo|meguri|oketsu-toyo/, cat:'tsubo'},
+    {pat:/ninkatsu|sanko|konenki|seiri|chikyu|menopause|pair|ninkatsu-shikyu|ninkatsu-kisotaion|ninkatsu-male|ninkatsu-herb|ninkatsu-stress/, cat:'ninkatsu'},
+    {pat:/kikan|nurse|gifu|deskwork|stellaherba|sango|yomogimushi-guide|herb-reading/, cat:'gifu'},
+  ];
+
+  // キーワード同義語マップ
+  var KW_MAP = {
+    'むくみ':     ['むくみ','浮腫','水滞','水分'],
+    '冷え性':     ['冷え','冷え性','温め','温活','底冷え'],
+    '着床前':     ['着床','着床前','子宮'],
+    '排卵前':     ['排卵','基礎体温','周期'],
+    '肩こり':     ['肩こり','肩','肩井'],
+    '自律神経':   ['自律神経','ストレス','不眠','睡眠'],
+    'PMS':        ['PMS','生理前','月経前'],
+    '生理痛':     ['生理痛','月経痛','痛み','生理'],
+    '胃腸':       ['胃腸','消化','足三里','脾胃'],
+    '頭痛':       ['頭痛','眼精疲労','目の疲れ','合谷'],
+    '更年期':     ['更年期','ホットフラッシュ','閉経'],
+    '整体':       ['整体','看護師','予防'],
+    '看護師解説': ['看護師','救命救急','正看護師'],
+  };
+
+  var cards = Array.from(document.querySelectorAll('.col-card'));
+  var groups = Array.from(document.querySelectorAll('.col-group'));
+  var countEl = document.getElementById('filter-count');
+  var resetBtn = document.getElementById('filterReset');
+
+  var activeCat = 'all';
+  var activeKw = null;
+
+  function getCardCat(card){
+    var href = card.getAttribute('href') || '';
+    for(var i=0; i<CAT_RULES.length; i++){
+      if(CAT_RULES[i].pat.test(href)) return CAT_RULES[i].cat;
+    }
+    return 'onkatsu';
+  }
+
+  function cardMatchesKw(card, kw){
+    if(!kw) return true;
+    var text = card.textContent || '';
+    var synonyms = KW_MAP[kw] || [kw];
+    for(var i=0; i<synonyms.length; i++){
+      if(text.indexOf(synonyms[i]) !== -1) return true;
+    }
+    return false;
+  }
+
+  function applyFilter(){
+    var visible = 0;
+    cards.forEach(function(card){
+      var cat = getCardCat(card);
+      var catOk = (activeCat === 'all' || cat === activeCat);
+      var kwOk = cardMatchesKw(card, activeKw);
+      if(catOk && kwOk){
+        card.classList.remove('f-hidden');
+        card.classList.add('f-visible');
+        visible++;
+      } else {
+        card.classList.add('f-hidden');
+        card.classList.remove('f-visible');
+      }
+    });
+
+    // グループごとに全カード非表示なら非表示
+    groups.forEach(function(grp){
+      var grpCards = grp.querySelectorAll('.col-card');
+      var anyVisible = false;
+      grpCards.forEach(function(c){ if(!c.classList.contains('f-hidden')) anyVisible = true; });
+      if(anyVisible) grp.classList.remove('f-empty');
+      else grp.classList.add('f-empty');
+    });
+
+    if(countEl) countEl.textContent = visible;
+    if(resetBtn) resetBtn.style.display = (activeCat !== 'all' || activeKw) ? 'inline' : 'none';
+  }
+
+  // カテゴリピル
+  document.querySelectorAll('#catPills .filter-pill').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#catPills .filter-pill').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCat = btn.getAttribute('data-cat');
+      applyFilter();
+    });
+  });
+
+  // キーワードピル（トグル）
+  document.querySelectorAll('#kwPills .filter-pill').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var kw = btn.getAttribute('data-kw');
+      if(activeKw === kw){
+        activeKw = null;
+        btn.classList.remove('active');
+      } else {
+        document.querySelectorAll('#kwPills .filter-pill').forEach(function(b){ b.classList.remove('active'); });
+        activeKw = kw;
+        btn.classList.add('active');
+      }
+      applyFilter();
+    });
+  });
+
+  // リセット
+  if(resetBtn){
+    resetBtn.addEventListener('click', function(){
+      activeCat = 'all';
+      activeKw = null;
+      document.querySelectorAll('#catPills .filter-pill').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelector('#catPills [data-cat="all"]').classList.add('active');
+      document.querySelectorAll('#kwPills .filter-pill').forEach(function(b){ b.classList.remove('active'); });
+      applyFilter();
+    });
+  }
+
+  applyFilter();
+})();
+</script>
 </body>
 </html>
