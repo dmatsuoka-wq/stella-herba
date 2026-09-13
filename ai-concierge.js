@@ -138,80 +138,243 @@
     return DEFAULT_ANSWER;
   }
 
-  /* ── CSS ──────────────────────────────────────── */
+  /* ══════════════════════════════════════════════
+     CSS
+  ══════════════════════════════════════════════ */
   var CSS = [
-    /* ─ FAB ─ */
-    /* PC: bottom:240px → promo-pop(bottom:24px+高さ約200px=224px)を完全クリア */
-    '#mie-fab{position:fixed;right:20px;bottom:240px;z-index:9100;display:flex;flex-direction:column;align-items:flex-end;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;}',
-    '#mie-fab-bubble{background:#fffdf9;color:#5a6b4a;font-size:12px;font-weight:700;padding:5px 13px;border-radius:20px;box-shadow:0 2px 14px rgba(90,107,74,.22);white-space:nowrap;position:relative;border:1px solid rgba(90,107,74,.2);font-family:"Zen Maru Gothic",sans-serif;letter-spacing:.03em;}',
-    '#mie-fab-bubble::after{content:"";position:absolute;bottom:-7px;right:22px;border:4px solid transparent;border-top-color:#fffdf9;}',
-    '#mie-fab-ring{width:64px;height:64px;border-radius:50%;border:3px solid #b39362;box-shadow:0 4px 22px rgba(90,107,74,.32);overflow:hidden;transition:transform .22s cubic-bezier(.34,1.56,.64,1);background:#eef1e6;flex-shrink:0;}',
-    '#mie-fab:hover #mie-fab-ring{transform:scale(1.09);}',
-    '#mie-fab-img{width:64px;height:64px;border-radius:50%;object-fit:cover;display:block;}',
 
-    /* ─ モバイルオーバーレイ（背景幕）─ */
-    '#mie-overlay{display:none;position:fixed;inset:0;background:rgba(20,16,12,.55);z-index:99990;backdrop-filter:blur(2px);}',
+    /* ── フローティングボタン（FAB）── */
+    /* PC: bottom:240px で promo-pop(≈224px) を完全クリア */
+    '#mie-fab{',
+      'position:fixed;right:24px;bottom:240px;z-index:9100;',
+      'display:flex;flex-direction:column;align-items:flex-end;gap:10px;',
+      'cursor:pointer;-webkit-tap-highlight-color:transparent;',
+    '}',
+
+    /* 吹き出しラベル */
+    '#mie-fab-bubble{',
+      'background:#fffdf9;color:#5a6b4a;',
+      'font-size:12.5px;font-weight:700;',
+      'padding:6px 14px;border-radius:20px;',
+      'box-shadow:0 3px 16px rgba(90,107,74,.24);',
+      'white-space:nowrap;position:relative;',
+      'border:1px solid rgba(90,107,74,.2);',
+      'font-family:"Zen Maru Gothic",sans-serif;letter-spacing:.03em;',
+    '}',
+    '#mie-fab-bubble::after{',
+      'content:"";position:absolute;bottom:-8px;right:28px;',
+      'border:5px solid transparent;border-top-color:#fffdf9;',
+    '}',
+
+    /* アイコンリング：78px（ひと回り大きく）*/
+    '#mie-fab-ring{',
+      'width:78px;height:78px;border-radius:50%;',
+      'border:3.5px solid #b39362;',
+      'box-shadow:0 6px 28px rgba(90,107,74,.38),0 2px 8px rgba(0,0,0,.12);',
+      'overflow:hidden;',
+      'transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s;',
+      'background:#eef1e6;flex-shrink:0;',
+    '}',
+    '#mie-fab:hover #mie-fab-ring{',
+      'transform:scale(1.08);',
+      'box-shadow:0 10px 36px rgba(90,107,74,.5),0 4px 12px rgba(0,0,0,.14);',
+    '}',
+    '#mie-fab-img{width:78px;height:78px;border-radius:50%;object-fit:cover;display:block;}',
+
+    /* ── 背景オーバーレイ（PC・スマホ共通）── */
+    '#mie-overlay{',
+      'display:none;position:fixed;inset:0;',
+      'background:rgba(20,16,12,.6);',
+      'z-index:99990;',
+      'backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);',
+      'transition:opacity .25s ease;',
+    '}',
     '#mie-overlay.mie-open{display:block;}',
 
-    /* ─ Modal ─ */
-    /* PC: FAB(bottom:240px+高さ94px=334px)の上に配置 */
-    '#mie-modal{position:fixed;right:20px;bottom:316px;width:364px;max-width:calc(100vw - 40px);height:min(500px,calc(100dvh - 340px));background:#fffdf9;border-radius:20px;box-shadow:0 10px 48px rgba(90,107,74,.2),0 2px 12px rgba(0,0,0,.08);z-index:9100;display:flex;flex-direction:column;overflow:hidden;transform:scale(.88) translateY(20px);opacity:0;pointer-events:none;transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .22s ease;}',
-    '#mie-modal.mie-open{transform:scale(1) translateY(0);opacity:1;pointer-events:auto;}',
+    /* ══ チャットモーダル：PC ══ */
+    /* 画面中央配置・大画面ポップアップ */
+    '#mie-modal{',
+      'position:fixed;',
+      'top:50%;left:50%;',
+      'width:min(660px,calc(100vw - 48px));',
+      'height:min(78vh,760px);',
+      'background:#fffdf9;',
+      'border-radius:22px;',
+      'box-shadow:0 24px 80px rgba(0,0,0,.22),0 4px 20px rgba(90,107,74,.18);',
+      'z-index:99999;',
+      'display:flex;flex-direction:column;overflow:hidden;',
+      /* 閉じた状態 */
+      'transform:translate(-50%,-46%) scale(0.9);',
+      'opacity:0;pointer-events:none;',
+      'transition:transform .3s cubic-bezier(.34,1.4,.64,1),opacity .22s ease;',
+    '}',
+    '#mie-modal.mie-open{',
+      'transform:translate(-50%,-50%) scale(1);',
+      'opacity:1;pointer-events:auto;',
+    '}',
 
-    /* ─ Modal header ─ */
-    '#mie-modal-header{background:#5a6b4a;padding:14px 16px;display:flex;align-items:center;gap:11px;flex-shrink:0;}',
-    '#mie-hdr-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.5);flex-shrink:0;display:block;}',
+    /* ── モーダルヘッダー ── */
+    '#mie-modal-header{',
+      'background:linear-gradient(135deg,#4a5a3a,#5a6b4a);',
+      'padding:18px 20px;',
+      'display:flex;align-items:center;gap:14px;flex-shrink:0;',
+    '}',
+    '#mie-hdr-img{',
+      'width:54px;height:54px;border-radius:50%;',
+      'object-fit:cover;',
+      'border:2.5px solid rgba(255,255,255,.55);',
+      'flex-shrink:0;display:block;',
+    '}',
     '.mie-title-wrap{flex:1;min-width:0;}',
-    '.mie-title-main{color:#fff;font-size:13.5px;font-weight:700;font-family:"Shippori Mincho",serif;line-height:1.3;}',
-    '.mie-title-sub{color:rgba(255,255,255,.72);font-size:10.5px;margin-top:3px;font-family:"Zen Maru Gothic",sans-serif;line-height:1.45;}',
-    '#mie-close-btn{background:rgba(255,255,255,.16);border:none;color:#fff;font-size:18px;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;padding:0;line-height:1;}',
-    '#mie-close-btn:hover{background:rgba(255,255,255,.3);}',
+    '.mie-title-main{',
+      'color:#fff;font-size:15px;font-weight:700;',
+      'font-family:"Shippori Mincho",serif;line-height:1.3;',
+    '}',
+    '.mie-title-sub{',
+      'color:rgba(255,255,255,.72);font-size:11px;',
+      'margin-top:4px;',
+      'font-family:"Zen Maru Gothic",sans-serif;line-height:1.5;',
+    '}',
+    '#mie-close-btn{',
+      'background:rgba(255,255,255,.18);border:none;color:#fff;',
+      'font-size:20px;width:34px;height:34px;border-radius:50%;',
+      'cursor:pointer;display:flex;align-items:center;justify-content:center;',
+      'flex-shrink:0;transition:background .15s;padding:0;line-height:1;',
+    '}',
+    '#mie-close-btn:hover{background:rgba(255,255,255,.32);}',
 
-    /* ─ LINE band ─ */
-    '#mie-line-band{background:#f0faf2;border-bottom:1px solid #c8e6c8;padding:9px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0;}',
-    '#mie-line-band a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#06C755;font-size:12.5px;font-weight:700;font-family:"Zen Maru Gothic",sans-serif;flex:1;line-height:1.2;}',
-    '.mie-line-note{font-size:10.5px;color:#999;font-family:"Zen Maru Gothic",sans-serif;white-space:nowrap;flex-shrink:0;}',
+    /* ── LINE 相談バンド ── */
+    '#mie-line-band{',
+      'background:#edf8ee;border-bottom:1px solid #c4e0c4;',
+      'padding:10px 18px;',
+      'display:flex;align-items:center;gap:10px;flex-shrink:0;',
+    '}',
+    '#mie-line-band a{',
+      'display:flex;align-items:center;gap:9px;text-decoration:none;',
+      'color:#06C755;font-size:13px;font-weight:700;',
+      'font-family:"Zen Maru Gothic",sans-serif;flex:1;line-height:1.2;',
+    '}',
+    '.mie-line-note{',
+      'font-size:11px;color:#999;',
+      'font-family:"Zen Maru Gothic",sans-serif;',
+      'white-space:nowrap;flex-shrink:0;',
+    '}',
 
-    /* ─ Messages ─ */
-    '#mie-messages{flex:1;overflow-y:auto;padding:14px 12px 4px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;}',
-    '.mie-msg{display:flex;gap:8px;max-width:94%;}',
+    /* ── メッセージエリア ── */
+    '#mie-messages{',
+      'flex:1;overflow-y:auto;',
+      'padding:20px 18px 8px;',
+      'display:flex;flex-direction:column;gap:16px;',
+      'scroll-behavior:smooth;',
+    '}',
+    /* スクロールバーを細くシンプルに */
+    '#mie-messages::-webkit-scrollbar{width:4px;}',
+    '#mie-messages::-webkit-scrollbar-track{background:transparent;}',
+    '#mie-messages::-webkit-scrollbar-thumb{background:rgba(90,107,74,.25);border-radius:4px;}',
+
+    '.mie-msg{display:flex;gap:10px;max-width:88%;}',
     '.mie-msg.mie-user{align-self:flex-end;flex-direction:row-reverse;}',
-    '.mie-msg-icon{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid #b39362;flex-shrink:0;display:block;}',
-    '.mie-bubble{background:#eef1e6;color:#4a463f;padding:10px 13px;border-radius:4px 14px 14px 14px;font-size:12.5px;line-height:1.7;font-family:"Zen Maru Gothic",sans-serif;word-break:break-word;}',
-    '.mie-msg.mie-user .mie-bubble{background:#5a6b4a;color:#fff;border-radius:14px 4px 14px 14px;}',
+    '.mie-msg-icon{',
+      'width:36px;height:36px;border-radius:50%;',
+      'object-fit:cover;border:1.5px solid #b39362;',
+      'flex-shrink:0;display:block;',
+    '}',
+    '.mie-bubble{',
+      'background:#eef1e6;color:#4a463f;',
+      'padding:12px 16px;',
+      'border-radius:4px 16px 16px 16px;',
+      'font-size:14px;line-height:1.8;',
+      'font-family:"Zen Maru Gothic",sans-serif;',
+      'word-break:break-word;',
+    '}',
+    '.mie-msg.mie-user .mie-bubble{',
+      'background:#5a6b4a;color:#fff;',
+      'border-radius:16px 4px 16px 16px;',
+    '}',
 
-    /* ─ Typing ─ */
-    '.mie-typing-wrap{padding:10px 13px;display:flex;gap:5px;align-items:center;}',
-    '.mie-dot{width:6px;height:6px;border-radius:50%;background:#7c8c63;animation:mieDot 1.2s infinite;}',
-    '.mie-dot:nth-child(2){animation-delay:.2s;}',
-    '.mie-dot:nth-child(3){animation-delay:.4s;}',
-    '@keyframes mieDot{0%,80%,100%{transform:scale(.45);opacity:.4;}40%{transform:scale(1);opacity:1;}}',
+    /* ── タイピングインジケーター ── */
+    '.mie-typing-wrap{',
+      'padding:12px 16px;',
+      'display:flex;gap:5px;align-items:center;',
+    '}',
+    '.mie-dot{',
+      'width:7px;height:7px;border-radius:50%;',
+      'background:#7c8c63;animation:mieDot 1.2s infinite;',
+    '}',
+    '.mie-dot:nth-child(2){animation-delay:.22s;}',
+    '.mie-dot:nth-child(3){animation-delay:.44s;}',
+    '@keyframes mieDot{',
+      '0%,80%,100%{transform:scale(.45);opacity:.4;}',
+      '40%{transform:scale(1);opacity:1;}',
+    '}',
 
-    /* ─ Quick Q chips ─ */
-    '#mie-quick{padding:2px 12px 10px;display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0;}',
-    '.mie-chip{background:#fff;border:1.5px solid #7c8c63;color:#5a6b4a;border-radius:20px;padding:6px 12px;font-size:11.5px;font-weight:700;cursor:pointer;transition:background .15s,color .15s;font-family:"Zen Maru Gothic",sans-serif;white-space:nowrap;}',
+    /* ── クイック質問チップ ── */
+    '#mie-quick{',
+      'padding:4px 18px 12px;',
+      'display:flex;flex-wrap:wrap;gap:7px;flex-shrink:0;',
+    '}',
+    '.mie-chip{',
+      'background:#fff;border:1.5px solid #7c8c63;color:#5a6b4a;',
+      'border-radius:20px;padding:7px 14px;',
+      'font-size:12.5px;font-weight:700;cursor:pointer;',
+      'transition:background .15s,color .15s,border-color .15s;',
+      'font-family:"Zen Maru Gothic",sans-serif;white-space:nowrap;',
+    '}',
     '.mie-chip:hover{background:#5a6b4a;color:#fff;border-color:#5a6b4a;}',
 
-    /* ─ Input ─ */
-    '#mie-input-area{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #e0dbd2;background:#fff;flex-shrink:0;}',
-    '#mie-input{flex:1;border:1.5px solid #c8c2b6;border-radius:20px;padding:8px 14px;font-size:12.5px;outline:none;font-family:"Zen Maru Gothic",sans-serif;color:#4a463f;background:#fffdf9;transition:border-color .15s;min-width:0;}',
+    /* ── 入力エリア ── */
+    '#mie-input-area{',
+      'display:flex;gap:10px;',
+      'padding:12px 18px;',
+      'border-top:1px solid #e0dbd2;',
+      'background:#fff;flex-shrink:0;',
+    '}',
+    '#mie-input{',
+      'flex:1;border:1.5px solid #c8c2b6;border-radius:24px;',
+      'padding:10px 18px;',
+      'font-size:14px;outline:none;',
+      'font-family:"Zen Maru Gothic",sans-serif;',
+      'color:#4a463f;background:#fffdf9;',
+      'transition:border-color .15s;min-width:0;',
+    '}',
     '#mie-input:focus{border-color:#7c8c63;}',
-    '#mie-send-btn{background:#5a6b4a;color:#fff;border:none;border-radius:20px;padding:8px 14px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:"Zen Maru Gothic",sans-serif;transition:background .15s;white-space:nowrap;flex-shrink:0;}',
+    '#mie-send-btn{',
+      'background:#5a6b4a;color:#fff;border:none;',
+      'border-radius:24px;padding:10px 18px;',
+      'font-size:14px;font-weight:700;cursor:pointer;',
+      'font-family:"Zen Maru Gothic",sans-serif;',
+      'transition:background .15s;white-space:nowrap;flex-shrink:0;',
+    '}',
     '#mie-send-btn:hover{background:#7c8c63;}',
 
-    /* ─ スマホ: ボトムシート型 ─ */
+    /* ══ スマホ: ボトムシート型 ══ */
     '@media(max-width:680px){',
+
     /* FAB: floatbar(height≈65px)の上 */
-    '#mie-fab{right:14px;bottom:82px;}',
-    '#mie-fab-ring{width:56px;height:56px;}',
-    '#mie-fab-img{width:56px;height:56px;}',
-    /* モーダル: 全幅ボトムシート（後ろの要素を完全に覆う） */
-    '#mie-modal{right:0;left:0;bottom:0;width:100%;max-width:100%;height:88dvh;max-height:88dvh;border-radius:20px 20px 0 0;z-index:99999;transform:translateY(40px) scale(1);opacity:0;}',
-    '#mie-modal.mie-open{transform:translateY(0) scale(1);opacity:1;}',
-    /* オーバーレイはスマホのみ */
-    '#mie-overlay{display:none;}',
-    '#mie-overlay.mie-open{display:block;z-index:99990;}',
+    '#mie-fab{right:16px;bottom:82px;}',
+    '#mie-fab-ring{width:66px;height:66px;}',
+    '#mie-fab-img{width:66px;height:66px;}',
+
+    /* モーダル: 全幅ボトムシート（後ろ要素を完全に覆う）*/
+    '#mie-modal{',
+      'top:auto;left:0;right:0;bottom:0;',
+      'width:100%;max-width:100%;',
+      'height:92dvh;max-height:92dvh;',
+      'border-radius:22px 22px 0 0;',
+      /* スマホはY軸スライドインのみ */
+      'transform:translateY(40px);',
+    '}',
+    '#mie-modal.mie-open{transform:translateY(0);}',
+
+    /* メッセージ・入力のサイズ調整 */
+    '#mie-messages{padding:16px 14px 6px;}',
+    '.mie-bubble{font-size:13.5px;padding:11px 14px;}',
+    '#mie-input-area{padding:10px 14px;}',
+    '#mie-input{font-size:13.5px;padding:9px 14px;}',
+    '#mie-send-btn{font-size:13.5px;padding:9px 14px;}',
+
     '}'
+
   ].join('');
 
   /* ── DOM 構築 ── */
@@ -220,7 +383,7 @@
     st.textContent = CSS;
     document.head.appendChild(st);
 
-    /* オーバーレイ（スマホ用） */
+    /* オーバーレイ */
     var overlay = document.createElement('div');
     overlay.id = 'mie-overlay';
     document.body.appendChild(overlay);
@@ -244,30 +407,34 @@
     modal.setAttribute('aria-label', 'MIE AIコンシェルジュ');
     modal.setAttribute('aria-hidden', 'true');
     modal.innerHTML =
-      /* header */
+      /* ヘッダー */
       '<div id="mie-modal-header">' +
         '<img id="mie-hdr-img" src="' + ICON_SRC + '" alt="MIEアイコン">' +
         '<div class="mie-title-wrap">' +
           '<div class="mie-title-main">MIE AIコンシェルジュ</div>' +
-          '<div class="mie-title-sub">24時間受付中｜看護師MIEの知識を反映したAIです</div>' +
+          '<div class="mie-title-sub">24時間受付中｜看護師MIEの知識を反映したAIです<br>※MIE本人へのご相談はLINEへ</div>' +
         '</div>' +
         '<button id="mie-close-btn" aria-label="チャットを閉じる">×</button>' +
       '</div>' +
-      /* LINE band */
+      /* LINE バンド */
       '<div id="mie-line-band">' +
         '<a href="' + LINE_URL + '" target="_blank" rel="noopener">' +
-          '<svg width="18" height="18" viewBox="0 0 24 24" fill="#06C755"><path d="M20.9 9.6C20.6 5.5 16.8 2.3 12 2.3S3.4 5.5 3.1 9.6c-.2 2.4.8 4.6 2.7 6.2l.5.4-.3 2.6 2.4-1.3.5.2c1 .4 2.1.7 3.1.7 4.8 0 8.7-3.2 9-7.2v-.6z"/></svg>' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="#06C755"><path d="M20.9 9.6C20.6 5.5 16.8 2.3 12 2.3S3.4 5.5 3.1 9.6c-.2 2.4.8 4.6 2.7 6.2l.5.4-.3 2.6 2.4-1.3.5.2c1 .4 2.1.7 3.1.7 4.8 0 8.7-3.2 9-7.2v-.6z"/></svg>' +
           'MIE本人にLINEで直接相談する' +
         '</a>' +
         '<span class="mie-line-note">無料✨</span>' +
       '</div>' +
-      /* messages */
+      /* メッセージエリア */
       '<div id="mie-messages"></div>' +
-      /* quick questions */
+      /* クイック質問 */
       '<div id="mie-quick"></div>' +
-      /* input */
+      /* 入力エリア */
       '<div id="mie-input-area">' +
-        '<input id="mie-input" type="text" placeholder="質問を入力してください..." autocomplete="off">' +
+        '<input id="mie-input" type="text"' +
+          ' placeholder="質問を入力してください…（Enterで送信）"' +
+          ' autocomplete="off"' +
+          ' enterkeyhint="send"' +
+          ' inputmode="text">' +
         '<button id="mie-send-btn">送信</button>' +
       '</div>';
 
@@ -281,19 +448,15 @@
 
   function $ (id) { return document.getElementById(id); }
 
-  function isMobile() { return window.innerWidth <= 680; }
-
   function openModal() {
     chatOpen = true;
     var m = $('mie-modal');
     m.classList.add('mie-open');
     m.setAttribute('aria-hidden', 'false');
-    if (isMobile()) {
-      $('mie-overlay').classList.add('mie-open');
-      document.body.style.overflow = 'hidden';
-    }
+    $('mie-overlay').classList.add('mie-open');
+    document.body.style.overflow = 'hidden';
     $('mie-fab').setAttribute('aria-label', 'MIE AIコンシェルジュを閉じる');
-    setTimeout(function () { var inp = $('mie-input'); if (inp) inp.focus(); }, 300);
+    setTimeout(function () { var inp = $('mie-input'); if (inp) inp.focus(); }, 320);
   }
 
   function closeModal() {
@@ -339,7 +502,11 @@
     div.id = 'mie-typing';
     div.innerHTML =
       '<img class="mie-msg-icon" src="' + ICON_SRC + '" alt="MIE">' +
-      '<div class="mie-bubble"><div class="mie-typing-wrap"><span class="mie-dot"></span><span class="mie-dot"></span><span class="mie-dot"></span></div></div>';
+      '<div class="mie-bubble"><div class="mie-typing-wrap">' +
+        '<span class="mie-dot"></span>' +
+        '<span class="mie-dot"></span>' +
+        '<span class="mie-dot"></span>' +
+      '</div></div>';
     msgs.appendChild(div);
     scrollDown();
   }
@@ -389,7 +556,7 @@
       });
     }
 
-    /* FAB クリック */
+    /* FAB */
     var fab = $('mie-fab');
     fab.addEventListener('click', function () { chatOpen ? closeModal() : openModal(); });
     fab.addEventListener('keydown', function (e) {
@@ -399,15 +566,39 @@
     /* 閉じるボタン */
     $('mie-close-btn').addEventListener('click', closeModal);
 
-    /* オーバーレイクリックで閉じる（スマホ） */
+    /* オーバーレイクリックで閉じる */
     $('mie-overlay').addEventListener('click', closeModal);
 
-    /* 送信 */
-    $('mie-send-btn').addEventListener('click', function () { handleSend($('mie-input').value); });
-    $('mie-input').addEventListener('keydown', function (e) { if (e.key === 'Enter') handleSend(e.target.value); });
+    /* ── 送信ボタン ── */
+    $('mie-send-btn').addEventListener('click', function () {
+      handleSend($('mie-input').value);
+    });
+
+    /* ── Enter キー送信（Shift+Enter は送信しない）── */
+    $('mie-input').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSend(e.target.value);
+      }
+    });
+
+    /* ── スマホ: compositionend 後の送信 ── */
+    /* IME確定後に再度Enterが来た場合も正常送信できるよう isComposing を確認 */
+    var isComposing = false;
+    var inp = $('mie-input');
+    inp.addEventListener('compositionstart', function () { isComposing = true; });
+    inp.addEventListener('compositionend',   function () { isComposing = false; });
+    inp.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey && !isComposing) {
+        e.preventDefault();
+        handleSend(e.target.value);
+      }
+    }, true);  /* capture phase で compositionend の後に確実に動かす */
 
     /* ESC */
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && chatOpen) closeModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && chatOpen) closeModal();
+    });
   }
 
   if (document.readyState === 'loading') {
