@@ -660,6 +660,197 @@
     .nk-card{padding:30px 22px;}
     .nk-cta-band{padding:42px 22px;}
   }
+
+  /* ① Hero バッジ強調ピル */
+  .hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:7px;
+    background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.7);
+    color:#fff;font-size:.82rem;font-weight:600;padding:9px 20px;border-radius:999px;
+    letter-spacing:.06em;backdrop-filter:blur(6px);
+  }
+  .hero-badge svg{width:16px;height:16px;flex:none;}
+
+  /* ② 共感セクション（こんなお悩みはありませんか？） */
+  .empathy{background:linear-gradient(135deg,var(--green-deep) 0%,#4a5c3a 100%);color:#fff;}
+  .empathy .sec-head h2{color:#fff;}
+  .empathy .sec-head h2::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);}
+  .empathy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;max-width:900px;margin:0 auto 52px;}
+  .emp-item{
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    border-radius:10px;padding:22px 26px;display:flex;align-items:flex-start;gap:14px;
+    backdrop-filter:blur(4px);transition:.3s;
+  }
+  .emp-item:hover{background:rgba(255,255,255,.16);}
+  .emp-check{
+    width:26px;height:26px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px;
+  }
+  .emp-check svg{width:14px;height:14px;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+  .emp-item p{font-size:.92rem;line-height:1.9;color:rgba(255,255,255,.95);letter-spacing:.04em;}
+  .emp-cta{text-align:center;}
+  .emp-cta p{font-size:1rem;color:rgba(255,255,255,.9);margin-bottom:24px;line-height:2;font-family:"Shippori Mincho",serif;letter-spacing:.08em;}
+
+  /* ③ 看護師プロファイルカード */
+  .nurse-profile{background:var(--white);}
+  .nurse-card{
+    max-width:860px;margin:0 auto;
+    display:grid;grid-template-columns:240px 1fr;gap:64px;align-items:start;
+    background:var(--beige);border:1px solid rgba(179,147,98,.25);border-radius:18px;
+    padding:60px 64px;position:relative;overflow:hidden;
+  }
+  .nurse-card::before{
+    content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;
+    border-radius:50%;background:radial-gradient(circle,rgba(124,140,99,.12),transparent 70%);
+  }
+  .nurse-photo{text-align:center;}
+  .nurse-photo img{width:200px;height:240px;object-fit:cover;object-position:center top;border-radius:12px;display:block;margin:0 auto 16px;box-shadow:0 14px 40px rgba(90,107,74,.2);}
+  .nurse-photo .creds-pill{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;}
+  .nurse-photo .creds-pill span{font-size:.68rem;color:var(--green-deep);border:1px solid rgba(124,140,99,.4);border-radius:999px;padding:5px 13px;letter-spacing:.04em;background:var(--white);}
+  .nurse-body .role{font-size:.7rem;letter-spacing:.3em;color:var(--brown);font-weight:500;margin-bottom:8px;}
+  .nurse-body .name{font-family:"Shippori Mincho",serif;font-size:2rem;color:var(--green-deep);font-weight:600;letter-spacing:.15em;margin-bottom:18px;line-height:1.2;}
+  .nurse-body .name small{font-size:.8rem;color:var(--text-soft);letter-spacing:.15em;margin-left:10px;font-family:"Zen Maru Gothic",sans-serif;font-weight:400;}
+  .nurse-career{font-size:.8rem;color:var(--text-soft);background:var(--white);border-radius:8px;padding:14px 18px;margin-bottom:20px;line-height:1.9;letter-spacing:.04em;}
+  .nurse-body p{font-family:"Shippori Mincho",serif;font-size:.95rem;color:var(--text);line-height:2.3;letter-spacing:.05em;}
+  @media(max-width:760px){
+    .nurse-card{grid-template-columns:1fr;gap:32px;padding:40px 28px;}
+    .nurse-photo img{width:160px;height:200px;}
+  }
+
+  /* ④ 5つのこだわりカード */
+  .kodawari{background:var(--green-pale);}
+  .kodawari-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+  .kd-card{
+    background:var(--white);border-radius:12px;padding:40px 30px;text-align:center;
+    border:1px solid rgba(124,140,99,.15);transition:.4s ease;
+  }
+  .kd-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .kd-icon{
+    width:64px;height:64px;border-radius:50%;margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--green-pale),var(--beige));
+    display:flex;align-items:center;justify-content:center;
+    border:1.5px solid rgba(124,140,99,.25);
+  }
+  .kd-icon svg{width:30px;height:30px;stroke:var(--green-deep);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+  .kd-num{font-family:"Shippori Mincho",serif;font-size:.65rem;letter-spacing:.35em;color:var(--gold);margin-bottom:8px;display:block;}
+  .kd-card h3{font-size:1rem;color:var(--green-deep);margin-bottom:12px;letter-spacing:.06em;font-weight:500;line-height:1.6;}
+  .kd-card p{font-size:.85rem;color:var(--text-soft);line-height:2;}
+
+  /* ⑤ タイミングガイド */
+  .timing-guide{background:var(--white);}
+  .timing-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto;}
+  .timing-panel{border-radius:12px;overflow:hidden;border:1.5px solid rgba(124,140,99,.2);transition:.3s;}
+  .timing-panel.low{border-color:#7ca8c8;}
+  .timing-panel.high{border-color:#c8907c;}
+  .timing-panel.period{border-color:#b39362;}
+  .timing-head{padding:22px 24px;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none;}
+  .timing-panel.low .timing-head{background:linear-gradient(135deg,#e8f2fa,#d4e8f5);}
+  .timing-panel.high .timing-head{background:linear-gradient(135deg,#faeee8,#f5dbd4);}
+  .timing-panel.period .timing-head{background:linear-gradient(135deg,var(--beige),var(--beige-deep));}
+  .timing-dot{width:14px;height:14px;border-radius:50%;flex:none;}
+  .timing-panel.low .timing-dot{background:#7ca8c8;}
+  .timing-panel.high .timing-dot{background:#c8907c;}
+  .timing-panel.period .timing-dot{background:var(--gold);}
+  .timing-head h3{font-size:.95rem;color:var(--green-deep);font-weight:500;letter-spacing:.06em;flex:1;line-height:1.5;}
+  .timing-head .timing-phase{font-size:.65rem;color:var(--text-soft);letter-spacing:.1em;display:block;margin-top:3px;}
+  .timing-head .arr{font-size:.7rem;color:var(--text-soft);transition:.3s;}
+  .timing-body{padding:22px 24px;background:var(--white);font-size:.88rem;color:var(--text-soft);line-height:2.1;}
+  .timing-body .ok{color:#5a6b4a;font-weight:500;margin-bottom:4px;}
+  .timing-body .ng{color:#b05050;font-weight:500;margin-bottom:4px;margin-top:12px;}
+  .timing-body ul{padding-left:18px;margin-top:6px;}
+  .timing-body ul li{margin-bottom:6px;}
+  @media(max-width:680px){
+    .timing-tabs{grid-template-columns:1fr;}
+  }
+
+  /* ⑥ 当日の流れ（強化版） */
+  .flow-v2{background:var(--beige);}
+  .flow-v2-steps{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
+  .fv2-step{display:flex;gap:28px;position:relative;padding-bottom:48px;}
+  .fv2-step:last-child{padding-bottom:0;}
+  .fv2-left{display:flex;flex-direction:column;align-items:center;gap:0;flex:none;width:56px;}
+  .fv2-dot{
+    width:56px;height:56px;border-radius:50%;background:var(--green-deep);
+    color:#fff;font-family:"Shippori Mincho",serif;font-size:1.1rem;font-weight:600;
+    display:flex;align-items:center;justify-content:center;flex:none;z-index:1;
+    box-shadow:0 4px 16px rgba(90,107,74,.25);
+  }
+  .fv2-line{width:2px;flex:1;background:linear-gradient(to bottom,var(--green),rgba(124,140,99,.2));margin-top:0;}
+  .fv2-step:last-child .fv2-line{display:none;}
+  .fv2-body{padding-top:12px;flex:1;}
+  .fv2-body .fv2-time{font-size:.68rem;letter-spacing:.2em;color:var(--brown);font-weight:500;display:block;margin-bottom:6px;}
+  .fv2-body h3{font-size:1.1rem;color:var(--green-deep);font-weight:500;margin-bottom:10px;letter-spacing:.06em;}
+  .fv2-body p{font-size:.88rem;color:var(--text-soft);line-height:2.05;}
+  @media(max-width:680px){
+    .fv2-step{gap:18px;}
+    .fv2-dot{width:46px;height:46px;font-size:.95rem;}
+    .fv2-left{width:46px;}
+  }
+
+  /* ⑦ お客様の声 */
+  .voice{background:var(--white);}
+  .voice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px;}
+  .voice-card{
+    background:var(--beige);border:1px solid rgba(179,147,98,.2);border-radius:12px;
+    padding:36px 30px;position:relative;
+  }
+  .voice-stars{color:var(--gold);font-size:1rem;letter-spacing:.1em;margin-bottom:14px;}
+  .voice-card blockquote{font-family:"Shippori Mincho",serif;font-size:.97rem;color:var(--text);line-height:2.2;margin-bottom:20px;letter-spacing:.04em;position:relative;}
+  .voice-card blockquote::before{content:"❝";position:absolute;top:-8px;left:-4px;font-size:1.8rem;color:rgba(179,147,98,.3);line-height:1;}
+  .voice-footer{display:flex;align-items:center;gap:12px;}
+  .voice-avatar{
+    width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--green-pale),var(--green-light));
+    display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;
+    font-size:1rem;color:var(--green-deep);font-weight:600;flex:none;
+  }
+  .voice-meta .voice-name{font-size:.88rem;font-weight:500;color:var(--green-deep);letter-spacing:.06em;}
+  .voice-meta .voice-concern{font-size:.74rem;color:var(--text-soft);letter-spacing:.04em;margin-top:2px;}
+  .voice-note{text-align:center;margin-top:36px;font-size:.78rem;color:var(--text-soft);line-height:1.9;}
+
+  /* ⑧ メニュー（強化版おすすめカード） */
+  .menu-highlight-card{
+    background:linear-gradient(135deg,var(--green-deep) 0%,#3d5230 100%);
+    color:#fff;border-radius:16px;padding:52px 48px;position:relative;overflow:hidden;
+    margin-bottom:40px;max-width:760px;margin-left:auto;margin-right:auto;
+  }
+  .menu-highlight-card::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;
+    border-radius:50%;background:rgba(255,255,255,.06);
+  }
+  .menu-highlight-card .hl-badge{
+    display:inline-block;background:var(--gold);color:#fff;font-size:.72rem;
+    padding:6px 20px;border-radius:999px;letter-spacing:.18em;font-weight:600;margin-bottom:16px;
+  }
+  .menu-highlight-card h3{font-size:1.5rem;color:#fff;font-weight:500;letter-spacing:.08em;margin-bottom:8px;}
+  .menu-highlight-card .hl-price{font-family:"Shippori Mincho",serif;font-size:2.6rem;color:#fff;font-weight:600;margin:18px 0 8px;}
+  .menu-highlight-card .hl-price small{font-size:1rem;font-weight:400;opacity:.8;}
+  .menu-highlight-card .hl-was{font-size:.9rem;text-decoration:line-through;opacity:.55;margin-bottom:6px;}
+  .menu-highlight-card .hl-includes{font-size:.88rem;opacity:.85;line-height:2;margin-bottom:28px;}
+  .menu-highlight-card .hl-btn{
+    display:inline-flex;align-items:center;gap:8px;background:#06C755;color:#fff;
+    padding:14px 34px;border-radius:999px;font-weight:600;font-size:.95rem;letter-spacing:.06em;transition:.25s;
+  }
+  .menu-highlight-card .hl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2);}
+  @media(max-width:680px){
+    .menu-highlight-card{padding:36px 26px;}
+    .menu-highlight-card .hl-price{font-size:2rem;}
+  }
+
+  /* ⑩ スマホ固定フローティングCTA */
+  .float-cta{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;
+    background:rgba(255,253,249,.96);backdrop-filter:blur(10px);
+    border-top:1px solid rgba(124,140,99,.2);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
+  .float-cta a{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    background:#06C755;color:#fff;border-radius:999px;font-weight:700;
+    font-size:.92rem;letter-spacing:.06em;padding:15px 24px;width:100%;
+    box-shadow:0 4px 18px rgba(6,199,85,.35);
+  }
+  .float-cta svg{width:20px;height:20px;fill:#fff;}
+  @media(max-width:680px){.float-cta{display:block;}}
 </style>
 <script type="application/ld+json">
 {
@@ -804,104 +995,323 @@
     <span class="eyebrow">岐阜県岐南町・妊活サポートサロン｜看護師運営</span>
     <h1>子宮を温める妊活・温活効果で<br><span class="accent">妊娠しやすい体づくり</span></h1>
     <p class="lead">子宮冷え・着床前ケア・妊活ストレスに。元救命救急看護師が排卵・着床タイミングに合わせた<br>よもぎ蒸し温活で、妊娠しやすい体づくりをサポートします。</p>
-    <div class="sub">
-      <span>看護師による妊活サポート</span>
-      <span>着床前ケア対応</span>
-      <span>完全個室・プライベート</span>
-      <span>24時間営業（要予約）</span>
+    <div class="hero-badges">
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        完全個室プライベート
+      </span>
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z"/></svg>
+        看護師監修
+      </span>
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z"/><path d="M12 21v-4"/></svg>
+        国産無農薬よもぎ
+      </span>
     </div>
-    <p class="place">岐阜県岐南町・羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・羽島市・大垣市からも好アクセス</p>
+    <p class="place" style="margin-top:28px;">岐阜県岐南町・羽栗グラウンドの近く／駐車場2台完備｜岐阜市・各務原市・羽島市・大垣市からも好アクセス</p>
   </div>
   <span class="scroll-hint">SCROLL</span>
 </section>
 
-<!-- 選ばれる理由 -->
-<section class="reasons">
+<!-- ② 共感セクション（こんなお悩みはありませんか？） -->
+<section class="empathy">
   <div class="wrap">
     <div class="sec-head fade">
-      <span class="en">Why Stella Herba</span>
-      <h2>岐阜のよもぎ蒸しサロンで<br>ステラヘルバが選ばれる6つの理由</h2>
+      <span class="en">Do You Feel This Way?</span>
+      <h2>こんなお悩み、ありませんか？</h2>
     </div>
-    <div class="reason-grid">
-
-      <div class="reason-card fade">
-        <div class="photo">
-          <img src="reason-1.jpg" alt="岐阜県岐南町のよもぎ蒸しサロン｜看護師が運営する安心の空間" loading="lazy" decoding="async" onerror="this.style.display='none'">
-          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z"/><path d="M12 7v6M9.5 9.5h5"/></svg></div>
-        </div>
-        <div class="inner">
-          <span class="no">REASON 01</span>
-          <h3>看護師が運営する、安心の空間</h3>
-          <p>医療現場で培った知識をもとに、体調やお悩みを丁寧にヒアリング。産後や体調に不安のある方も、専門的な視点で安心してお任せいただけます。</p>
-        </div>
+    <div class="empathy-grid fade">
+      <div class="emp-item">
+        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>妊活中なのに<strong>子宮や下腹部が冷たい</strong>、温まりにくいと感じる</p>
       </div>
-
-      <div class="reason-card fade">
-        <div class="photo">
-          <img src="reason-2.jpg" alt="ハーブ読み取り付きよもぎ蒸しに使う数種類のハーブ｜岐阜 Stella Herba" loading="lazy" decoding="async" onerror="this.style.display='none'">
-          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z"/><path d="M12 21v-4"/></svg></div>
-        </div>
-        <div class="inner">
-          <span class="no">REASON 02</span>
-          <h3>ハーブ読み取り付きよもぎ蒸し</h3>
-          <p>その日の心と身体の状態に合わせて、最適なハーブをセレクト。気分や体調の"今"に寄り添う、当サロンならではのメインメニューです。<a href="herb-reading.html" style="color:var(--brown);text-decoration:underline;">詳しくはこちら</a></p>
-        </div>
+      <div class="emp-item">
+        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p><strong>排卵前・着床前</strong>によもぎ蒸しを受けていいのか、タイミングが不安</p>
       </div>
-
-      <div class="reason-card fade">
-        <div class="photo">
-          <img src="reason-3.jpg" alt="子連れOK・ペア蒸し対応の岐阜のよもぎ蒸しサロン" loading="lazy" decoding="async" onerror="this.style.display='none'">
-          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M15 14c2.5 0 4.5 1.8 4.5 4.5"/></svg></div>
-        </div>
-        <div class="inner">
-          <span class="no">REASON 03</span>
-          <h3>お子様連れ・ペア蒸しOK</h3>
-          <p>小さなお子様とご一緒でも大丈夫。お友達やご家族とのペア蒸しも歓迎しています。自宅サロンだからこその、気兼ねないくつろぎを。</p>
-        </div>
+      <div class="emp-item">
+        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p><strong>生理痛がひどい・周期が乱れている</strong>けれど、何から始めればいいかわからない</p>
       </div>
-
-      <div class="reason-card fade">
-        <div class="photo">
-          <img src="reason-4.jpg" alt="24時間営業・時間調整OK" loading="lazy" decoding="async" onerror="this.style.display='none'">
-          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></div>
-        </div>
-        <div class="inner">
-          <span class="no">REASON 04</span>
-          <h3>24時間営業・時間調整OK</h3>
-          <p>基本の受付は9:00〜23:30ですが、24時間営業でお時間の調整も可能です。お仕事や育児で時間が取りにくい方も、まずはお気軽にお尋ねください。</p>
-        </div>
+      <div class="emp-item">
+        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>妊活のことを話せる、<strong>医療知識のある信頼できるサロン</strong>が岐阜・岐南エリアに見つからない</p>
       </div>
-
-      <div class="reason-card fade">
-        <div class="photo">
-          <img src="reason-5.jpg" alt="よもぎ蒸し前の足湯と選べるハーブティー｜岐南町 Stella Herba" loading="lazy" decoding="async" onerror="this.style.display='none'">
-          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l-1.5 2.5c-.8 1.4.2 3.5 2 3.5h.5"/><path d="M19 11l1.5 2.5c.8 1.4-.2 3.5-2 3.5H6"/><path d="M7 11c0-3 2-6 5-6s5 3 5 6"/><path d="M12 17v3"/></svg></div>
-        </div>
-        <div class="inner">
-          <span class="no">REASON 05</span>
-          <h3>足湯・選べるドリンク付き</h3>
-          <p>足湯で身体を温めてからよもぎ蒸しへ。施術後は数種類から選べるハーブティーで、心までゆっくりほどけるひとときをお過ごしください。</p>
-        </div>
+      <div class="emp-item">
+        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>整体やよもぎ蒸しを<strong>妊活に合わせてカスタマイズ</strong>してほしい</p>
       </div>
-
-      <div class="reason-card fade">
-        <div class="photo">
-          <img src="reason-6.jpg" alt="岐阜のカッピング（吸い玉）とミニマッサージ" loading="lazy" decoding="async" onerror="this.style.display='none'">
-          <div class="ico"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7c8c63" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="9" r="3.2"/><circle cx="15.5" cy="9" r="3.2"/><path d="M4 17c1.6-1.4 3.4-2 5.5-2M14.5 15c2.1 0 3.9.6 5.5 2"/></svg></div>
-        </div>
-        <div class="inner">
-          <span class="no">REASON 06</span>
-          <h3>カッピング＋ミニマッサージ</h3>
-          <p>吸い玉（カッピング）とミニマッサージで、滞りがちな血流やリンパの巡りを促します。デスクワークや育児で固まった肩こり、気になるむくみをやさしくほぐし、すっきりとした軽さへ。</p>
-        </div>
+      <div class="emp-item">
+        <div class="emp-check"><svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p>仕事・育児の疲れが溜まり<strong>自律神経が乱れて基礎体温が安定しない</strong></p>
       </div>
-
+    </div>
+    <div class="emp-cta fade">
+      <p>ひとつでも当てはまるなら、Stella Herba に相談してみてください。<br>元救命救急看護師が、あなたの状態に合わせた妊活温活プランをご提案します。</p>
+      <a class="nk-btn-line" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">まずはLINEで無料相談</a>
     </div>
   </div>
 </section>
 
-<!-- 当日の流れ -->
-<section class="flow">
+<!-- ③ 看護師プロファイルカード -->
+<section class="nurse-profile">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Therapist Profile</span>
+      <h2>看護師セラピスト MIE について</h2>
+    </div>
+    <div class="nurse-card fade">
+      <div class="nurse-photo">
+        <img src="therapist-mie.jpg" alt="Stella Herba オーナーセラピスト MIE" loading="lazy" decoding="async">
+        <div class="creds-pill" style="margin-top:16px;">
+          <span>正看護師</span>
+          <span>救命救急 10年</span>
+          <span>鍼灸師取得中</span>
+        </div>
+      </div>
+      <div class="nurse-body">
+        <div class="role">オーナーセラピスト</div>
+        <div class="name">MIE<small>みえ</small></div>
+        <div class="nurse-career">岐阜高校 → 岐阜大学医学部 → 岐阜県内総合病院（救命救急・10年勤務）</div>
+        <p>救命救急の最前線で10年、命と向き合ってきた看護師だからこそわかること——それは「治療より予防、症状が出る前の体づくりが何より大切」だということ。西洋医学の知識を持ちながら東洋医学を学ぶ今、子宮の冷えや妊活のお悩みを持つ女性に「よもぎ蒸し×看護師の専門知識」で寄り添います。妊活中のタイミングや着床前の過ごし方など、医療的な視点から丁寧にアドバイスします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 当サロンが選ばれる5つのこだわり -->
+<section class="kodawari">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Our Commitment</span>
+      <h2>当サロンが選ばれる<br>5つのこだわり</h2>
+    </div>
+    <div class="kodawari-grid fade">
+      <div class="kd-card">
+        <div class="kd-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <span class="kd-num">POINT 01</span>
+        <h3>完全個室プライベート空間</h3>
+        <p>自宅サロンならではの完全個室。周りを気にせず、デリケートな妊活のお悩みを安心して話せる空間をご用意しています。</p>
+      </div>
+      <div class="kd-card">
+        <div class="kd-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-3 3-5 5-5 9a5 5 0 0 0 10 0c0-4-2-6-5-9Z"/><path d="M12 21v-4"/></svg></div>
+        <span class="kd-num">POINT 02</span>
+        <h3>国産無農薬よもぎ×和ハーブ</h3>
+        <p>子宮ケアを考えるなら素材にこだわることが大切。国産無農薬のよもぎと、体質に合わせた和ハーブをブレンドしてご用意します。</p>
+      </div>
+      <div class="kd-card">
+        <div class="kd-icon"><svg viewBox="0 0 24 24"><path d="M12 20h-6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8l6 6v6"/><path d="M14 4v6h6"/><circle cx="16" cy="18" r="3"/><path d="M13.5 18H10"/></svg></div>
+        <span class="kd-num">POINT 03</span>
+        <h3>ハーブ読み取り®</h3>
+        <p>直感的に選んだハーブから「今の体と心の状態」を読み取る独自メソッド。妊活の状況・周期に合わせてブレンドをカスタマイズします。</p>
+      </div>
+      <div class="kd-card">
+        <div class="kd-icon"><svg viewBox="0 0 24 24"><path d="M5 11l-1.5 2.5c-.8 1.4.2 3.5 2 3.5h11c1.8 0 2.8-2.1 2-3.5L17 11"/><path d="M7 11c0-3 2-6 5-6s5 3 5 6"/><path d="M12 17v3"/><circle cx="7.5" cy="9" r="2.5"/><circle cx="16.5" cy="9" r="2.5"/></svg></div>
+        <span class="kd-num">POINT 04</span>
+        <h3>整体・足湯コラボ</h3>
+        <p>よもぎ蒸しに足湯・カッピング整体を組み合わせることで、子宮周辺の血流をより効果的に改善。妊活に最適なメニュー構成をご提案します。</p>
+      </div>
+      <div class="kd-card">
+        <div class="kd-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/></svg></div>
+        <span class="kd-num">POINT 05</span>
+        <h3>妊活時期別アドバイス</h3>
+        <p>排卵前・着床前・生理中など、月経周期のどの時期に来院してよいか、看護師が具体的にアドバイス。タイミングを外さないサポートを行います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ 妊活×よもぎ蒸し タイミング別ガイド -->
+<section class="timing-guide">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Timing Guide</span>
+      <h2>妊活×よもぎ蒸し<br>タイミング別ガイド</h2>
+    </div>
+    <div class="timing-tabs fade">
+      <div class="timing-panel low">
+        <div class="timing-head">
+          <div class="timing-dot"></div>
+          <div>
+            <h3>低温期（卵胞期）</h3>
+            <span class="timing-phase">生理終了〜排卵前</span>
+          </div>
+        </div>
+        <div class="timing-body">
+          <div class="ok">◎ よもぎ蒸しのおすすめ度：高</div>
+          <ul>
+            <li>子宮内膜を育てる最もよい時期</li>
+            <li>骨盤内の血流促進で着床環境づくり</li>
+            <li>週1〜2回のペースが理想的</li>
+          </ul>
+          <div class="ng">注意点</div>
+          <ul>
+            <li>過度な熱刺激は控える（適度な温度で）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timing-panel high">
+        <div class="timing-head">
+          <div class="timing-dot"></div>
+          <div>
+            <h3>高温期（着床前後）</h3>
+            <span class="timing-phase">排卵後〜生理前</span>
+          </div>
+        </div>
+        <div class="timing-body">
+          <div class="ok">△ よもぎ蒸しのおすすめ度：要相談</div>
+          <ul>
+            <li>着床直後（排卵後1週間）は刺激を最小限に</li>
+            <li>高温期後半は穏やかな温熱ケアが可能</li>
+            <li>必ず看護師に現在の状況を相談してから</li>
+          </ul>
+          <div class="ng">控えるべき場合</div>
+          <ul>
+            <li>体調不良・出血がある場合は中止</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timing-panel period">
+        <div class="timing-head">
+          <div class="timing-dot"></div>
+          <div>
+            <h3>生理中</h3>
+            <span class="timing-phase">月経期</span>
+          </div>
+        </div>
+        <div class="timing-body">
+          <div class="ok">○ よもぎ蒸しのおすすめ度：軽度可</div>
+          <ul>
+            <li>冷えで生理痛が重い方には温熱が助けに</li>
+            <li>出血量・体調を看護師に相談してから判断</li>
+            <li>初日・出血量の多い日は避けるのが無難</li>
+          </ul>
+          <div class="ng">注意点</div>
+          <ul>
+            <li>個人差が大きいため必ず事前にご相談を</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:36px;font-size:.84rem;color:var(--text-soft);line-height:2;">※個人の体質・状態により異なります。必ず看護師にご相談のうえでご利用ください。</p>
+  </div>
+</section>
+
+<!-- ⑥ 当日の流れ（強化版）-->
+<section class="flow-v2">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Flow</span>
+      <h2>初めての方へ<br>当日の施術の流れ</h2>
+    </div>
+    <div class="flow-v2-steps fade">
+      <div class="fv2-step">
+        <div class="fv2-left">
+          <div class="fv2-dot">1</div>
+          <div class="fv2-line"></div>
+        </div>
+        <div class="fv2-body">
+          <span class="fv2-time">約10分</span>
+          <h3>カウンセリング／ハーブ読み取り</h3>
+          <p>看護師がその日の体調・月経周期・お悩みを丁寧にヒアリング。複数のハーブを嗅いでいただき、今の体に合ったよもぎ蒸しブレンドを選定します。</p>
+        </div>
+      </div>
+      <div class="fv2-step">
+        <div class="fv2-left">
+          <div class="fv2-dot">2</div>
+          <div class="fv2-line"></div>
+        </div>
+        <div class="fv2-body">
+          <span class="fv2-time">約5分</span>
+          <h3>お着替え</h3>
+          <p>専用の施術着（ケープ）にお着替えいただきます。お持ち物は基本的に不要です。貴重品は専用スペースに安全に保管できます。</p>
+        </div>
+      </div>
+      <div class="fv2-step">
+        <div class="fv2-left">
+          <div class="fv2-dot">3</div>
+          <div class="fv2-line"></div>
+        </div>
+        <div class="fv2-body">
+          <span class="fv2-time">約40分</span>
+          <h3>よもぎ蒸し＆足湯</h3>
+          <p>まず足湯で全身を温め、その後よもぎ×和ハーブの蒸気で骨盤周辺から芯まで温活。読書・音楽を楽しみながらゆっくりお過ごしください。</p>
+        </div>
+      </div>
+      <div class="fv2-step">
+        <div class="fv2-left">
+          <div class="fv2-dot">4</div>
+        </div>
+        <div class="fv2-body">
+          <span class="fv2-time">ごゆっくり</span>
+          <h3>アフターフォロー＆ドリンク</h3>
+          <p>施術後の体の変化をシェアしながら、選べるハーブティーでクールダウン。次回のよもぎ蒸しタイミング・自宅でのセルフケアについてもアドバイスします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ お客様の声 -->
+<section class="voice">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="en">Customer Voice</span>
+      <h2>お客様の声</h2>
+    </div>
+    <div class="voice-grid fade">
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <blockquote>妊活中で子宮が冷えていると感じていました。看護師のMIEさんに月経周期に合わせたタイミングを教えていただいてから、基礎体温が安定してきました。医療の知識があるから安心して相談できます。</blockquote>
+        <div class="voice-footer">
+          <div class="voice-avatar">A</div>
+          <div class="voice-meta">
+            <div class="voice-name">A.K. さま（32歳）</div>
+            <div class="voice-concern">妊活・子宮冷え</div>
+          </div>
+        </div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <blockquote>生理痛がひどく、毎月鎮痛剤を飲んでいました。よもぎ蒸しを始めて3ヶ月、痛みが軽くなって薬を飲まずに過ごせる日が増えました。骨盤周りがほんわか温まる感覚がクセになります。</blockquote>
+        <div class="voice-footer">
+          <div class="voice-avatar">M</div>
+          <div class="voice-meta">
+            <div class="voice-name">M.T. さま（28歳）</div>
+            <div class="voice-concern">生理痛・冷え性</div>
+          </div>
+        </div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <blockquote>岐阜で妊活に特化したサロンを探していて見つけました。完全個室でデリケートなことも話せる雰囲気がとても安心感があります。ハーブ読み取りで毎回違うブレンドを楽しんでいます。</blockquote>
+        <div class="voice-footer">
+          <div class="voice-avatar">Y</div>
+          <div class="voice-meta">
+            <div class="voice-name">Y.S. さま（35歳）</div>
+            <div class="voice-concern">妊活・岐阜市在住</div>
+          </div>
+        </div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <blockquote>デスクワークで冷えがひどく、自律神経も乱れていました。よもぎ蒸しとカッピングのセットで、施術後は体がふわっと軽くなります。看護師さんに体の仕組みを説明してもらえるのも嬉しいです。</blockquote>
+        <div class="voice-footer">
+          <div class="voice-avatar">N</div>
+          <div class="voice-meta">
+            <div class="voice-name">N.F. さま（30歳）</div>
+            <div class="voice-concern">冷え・自律神経</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="voice-note">※お客様の感想は個人差があります。効果を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- 当日の流れ（旧セクション - 非表示にしてflow-v2に置き換え） -->
+<section class="flow" style="display:none;">
   <div class="wrap">
     <div class="sec-head fade">
       <span class="en">Flow</span>
@@ -949,21 +1359,35 @@
   </div>
 </section>
 
-<!-- メニュー -->
+<!-- ⑧ メニュー・料金表 -->
 <section class="menu">
   <div class="wrap">
     <div class="sec-head fade">
-      <span class="en">Menu</span>
-      <h2>主なメニュー</h2>
+      <span class="en">Menu &amp; Price</span>
+      <h2>メニュー・料金表</h2>
     </div>
+
+    <!-- 初回限定おすすめハイライトカード -->
+    <div class="menu-highlight-card fade">
+      <span class="hl-badge">初回限定おすすめ体験プラン</span>
+      <h3>よもぎ蒸し＋足湯＋ハーブ読み取りフルコース</h3>
+      <div class="hl-was">通常 ¥4,000</div>
+      <div class="hl-price">¥3,500 <small>／ 約60分</small></div>
+      <div class="hl-includes">含まれるもの：ハーブ読み取り｜足湯（約10分）｜よもぎ蒸し（約30分）｜選べるハーブティー<br>妊活タイミングアドバイス付き</div>
+      <a class="hl-btn" href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        LINEで予約する（¥3,500）
+      </a>
+    </div>
+
     <div class="menu-grid">
 
-      <div class="menu-card highlight fade">
-        <span class="tag">初回限定</span>
-        <h3>初回お試しコース</h3>
-        <p>ハーブ読み取り＋足湯＋よもぎ蒸し30分＋選べるドリンク。まずは気軽にお試しください。</p>
-        <div class="price"><span class="was">¥4,000</span>¥3,500 <small>／ 約60分</small></div>
-        <p>はじめての方におすすめのお試し価格です。</p>
+      <div class="menu-card fade">
+        <span class="tag" style="display:none;">初回限定</span>
+        <h3>通常コース</h3>
+        <p>ハーブ読み取り＋足湯＋よもぎ蒸し30分＋選べるドリンクのフルコース。</p>
+        <div class="price">¥4,000 <small>／ 約60分</small></div>
+        <p>定期的なケアでお身体を整えたい方に。</p>
       </div>
 
       <div class="menu-card fade">
@@ -1010,8 +1434,8 @@
   </div>
 </section>
 
-<!-- セラピスト紹介 -->
-<section class="therapist">
+<!-- セラピスト紹介（nurse-profileセクションで代替済みのため非表示） -->
+<section class="therapist" style="display:none;">
   <div class="wrap narrow">
     <div class="sec-head fade">
       <span class="en">Therapist</span>
@@ -1227,7 +1651,7 @@
   </div>
 </section>
 
-<!-- よくあるご質問 -->
+<!-- ⑨ よくある質問（妊活特化 Q&A） -->
 <section class="faq">
   <div class="wrap narrow">
     <div class="sec-head fade">
@@ -1235,6 +1659,22 @@
       <h2>よくあるご質問</h2>
     </div>
     <div class="faq-list fade">
+      <details class="faq-item">
+        <summary>着床前（高温期）によもぎ蒸しを受けても大丈夫ですか？</summary>
+        <div class="a">着床直後（排卵後〜1週間以内）は強い刺激を避けることをお勧めしています。一方、高温期後半（着床確認後）は穏やかな温熱ケアが可能な場合があります。月経周期・体調・治療状況をお伺いしたうえで看護師が個別に判断しますので、必ず事前にLINEでご相談ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary>妊活中でも服装や持ち物に特別な準備は必要ですか？</summary>
+        <div class="a">基本的に手ぶらでお越しいただけます。当サロンでは専用の施術着をご用意しています。汗をかきますので、施術後の着替えのためにタオルをお持ちいただくと快適です。金属アクセサリーは熱くなりますので外していただきます。</div>
+      </details>
+      <details class="faq-item">
+        <summary>パートナー（夫・彼）と一緒に来店できますか？</summary>
+        <div class="a">はい、ペア蒸しコース（¥7,000）でパートナーと一緒にご来店いただけます。男性の温活（精子の質・血流改善）にもよもぎ蒸しは有効と言われており、「ふたりで妊活」に取り組む方にもおすすめしています。妊活についての悩みをふたりで相談しながら過ごせる時間をご提供します。</div>
+      </details>
+      <details class="faq-item">
+        <summary>生理中によもぎ蒸しを受けても大丈夫ですか？</summary>
+        <div class="a">生理中の利用については個人差があります。出血量が少なく体調が良ければ、温めることで生理痛が軽減する方もいらっしゃいます。一方、出血量が多い日・体調不良の場合はお休みをお勧めします。必ず事前に看護師へご相談のうえで判断いたします。</div>
+      </details>
       <details class="faq-item">
         <summary>よもぎ蒸しとは何ですか？</summary>
         <div class="a">よもぎをはじめとするハーブを煮立て、その蒸気を下半身を中心に浴びる温浴法です。当サロンでは足湯と「ハーブ読み取り」を組み合わせ、その日の心身の状態に寄り添いながら、芯から温まりリラックスしていただけます。</div>
@@ -1328,6 +1768,14 @@
   </div>
 </section>
 </main>
+
+<!-- ⑩ スマホ固定フローティングCTA -->
+<div class="float-cta" role="complementary" aria-label="LINEでご予約・ご相談">
+  <a href="https://line.me/R/ti/p/@999cqzjr" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M20.9 9.6C20.6 5.5 16.8 2.3 12 2.3S3.4 5.5 3.1 9.6c-.2 2.4.8 4.6 2.7 6.2l.5.4-.3 2.6 2.4-1.3.5.2c1 .4 2.1.7 3.1.7 4.8 0 8.7-3.2 9-7.2v-.6z" fill="#06C755"/><path d="M9.2 11.1H7.8V8.6h1.4v2.5zm3.1 0h-1.4v-1l-1.4-1.5h1.6l.6.7.6-.7h1.6l-1.6 1.5v1zm2.9 0h-1.4V8.6h1.4v2.5z" fill="#fff"/></svg>
+    【公式LINE】簡単ご予約・ご相談はこちら
+  </a>
+</div>
 
 <!-- フッター -->
 <footer>
